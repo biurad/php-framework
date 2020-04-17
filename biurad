@@ -1,0 +1,37 @@
+#!/usr/bin/env php
+<?php
+
+define('BR_START', microtime(true)) || defined('BR_START');
+
+/*
+ * --------------------------------------------------------------------------
+ * The Directory Seperator
+ * --------------------------------------------------------------------------
+ *
+ * This is to shorten the full write of directory seperator.
+ */
+define('DS', DIRECTORY_SEPARATOR) || defined('DS');
+
+/**
+ * --------------------------------------------------------------------------
+ * Use Full Paths for Better Performance
+ * --------------------------------------------------------------------------
+ *
+ * The full path starting from the index.php file. Improves performance (a bit)
+ */
+define('BR_PATH', realpath(dirname(__FILE__, 1)) . DS) || defined('BR_PATH');
+
+/**
+ * --------------------------------------------------------------------------
+ * Launch ConsoleApp                                                        |
+ * --------------------------------------------------------------------------
+ *
+ * Let's call the Console-App from index.php in the public directory
+ */
+
+// Let's intialise console application
+$app = require dirname(__FILE__) . '/app/bootstrap.php';
+
+
+// Now run on terminal.
+return $app;
