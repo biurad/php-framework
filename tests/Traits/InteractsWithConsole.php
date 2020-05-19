@@ -5,19 +5,19 @@ declare(strict_types=1);
 /*
  * This code is under BSD 3-Clause "New" or "Revised" License.
  *
- * ------------------------------------------------------------------------
- * BiuradPHP Framework is a new sheme of php artitecture which is simple,  |
- * yet has powerful features. The framework has been built carefully 	   |
- * following the rules of the new PHP 7.2 and 7.3 above, with no support   |
- * for the old versions of PHP. As this framework was inspired by          |
- * several conference talks about the future of PHP and its development,   |
- * this framework has the easiest and best approach to the PHP world,      |
- * of course, using a few intentinally procedural programming module.      |
- * This makes BiuradPHP framework extremely reable and usuable for all.    |
- * BiuradPHP is a 35% clone of symfony framwork and 30% clone of Nette	   |
- * framework. The perfomance of BiuradPHP is 600ms on development mode and |
- * on production mode it's even better with great defense security.        |
- * ------------------------------------------------------------------------
+ * ---------------------------------------------------------------------------
+ * BiuradPHP Framework is a new scheme of php architecture which is simple,  |
+ * yet has powerful features. The framework has been built carefully 	     |
+ * following the rules of the new PHP 7.2 and 7.3 above, with no support     |
+ * for the old versions of PHP. As this framework was inspired by            |
+ * several conference talks about the future of PHP and its development,     |
+ * this framework has the easiest and best approach to the PHP world,        |
+ * of course, using a few intentionally procedural programming module.       |
+ * This makes BiuradPHP framework extremely readable and usable for all.     |
+ * BiuradPHP is a 35% clone of symfony framework and 30% clone of Nette	     |
+ * framework. The performance of BiuradPHP is 300ms on development mode and  |
+ * on production mode it's even better with great defense security.          |
+ * ---------------------------------------------------------------------------
  *
  * PHP version 7.2 and above required
  *
@@ -33,6 +33,8 @@ declare(strict_types=1);
 namespace App\Tests\Traits;
 
 use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Exception\CommandNotFoundException;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Tester\CommandTester;
 
@@ -51,28 +53,100 @@ trait InteractsWithConsole
         $this->console = $this->app->get(Application::class);
     }
 
-    public function runCommand(string $command, array $args = [], array $options = []): string
+    /**
+     * This helper method abstracts the boilerplate code needed to test the
+     * execution of a command.
+     *
+     * Available execution options:
+     *  - interactive: Sets the input interactive flag
+     *  - decorated: Sets the output decorated flag
+     *  - verbosity: Sets the output verbosity flag
+     *  - capture_stderr_separately: Make output of stdOut and stdErr separately available
+     *
+     * @param string $command The cammand class
+     * @param array $arguments All the arguments passed when executing the command
+     * @param array $options An array of execution options
+     *
+     * @return CommandTester
+     */
+    public function runCommand(string $command, array $arguments = [], array $options = []): CommandTester
     {
-        $commandTester = new CommandTester($this->app->get($command));
-        $commandTester->execute($args, $options);
+        if (!class_exists($command) || !is_subclass_of($command, Command::class)) {
+            throw new CommandNotFoundException(sprintf('It looks like your command %s isn\'t valid', $command));
+        }
 
-        return $commandTester->getDisplay();
+        // this uses container that allows you to fetch services.
+        $command = $this->app->get($command);
+        $command->setApplication($this->console);
+
+        $commandTester = new CommandTester($command);
+        $commandTester->execute($arguments, $options);
+
+        return $commandTester;
     }
 
-    public function runCommandDebug(string $command, array $args = []): string
+    public function runCommandObject(Command $command, array $arguments = [], array $options = []): CommandTester
     {
-        return $this->runCommand($command, $args, ['verbosity' => OutputInterface::VERBOSITY_VERBOSE]);
+        $command->setApplication($this->console);
+        $commandTester = new CommandTester($command);
+        $commandTester->execute($arguments, $options);
+
+        return $commandTester;
     }
 
-    public function runCommandVeryVerbose(string $command, array $args = []): string
+    public function runCommandDebug(string $command, array $arguments = []): CommandTester
     {
-        return $this->runCommand($command, $args, ['verbosity' => OutputInterface::VERBOSITY_DEBUG]);
+        $commandTester =  $this->runCommand(
+            $command,
+            $arguments,
+            ['verbosity' => OutputInterface::VERBOSITY_DEBUG]
+        );
+
+        return $commandTester;
     }
 
-    public function getCommandStatusCode(string $command, array $args = [], array $options = []): int
+    public function runCommandVeryVerbose(string $command, array $arguments = []): CommandTester
     {
-        $commandTester = new CommandTester($this->app->get($command));
-        $commandTester->execute($args, $options);
+        $commandTester = $this->runCommand(
+            $command,
+            $arguments,
+            ['verbosity' => OutputInterface::VERBOSITY_VERY_VERBOSE]
+        );
+
+        return $commandTester;
+    }
+
+    public function runCommandError(string $command, array $arguments = [], array $options = [], bool $normalize = false): string
+    {
+        $commandTester = $this->runCommand($command, $arguments, $options);
+
+        return $commandTester->getErrorOutput($normalize);
+    }
+
+    /**
+     * This helper method abstracts the boilerplate code needed to test the
+     * execution of a command and return it's class object.
+     *
+     * @param string|object $command
+     * @param array $arguments
+     * @param array $options
+     * 
+     * @return Command
+     */
+    public function getCommand($command, array $arguments = [], array $options = []): Command
+    {
+        $command = is_object($command) ? $command : $this->app->get($command);
+        $command->setApplication($this->console);
+
+        $commandTester = new CommandTester($command);
+        $commandTester->execute($arguments, $options);
+
+        return $command;
+    }
+
+    public function getCommandStatusCode(string $command, array $arguments = [], array $options = []): int
+    {
+        $commandTester = $this->runCommand($command, $arguments, $options);
 
         return $commandTester->getStatusCode();
     }

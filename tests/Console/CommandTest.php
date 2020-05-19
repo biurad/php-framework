@@ -30,66 +30,27 @@ declare(strict_types=1);
  * @link      https://www.biurad.com/projects/biuradphp-framework
  */
 
-namespace App\Tests;
+namespace App\Tests\Console;
 
-use PHPUnit\Framework\TestCase as BaseTestCase;
-use BiuradPHP\DependencyInjection\Interfaces\FactoryInterface;
+use App\Tests\TestCase;
+use BiuradPHP\Terminal\Commands\AboutCommand;
 
-use function BiuradPHP\Support\class_uses_recursive;
-
-abstract class TestCase extends BaseTestCase
+class CommandTest extends TestCase
 {
-    use Traits\InteractsWithConsole;
-    use Traits\InteractsWithHttp;
-
-    /** @var FactoryInterface */
-    protected $app;
-
-    protected static $booted = false;
-
-    /** @var \Spiral\Views\ViewsInterface */
-    protected $views;
-
-    protected function setUp(): void
+    public function testCommandActionWorks(): void
     {
-        $this->app = $this->makeApp();
-        self::$booted = true;
+        $status = $this->getCommandStatusCode(AboutCommand::class);
+        $this->assertIsInt($status);
+        $this->assertEquals(0, $status);
 
-        $this->setUpTraits();
+        $command = $this->getCommand(AboutCommand::class);
+        $this->assertEquals('about', $command->getName());
     }
 
-    protected function tearDown(): void
+    public function testCommandErrorStatus(): void
     {
-        parent::tearDown();
-
-        $this->app = null;
-        self::$booted = false;
-    }
-
-    protected function makeApp(): FactoryInterface
-    {
-        return \App\Kernel::boot(dirname(__DIR__))->createContainer();
-    }
-
-    /**
-     * Boot the testing helper traits.
-     *
-     * @return array
-     */
-    protected function setUpTraits()
-    {
-        $uses = array_flip(class_uses_recursive(static::class));
-
-        if (isset($uses[Traits\InteractsWithHttp::class])) {
-            $this->setUpRouter();
-        }
-        if (isset($uses[Traits\InteractsWithConsole::class])) {
-            $this->setUpConsole();
-        }
-        if (isset($uses[Traits\InteractsWithFaker::class])) {
-            $this->setUpFaker();
-        }
-
-        return $uses;
+        $command = $this->runCommandObject(new AboutCommand);
+        $this->assertIsInt($command->getStatusCode());
+        $this->assertEquals(1, $command->getStatusCode());
     }
 }

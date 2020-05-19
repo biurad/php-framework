@@ -1,17 +1,6 @@
 #!/usr/bin/env php
 <?php
 
-define('BR_START', microtime(true)) || defined('BR_START');
-
-/*
- * --------------------------------------------------------------------------
- * The Directory Seperator
- * --------------------------------------------------------------------------
- *
- * This is to shorten the full write of directory seperator.
- */
-define('DS', DIRECTORY_SEPARATOR) || defined('DS');
-
 /**
  * --------------------------------------------------------------------------
  * Use Full Paths for Better Performance
@@ -19,19 +8,44 @@ define('DS', DIRECTORY_SEPARATOR) || defined('DS');
  *
  * The full path starting from the index.php file. Improves performance (a bit)
  */
-define('BR_PATH', realpath(dirname(__FILE__, 1)) . DS) || defined('BR_PATH');
+define('BR_PATH', realpath(dirname(__FILE__, 1)) . '/') || defined('BR_PATH');
 
 /**
  * --------------------------------------------------------------------------
  * Launch ConsoleApp                                                        |
  * --------------------------------------------------------------------------
  *
- * Let's call the Console-App from index.php in the public directory
+ * Let's call the Console-App from bootstrap.php in the public directory
  */
+if (!in_array(PHP_SAPI, ['cli', 'phpdbg', 'embed'], true)) {
+    echo 'Warning: The console should be invoked via the CLI version of PHP, not the '.PHP_SAPI.' SAPI'.PHP_EOL;
+}
+
+if (!file_exists(BR_PATH . 'vendor/autoload.php') && function_exists('system')) {
+    // Before we can even start, we need to run composer first
+    if (!function_exists('shell_exec') || stripos(PHP_OS, 'win') === 0) {
+        throw new RuntimeException('Please do run \'composer install\' to use this application');
+    }
+
+    // check for global composer install
+    $path = trim(shell_exec('command -v composer'));
+
+    // fall back to grav bundled composer
+    if (!$path || !preg_match('/(composer|composer\.phar)$/', $path)) {
+        throw new RuntimeException('Composer not found, please do run \'composer install\' to use this application');
+    }
+
+    echo "Preparing to install vendor dependencies...\n\n";
+    echo system(PHP_BINARY . $path .' --no-interaction --no-dev --prefer-dist -o install');
+    echo "\n\n";
+}
+
+if (version_compare($ver = PHP_VERSION, $req = '7.2', '<')) {
+    exit(sprintf("You are running PHP %s, but BiuradPHP needs at least PHP %s to run.\n", $ver, $req));
+}
+
+set_time_limit(0);
+@ini_set('default_charset', 'UTF-8');
 
 // Let's intialise console application
-$app = require dirname(__FILE__) . '/app/bootstrap.php';
-
-
-// Now run on terminal.
-return $app;
+require BR_PATH . 'app/bootstrap.php';
