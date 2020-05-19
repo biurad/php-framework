@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <!--<meta name="google-site-verification" content="wIeHv7ZRzLxLQy7wrS9tjxHGFXVVUCtZQMPDYeMAriQ" />-->
+    <meta name="theme-color" content="#1E2F46" />
+    <title><?php echo $title; ?> <?php echo $version; ?>!</title>
+    <style>
+        a {
+            background-color: transparent;
+            -webkit-text-decoration-skip: objects
+        }
+
+        a:active,
+        a:hover {
+            outline-width: 0
+        }
+
+        *,
+        *:after,
+        *:before {
+            box-sizing: inherit;
+            margin: 0;
+            padding: 0;
+            color: hsl(225, 12%, 93%);
+        }
+
+        html {
+            box-sizing: border-box;
+            font-size: 1px !important;
+        }
+
+        body {
+            font: normal 14rem/21rem Arial, 'Helvetica CY', 'Nimbus Sans L', sans-serif;
+            background-color: hsl(215, 40%, 20%);
+        }
+
+        .outer {
+            display: table;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        .middle {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .inner {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 800rem;
+            min-width: 360rem;
+            padding: 20rem;
+            border-radius: 5rem;
+            box-shadow: #1C222F 2rem 2rem 3rem 1rem;
+        }
+
+        h1 {
+            line-height: 45rem;
+            font-size: 30rem;
+        }
+
+        h2 {
+            margin-top: 5rem;
+            line-height: 30rem;
+            font-size: 17rem;
+        }
+
+        h1,
+        h2 {
+            color: #ECEDF0;
+            text-shadow: #1C222F 2rem 2rem 0;
+        }
+
+        p {
+            margin-bottom: 8.5rem;
+            font-weight: 300;
+            line-height: 25rem;
+            letter-spacing: 2rem;
+        }
+
+        code {
+            background: hsla(0, 50%, 40%, 0.2);
+            padding: 4.3rem;
+        }
+
+        .button {
+            position: relative;
+            display: inline-block;
+            text-decoration: none;
+            background-color: #993333;
+            color: #ECEDF0;
+            padding: 8rem 16rem;
+            border-radius: 5rem;
+            overflow: hidden;
+            font-size: 16rem;
+            margin: 20rem 0 15rem 0;
+        }
+
+        @media (max-width: 580px) {
+            .inner {
+                box-shadow: #1C222F 0 0 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class='outer'>
+        <div class='middle'>
+            <div class='inner'>
+                <h1>Welcome to <?php echo $title; ?>!</h1>
+                <h2>The framework with maximum customization, and overall flexibility 😃😄😅</h2><br>
+
+                <!-- Flash Alert -->
+                <?php if (isset($registered)) { ?>
+                    <h4>Welcome Onboard! <code><?php echo ucwords($username); ?></code>,</h4>
+                <?php }  elseif ($loggedIn !== false) { ?>
+                    <h4>Hello <code><?php echo ucwords($username); ?>!</code>,</h4>
+                <?php } ?>
+                <p>
+                    The page you are looking at is being generated dynamically by BiuradPHP.
+                    If you would like to edit this page you will find it located at:
+                    <code>app/MVC/Views/welcome.phtml.</code>
+
+                    <?php if (false !== $default) { ?>
+                        <br><br><code>This page is made avialable because, no route has been set for homepage URL.</code>
+                    <?php } ?>
+                </p>
+                <a href='./web-readme' class='button'>Check the User Guide !</a>
+
+                 <!-- Auth -->
+                <?php if (false !== $security):  if (!$loggedIn) { ?>
+                    <span class="button" style="background-color: inherit;"> | </span>
+                    <a href='./login' class='button'>Login</a>
+                    <a href='./register' class='button'>Sign Up</a>
+                <?php }  else { ?>
+                    <span class="button" style="background-color: inherit;"> | </span>
+                    <a class="button" href="#"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+
+                    <form id="logout-form" action="./logout" method="POST" style="display: none;"></form>
+                <?php }  endif; ?>
+                <hr><br>
+                <p>© <span id="date"></span> Biurad Lap Agency. BiuradPHP Framework is open source project released
+                    under the BSD-3-Clause licence.</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        document.getElementById("date").innerHTML = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <title>🐘 We Run Into An Error </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style type="text/css">
+        * {
+            line-height: 1.2;
+        }
+
+        html {
+            color: #777;
+            display: table;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            height: 100%;
+            text-align: center;
+            width: 100%;
+        }
+
+        body {
+            display: table-cell;
+            vertical-align: middle;
+            margin: 2em auto;
+            background: #fafafa;
+        }
+
+        h1 {
+            color: #222;
+            font-size: 3rem;
+            font-weight: lighter;
+            letter-spacing: 0.8;
+            margin-bottom: 1.5rem;
+        }
+
+        h6 {
+            word-break: break-all;
+            margin: auto 40px;
+        }
+
+        p {
+            margin: 0 auto;
+            width: 80%;
+            font-size: 1.6rem;
+        }
+
+        @media only screen and (max-width: 1028px) {
+            p {
+                font-size: 1.2rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media only screen and (max-width: 280px) {
+
+            body,
+            p {
+                width: 95%;
+                font-size: 1rem;
+            }
+
+            h1 {
+                font-size: 1.5em;
+                margin: 0 0 0.3em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="prod-error">
+        <h1>🐘 Opps... <?php echo $reason; ?></h1>
+        <p><?php echo $message; ?></p> <br />
+
+        <h4>Please check entered address and try again</h4>
+        <h6>Error Code: <?php echo $code; ?></h6>
+    </div>
+</body>
+
+</html>
+<!-- IE needs 512+ bytes: https://blogs.msdn.microsoft.com/ieinternals/2010/08/18/friendly-http-error-pages/ -->

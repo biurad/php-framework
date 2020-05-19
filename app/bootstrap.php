@@ -32,22 +32,6 @@ if (!class_exists(Symfony\Component\Dotenv\Dotenv::class)) {
 $kernel = App\Kernel::boot(BR_PATH);
 
 /*
- * --------------------------------------------------------------------------
- * Setup Custom Class Loaders                                               |
- * --------------------------------------------------------------------------
- *
- * Incase you need to load classes externally in your application,
- * Just add your directory in the `addDirectory()` method and if
- * you want to exclude some directory do same in `excludeDirectory` method
- */
-if (file_exists($modulePath = dirname(__DIR__) . '/modules')) {
-    $kernel->createRobotLoader()
-        ->excludeDirectory()
-        ->addDirectory($modulePath)
-    ->register(true);
-}
-
-/*
  * Next, we need to bind some important interfaces into the container so
  * we will be able to resolve them when needed. The kernels serve the
  * incoming requests to this application from both the web and CLI.
