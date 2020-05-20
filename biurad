@@ -23,12 +23,12 @@ if (!in_array(PHP_SAPI, ['cli', 'phpdbg', 'embed'], true)) {
 
 if (!file_exists(BR_PATH . 'vendor/autoload.php') && function_exists('system')) {
     // Before we can even start, we need to run composer first
-    if (!function_exists('shell_exec') || stripos(PHP_OS, 'win') === 0) {
+    if (!function_exists('shell_exec')) {
         throw new RuntimeException('Please do run \'composer install\' to use this application');
     }
 
     // check for global composer install
-    $path = trim(shell_exec('command -v composer'));
+    $path = stripos(PHP_OS, 'win') === 0 ? (shell_exec('composer info') !== null ? 'composer' : '') : trim(shell_exec('command -v composer'));
 
     // fall back to grav bundled composer
     if (!$path || !preg_match('/(composer|composer\.phar)$/', $path)) {
@@ -36,7 +36,7 @@ if (!file_exists(BR_PATH . 'vendor/autoload.php') && function_exists('system')) 
     }
 
     echo "Preparing to install vendor dependencies...\n\n";
-    echo system(PHP_BINARY . $path .' --no-interaction --no-dev --prefer-dist -o install');
+    echo system($path .' --no-interaction --no-dev --prefer-dist -o install');
     echo "\n\n";
 }
 
