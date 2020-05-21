@@ -1,0 +1,43 @@
+# The framework's main configuration.
+framework:
+    # Enables symfony security support. The config for symfony's robust security which was 
+    # implemented from Java Spring Framework. except encryption and csrf security.
+    # Change status to false on this section to explicitly disable security support.
+    security: false
+
+    # Enables Demo support. Maybe you creating a commercial project and need demo urls restriction.
+    demo_restriction: '%access.DEMO_MODE.enable%'
+
+    # This is a robust enterprise module system which allows commercial modules usage.
+    # Since BiuradPHP is based around annotations, This makes it easier to implement and use.
+    # Also has good performance, since all modules are fetched once, then used until later changes.
+    module_system:
+        enable: false
+        path: '%path.ROOT%/modules/'
+
+    # Dispatchers is what tells the framework how it should ran and where it should.
+    # It's interface have two methods, thus: "canServer", method. Then "serve" method. "canServer"
+    # method check's if the dispatcher support's current server's state, if passed "serve" method
+    # should return the response of the dispatcher.
+    #
+    # This boost performance and saves memory, as framework only runs what it need.
+    dispatchers:
+        - BiuradPHP\Terminal\ConsoleDispatcher
+        - BiuradPHP\MVC\Dispatchers\SapiDispatcher
+        # - BiuradPHP\MVC\Dispatchers\CachableSapiDispatcher
+
+    # Annotations are so cool when used, it describes a class, method or property, and how these can
+    # be used for a specific purpose. But be wise using it, it can reduce framework's performance.
+    #
+    # You can create your own annotation implementing BiuradPHP\Loader\Interfaces\AnnotationInterface,
+    # voila, use it across codebase including modules.
+    #
+    # NOTE: Uncomment the annotations below if you want to use in your application
+    annotations:
+        # - BiuradPHP\Events\EventAnnotation
+        # - BiuradPHP\Routing\RouteAnnotation
+
+    # Imports are a way of importing other services and configs into BiuradPHP Framework.
+    # Importing resources are based on extended extensions to Nette CompilerExtension
+    # eg: - '@FrameworkExtension/Resources/config/services.yaml'
+    imports: ~

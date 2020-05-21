@@ -1,0 +1,9 @@
+# The events bus configuration
+# The settings for managing events bus.
+events:
+    # This will search for event subscribes registerd in container
+    autoload: true 
+    
+    # A List of event subscribers that the framework should listen to.
+    # New subscribers should be added beneath, not to break events cycle.
+    subscribers:

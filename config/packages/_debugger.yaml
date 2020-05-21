@@ -1,0 +1,15 @@
+# The tracy debugger configuration
+# You can add a few configurations supported by Tracy
+tracy:
+    # The ide that should be used for debugger
+    editor: '%env.IDE%'
+
+    # If "bdump" function is called in codebase, where the function
+    # was written location should be known, in case of error.
+    showLocation: '%env.DEBUG%'
+
+    # Added panels for profiling on tracy
+    bar:
+        - BiuradPHP\Events\Bridges\EventsPanel
+        - BiuradPHP\Session\Bridges\SessionPanel
+        - BiuradPHP\Routing\Bridges\RoutingPanel

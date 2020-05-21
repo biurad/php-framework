@@ -1,0 +1,20 @@
+# The http manager configuration
+# This option controls mostly the Content Security Policy for the http response
+http:
+    # The content security policy for response headers.
+    content_security_policy:
+        font-src: "'self' blob: data: fonts.gstatic.com fonts.googleapis.com"
+        media-src: "'self' blob: data:"
+        object-src: "'self' blob: data:"
+        default-src: "'self' www.google.com www.gstatic.com"
+        form-action: "'self'"
+        script-src: "'self' 'unsafe-inline' 'unsafe-eval' cdnjs.cloudflare.com www.google.com www.gstatic.com"
+        style-src: "'self' 'unsafe-inline' fonts.googleapis.com"
+        worker-src: "'self' blob:"
+        connect-src: "'self' blob: api.biurad.com"
+        img-src: "'self' blob: data: cdn.biurad.com"
+        report-uri: 'https://biurad.report-uri.com/r/d/csp/enforce'
+
+    # The emitters that will emit response headers to the browser.
+    emitters: 
+        - BiuradPHP\Http\Response\EmitResponse

@@ -1,0 +1,54 @@
+# The routing manager configuration
+# Here you may specify some default logic for routing
+routing:
+    # This namespace is applied to your controller routes.
+    # In addition, it is set as the URL generator's root namespace.
+    namespace: App\MVC\Controllers\
+
+    # Implementation was adopted from zend Expressive Router
+    # sub-component. This is to ensure router is not rigid.
+    router: Flight\Routing\Services\DefaultFlightRouter
+
+    # Add this to keep the HTTP method when redirecting. The redirect status changes
+    keepRequestMethod: true
+
+    # Add global defaults to all routes,
+    # this will be applied to routes including groups. eg: locale: en
+    defaults: ~
+
+    # Add global requirements to all routes,
+    # this will be applied to routes including groups. eg: locale: (en|de|cs)
+    requirements:
+        locale: '%env.LOCALES%'
+
+    # The application's global HTTP middleware stack.
+    #
+    # These middleware are active on every request made to your application.
+    # The last middleware added will be run first, leaving the first running last.
+    #
+    global-middlewares:
+        - BiuradPHP\Template\Middlewares\MinifyMiddleware
+        - BiuradPHP\Http\Middlewares\ResponseErrorMiddleware
+        - Flight\Routing\Middlewares\MethodOverrideMiddleware
+        - Flight\Routing\Middlewares\ContentLengthMiddleware
+        - Flight\Routing\Middlewares\ContentTypeMiddeware
+        # - Flight\Routing\Middlewares\ContentTypeOptionsMiddleware
+        - Flight\Routing\Middlewares\CacheControlMiddleware
+
+    # The application's route middleware.
+    # These middleware may be assigned to groups or used individually.
+    route-middlewares:
+        csp: BiuradPHP\Http\Middlewares\CspMiddleware
+
+    # These lines define a route using YAML configuration. The controller used by
+    # the route is a convenient shortcut executing any logic in your own controller.
+    # This Doesn't ensures registered routes start's with a unique name, that's your choice.
+    #
+    # The routes section has options for defining it, also has a particular option called "mode",
+    # Routes on environment type. "mode" has two options DEPLOY-MODE and DEBUG-MODE.
+    shortcut-routes:
+        - { name: homepage, path: '/*<BiuradPHP\MVC\HomeController@handle>' }
+
+        # Import you route
+        imports:
+            - '%path.ROOT%/routing/main.yaml'

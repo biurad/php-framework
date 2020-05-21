@@ -1,0 +1,5 @@
+# Register your terminal commands here, with their commands on tags.
+terminal:
+    # Console ================
+    # Adding example cammand: eg: { class: App\Commands\InspireCommand, tags: {console.command: inspire} }
+    commands:

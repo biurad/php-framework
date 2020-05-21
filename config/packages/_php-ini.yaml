@@ -1,0 +1,4 @@
+# Set configs in php.ini.
+# This is assigned to php builtin function "ini_set".
+php:
+    date.timezone: Africa/Accra

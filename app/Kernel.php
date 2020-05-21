@@ -75,7 +75,7 @@ class Kernel
          */
         $kernel->setTimeZone(date_default_timezone_get());
         $kernel->setTempDirectory($storagePath);
-        $kernel->addConfig($configPath . DIRECTORY_SEPARATOR . 'framework.yaml');
+        $kernel->addConfig($configPath . DIRECTORY_SEPARATOR . 'parameters.yaml');
 
         // We want to keep track of where each value came from so we don't
         // use CoreKernel::addConfig since it does merging internally.
