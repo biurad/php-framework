@@ -1,4 +1,5 @@
 <?php
+/** @noinspection PhpUndefinedMethodInspection */
 
 declare(strict_types=1);
 
@@ -40,7 +41,7 @@ use Symfony\Component\Console\Tester\CommandTester;
 
 trait InteractsWithConsole
 {
-    /** @var \Symfony\Component\Console\Application */
+    /** @var Application */
     protected $console;
 
     /**
@@ -48,7 +49,7 @@ trait InteractsWithConsole
      *
      * @return void
      */
-    protected function setUpConsole()
+    protected function setUpConsole(): void
     {
         $this->console = $this->app->get(Application::class);
     }
@@ -127,7 +128,7 @@ trait InteractsWithConsole
      * This helper method abstracts the boilerplate code needed to test the
      * execution of a command and return it's class object.
      *
-     * @param string|object $command
+     * @param string|Command $command
      * @param array $arguments
      * @param array $options
      * 

@@ -319,7 +319,7 @@ AddDefaultCharset utf-8
 
 # <IfModule mod_headers.c>
 #   Header set Content-Security-Policy "script-src 'self' object-src 'self'"
-#   <FilesMatch "\.(appcache|crx|css|eot|php|html|phtml|svg|gif|htc|ico|jpe?g|js|m4a|m4v|manifest|mp4|oex|oga|ogg|ogv|otf|pdf|png|safariextz|svgz?|ttf|vcf|webapp|webm|webp|woff|xml|xpi)$">
+#   <FilesMatch "\.(appcache|crx|css|eot|html|svg|gif|htc|ico|jpe?g|js|m4a|m4v|manifest|mp4|oex|oga|ogg|ogv|otf|pdf|png|safariextz|svgz?|ttf|vcf|webapp|webm|webp|woff|xml|xpi)$">
 #       Header unset Content-Security-Policy
 #   </FilesMatch>
 # </IfModule>

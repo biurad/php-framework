@@ -33,6 +33,7 @@ declare(strict_types=1);
 namespace App\Tests\Traits;
 
 use ReflectionClass;
+use ReflectionException;
 
 /**
  * Include functionality for accessing protected/private members and methods
@@ -43,12 +44,13 @@ trait ReflectionAccess
      * Set a property for a class.
      *
      * @param string|object $object
-     * @param string        $propertyName
-     * @param mixed         $propertyValue
+     * @param string $propertyName
+     * @param mixed $propertyValue
      *
      * @return void
+     * @throws ReflectionException
      */
-    protected static function setProperty($object, $propertyName, $propertyValue)
+    protected static function setProperty($object, $propertyName, $propertyValue): void
     {
         $reflection = new ReflectionClass($object);
         $reflection_property = $reflection->getProperty($propertyName);
@@ -60,11 +62,12 @@ trait ReflectionAccess
      * Get a class property's value.
      *
      * @param string|object $object
-     * @param mixed         $propertyName
+     * @param mixed $propertyName
      *
      * @return void
+     * @throws ReflectionException
      */
-    protected static function getProperty($object, $propertyName)
+    protected static function getProperty($object, $propertyName): void
     {
         $reflection = new ReflectionClass($object);
         $reflection_property = $reflection->getProperty($propertyName);
@@ -77,12 +80,13 @@ trait ReflectionAccess
      * Invoke a class method with arguments.
      *
      * @param string|object $object
-     * @param string        $methodName
-     * @param array         $arguments
+     * @param string $methodName
+     * @param array $arguments
      *
      * @return void
+     * @throws ReflectionException
      */
-    protected static function callMethod($object, $methodName, $arguments = [])
+    protected static function callMethod($object, $methodName, $arguments = []): void
     {
         $reflection = new ReflectionClass($object);
         $reflection_method = $reflection->getMethod($methodName);

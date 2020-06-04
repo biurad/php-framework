@@ -1,7 +1,11 @@
 # The Framework Loading system
 loader:
     # Load All Classes and Files found in directories
-    locators: '%path.APP%'
+    locators: 
+        # The paths to look into and fetch files, directory and classes
+        paths: ['%path.APP%']
+        # The excluded paths, locator should not access
+        excludes: ~
 
     # Load a set of configurations to be accessed globally in application.
     data_path: '%path.ROOT%/config/global-config.php'

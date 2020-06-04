@@ -1,4 +1,5 @@
 <?php
+/** @noinspection PhpUndefinedMethodInspection */
 
 declare(strict_types=1);
 
@@ -33,6 +34,8 @@ declare(strict_types=1);
 namespace App\Tests\Traits;
 
 use BiuradPHP\Http\ServerRequest;
+use BiuradPHP\Http\Traits\ServerRequestDecoratorTrait;
+use BiuradPHP\Routing\RouteCollection;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Flight\Routing\Interfaces\RouteCollectorInterface;
@@ -41,7 +44,7 @@ use Psr\Http\Message\UriInterface;
 
 trait InteractsWithHttp
 {
-    /** @var \BiuradPHP\Routing\RouteCollection */
+    /** @var RouteCollection */
     protected $router;
 
     /**
@@ -49,7 +52,7 @@ trait InteractsWithHttp
      *
      * @return void
      */
-    protected function setUpRouter()
+    protected function setUpRouter(): void
     {
         $this->router = $this->app->get(RouteCollectorInterface::class);
     }
@@ -112,9 +115,9 @@ trait InteractsWithHttp
      * @param array $headers
      * @param array $cookies
      *
-     * @return ServerRequestInterface
+     * @return ServerRequestDecoratorTrait|ServerRequestInterface
      */
-    public function request($uri, string $method, array $query = [], array $headers = [], array $cookies = []): ServerRequestInterface
+    public function request($uri, string $method, array $query = [], array $headers = [], array $cookies = [])
     {
         $servers = array_merge($_SERVER, ['SERVER_PROTOCOL' => 'HTTP/1.1']);
 
@@ -122,7 +125,7 @@ trait InteractsWithHttp
             ->withCookieParams($cookies)->withQueryParams($query);
     }
 
-    protected function fetchCookies(array $header)
+    protected function fetchCookies(array $header): array
     {
         $result = [];
         foreach ($header as $line) {

@@ -13,3 +13,14 @@ tracy:
         - BiuradPHP\Events\Bridges\EventsPanel
         - BiuradPHP\Session\Bridges\SessionPanel
         - BiuradPHP\Routing\Bridges\RoutingPanel
+
+# The monolog debugger configuration
+monolog:
+    # Possible handler types and related configurations (brackets indicate optional params):
+    handlers:
+        rotating_file:
+            factory: Monolog\Handler\RotatingFileHandler
+            arguments: ['%path.TEMP%/logs/app.log']
+    
+    processors:
+        - Monolog\Processor\PsrLogMessageProcessor

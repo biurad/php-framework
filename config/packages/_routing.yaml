@@ -24,21 +24,23 @@ routing:
     # The application's global HTTP middleware stack.
     #
     # These middleware are active on every request made to your application.
-    # The last middleware added will be run first, leaving the first running last.
-    #
+    # Middleware that have been added before will be executed after the newly
+    # added one (last in, first out).
     global-middlewares:
         - BiuradPHP\Template\Middlewares\MinifyMiddleware
-        - BiuradPHP\Http\Middlewares\ResponseErrorMiddleware
+        - BiuradPHP\Http\Middlewares\ErrorHandlerMiddleware
+        - BiuradPHP\Http\Middlewares\CspMiddleware
         - Flight\Routing\Middlewares\MethodOverrideMiddleware
         - Flight\Routing\Middlewares\ContentLengthMiddleware
         - Flight\Routing\Middlewares\ContentTypeMiddeware
         # - Flight\Routing\Middlewares\ContentTypeOptionsMiddleware
         - Flight\Routing\Middlewares\CacheControlMiddleware
+        - Laminas\Stratigility\Middleware\OriginalMessages
 
     # The application's route middleware.
     # These middleware may be assigned to groups or used individually.
-    route-middlewares:
-        csp: BiuradPHP\Http\Middlewares\CspMiddleware
+    # Example: "csp: BiuradPHP\Http\Middlewares\CspMiddleware"
+    route-middlewares: ~
 
     # These lines define a route using YAML configuration. The controller used by
     # the route is a convenient shortcut executing any logic in your own controller.

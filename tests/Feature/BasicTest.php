@@ -1,4 +1,5 @@
 <?php
+/** @noinspection StaticClosureCanBeUsedInspection */
 
 declare(strict_types=1);
 
@@ -35,6 +36,7 @@ namespace App\Tests\Feature;
 use App\Tests\TestCase;
 use Flight\Routing\Exceptions\RouteNotFoundException;
 use Flight\Routing\RouteResults;
+use Generator;
 
 class BasicTest extends TestCase
 {
@@ -44,19 +46,21 @@ class BasicTest extends TestCase
      *
      * @dataProvider getPublicUrls
      *
+     * @param string $uri
+     * @param string $body
      * @return void
      */
     public function testRoutingActionWorks(string $uri, string $body): void
     {
         $this->router->get($uri, function () use ($body): string {
-            return (string) $body;
+            return $body;
         });
 
         $matched    = $this->matchRoute(ltrim($uri, '/'));
         $response   = $this->runRoute(ltrim($uri, '/'));
 
         $this->assertNull($matched->getRedirectLink());
-        $this->assertTrue(RouteResults::FOUND === $matched->getRouteStatus());
+        $this->assertSame(RouteResults::FOUND, $matched->getRouteStatus());
 
         $this->assertIsString((string) $response->getBody());
         $this->assertEquals('text/plain; charset=utf-8', $response->getHeaderLine('Content-Type'));
@@ -72,7 +76,7 @@ class BasicTest extends TestCase
         $this->assertNull($this->router->currentRoute());
     }
 
-    public function getPublicUrls()
+    public function getPublicUrls(): ?Generator
     {
         yield ['/site/hello', 'Welcome To BiuradPHP Framework'];
         yield ['/site/blog/', 'Welcome To A Blog HomePage'];

@@ -10,7 +10,6 @@ session:
     # Explicitly ignores other ini keys.
     options:
         use_cookies: '1'
-        cookie_secure: auto
         cookie_samesite: lax
 
     pools:
@@ -22,7 +21,7 @@ session:
         # Here you may specify the number of minutes that you wish the session
         # to be allowed to remain idle before it expires. If you want them
         # to immediately expire on the browser closing.
-        maxlifetime: 2 hours
+        maxlifetime: 7200
 
         # The session cookie path determines the path for which the cookie will
         # be regarded as available. Typically, this will be the root path of

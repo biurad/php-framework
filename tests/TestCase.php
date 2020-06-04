@@ -1,4 +1,5 @@
 <?php
+/** @noinspection PhpUndefinedMethodInspection */
 
 declare(strict_types=1);
 
@@ -32,6 +33,7 @@ declare(strict_types=1);
 
 namespace App\Tests;
 
+use App\Kernel;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 use BiuradPHP\DependencyInjection\Interfaces\FactoryInterface;
 
@@ -46,9 +48,6 @@ abstract class TestCase extends BaseTestCase
     protected $app;
 
     protected static $booted = false;
-
-    /** @var \Spiral\Views\ViewsInterface */
-    protected $views;
 
     protected function setUp(): void
     {
@@ -68,7 +67,7 @@ abstract class TestCase extends BaseTestCase
 
     protected function makeApp(): FactoryInterface
     {
-        return \App\Kernel::boot(dirname(__DIR__))->createContainer();
+        return Kernel::boot(dirname(__DIR__))->createContainer();
     }
 
     /**
@@ -76,7 +75,7 @@ abstract class TestCase extends BaseTestCase
      *
      * @return array
      */
-    protected function setUpTraits()
+    protected function setUpTraits(): array
     {
         $uses = array_flip(class_uses_recursive(static::class));
 
