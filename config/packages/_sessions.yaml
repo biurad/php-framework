@@ -9,7 +9,7 @@ session:
     # For convenience we omit 'session.' from the beginning of the keys.
     # Explicitly ignores other ini keys.
     options:
-        use_cookies: '1'
+        use_cookies: "1"
         cookie_samesite: lax
 
     pools:
@@ -31,7 +31,7 @@ session:
         # Here you may change the domain of the cookie used to identify a session
         # in your application. This will determine which domains the cookie is
         # available to in your application. A sensible default has been set
-        domain: '%env.URL%'
+        domain: "%env.URL%"
 
         # By setting this option to true, session cookies will only be sent back
         #to the server if the browser has a HTTPS connection. This will keep

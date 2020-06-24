@@ -1,18 +1,18 @@
 # The Framework Loading system
 loader:
     # Load All Classes and Files found in directories
-    locators: 
+    locators:
         # The paths to look into and fetch files, directory and classes
-        paths: ['%path.APP%']
+        paths: ["%path.APP%"]
         # The excluded paths, locator should not access
         excludes: ~
 
     # Load a set of configurations to be accessed globally in application.
-    data_path: '%path.ROOT%/config/global-config.php'
+    data_path: "%path.ROOT%/config/global-config.php"
 
     # This options is used to load all paths found in the
     # directory where composer is installed.
-    # Optionally, you can set it to composer's vendor directory or use 
+    # Optionally, you can set it to composer's vendor directory or use
     # "%path.VENDOR%/composer.installed.json" file.
     composer_path: ~
 
@@ -26,7 +26,6 @@ loader:
         vendor: vendor
         public: public
         views: resources
-        modules: modules
         storage: storage
         logs: storage://logs
         caches: storage://caches

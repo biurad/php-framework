@@ -1,19 +1,19 @@
 # The framework's main configuration.
 framework:
-    # Enables symfony security support. The config for symfony's robust security which was 
+    # Enables symfony security support. The config for symfony's robust security which was
     # implemented from Java Spring Framework. except encryption and csrf security.
     # Change status to false on this section to explicitly disable security support.
     security: false
 
     # Enables Demo support. Maybe you creating a commercial project and need demo urls restriction.
-    demo_restriction: '%access.DEMO_MODE.enable%'
+    demo_restriction: "%access.DEMO_MODE.enable%"
 
     # This is a robust enterprise module system which allows commercial modules usage.
     # Since BiuradPHP is based around annotations, This makes it easier to implement and use.
     # Also has good performance, since all modules are fetched once, then used until later changes.
     module_system:
         enable: false
-        path: '%path.ROOT%/modules/'
+        path: "%path.ROOT%/modules/"
 
     # Dispatchers is what tells the framework how it should ran and where it should.
     # It's interface have two methods, thus: "canServer", method. Then "serve" method. "canServer"

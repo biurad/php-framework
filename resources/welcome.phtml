@@ -120,9 +120,13 @@
 
                 <!-- Flash Alert -->
                 <?php if (isset($registered)) { ?>
-                    <h4>Welcome Onboard! <code><?php echo ucwords($username); ?></code>,</h4>
-                <?php }  elseif ($loggedIn !== false) { ?>
-                    <h4>Hello <code><?php echo ucwords($username); ?>!</code>,</h4>
+                <h4>Welcome Onboard!
+                    <code><?php echo \ucwords($username); ?></code>,
+                </h4>
+                <?php } elseif (false !== $loggedIn) { ?>
+                <h4>Hello
+                    <code><?php echo \ucwords($username); ?>!</code>,
+                </h4>
                 <?php } ?>
                 <p>
                     The page you are looking at is being generated dynamically by BiuradPHP.
@@ -130,24 +134,24 @@
                     <code>app/MVC/Views/welcome.phtml.</code>
 
                     <?php if (false !== $default) { ?>
-                        <br><br><code>This page is made avialable because, no route has been set for homepage URL.</code>
+                    <br><br><code>This page is made avialable because, no route has been set for homepage URL.</code>
                     <?php } ?>
                 </p>
                 <a href='./web-readme' class='button'>Check the User Guide !</a>
 
-                 <!-- Auth -->
+                <!-- Auth -->
                 <?php if (false !== $security):  if (!$loggedIn) { ?>
                     <span class="button" style="background-color: inherit;"> | </span>
                     <a href='./login' class='button'>Login</a>
                     <a href='./register' class='button'>Sign Up</a>
-                <?php }  else { ?>
+                <?php } else { ?>
                     <span class="button" style="background-color: inherit;"> | </span>
                     <a class="button" href="#"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         Logout
                     </a>
 
                     <form id="logout-form" action="./logout" method="POST" style="display: none;"></form>
-                <?php }  endif; ?>
+                <?php } endif; ?>
                 <hr><br>
                 <p>© <span id="date"></span> Biurad Lap Agency. BiuradPHP Framework is open source project released
                     under the BSD-3-Clause licence.</p>

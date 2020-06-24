@@ -10,13 +10,13 @@ parameters:
         # into clickable links that open the given file using your favorite IDE.
         # When 'ide' is set to null the file is opened in your web browser.
         # Works only in development mode.
-        IDE: 'editor://%action/?file=%file&line=%line&search=%search&replace=%replace'
+        IDE: "editor://%action/?file=%file&line=%line&search=%search&replace=%replace"
 
         # This salt and CIPHER should not be touched unless you know what you're doing
         # SECRET: {enter key generated in env file APP_KEY section or leave it as it is}
-        SALT: '8qk9c^4L6d;15tM8z7n0%'
-        CIPHER: '%env(SECURITY_CIPHER|AES-256-CBC)%'
-        SECRET: '%env(APP_KEY)%'
+        SALT: "8qk9c^4L6d;15tM8z7n0%"
+        CIPHER: "%env(SECURITY_CIPHER|AES-256-CBC)%"
+        SECRET: "%env(APP_KEY)%"
 
     # Used to restrict access for large sections of your site
     # Note: This works mostly on routing, and can work on all routes if specified
@@ -24,13 +24,13 @@ parameters:
     access:
         # This adds a Content-Security-Policy to response headers sent to browser.
         # For a better understanding of CSP, see these documents:
-	    # - http://www.html5rocks.com/en/tutorials/security/content-security-policy/
-	    # - http://www.w3.org/TR/CSP/
+        # - http://www.html5rocks.com/en/tutorials/security/content-security-policy/
+        # - http://www.w3.org/TR/CSP/
         CONTENT_SECURITY_POLICY: false
 
         # This is the master switch to enable demo mode on application.
         DEMO_MODE:
-            enable: '%env(SECURITY_DEMO_MODE|false)%'
+            enable: "%env(SECURITY_DEMO_MODE|false)%"
             paths: ^/test
             redirect_unauthorized: /demo-mode # Visitors browsing on matched demo paths will be redirected to this path.
 

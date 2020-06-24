@@ -45,7 +45,7 @@ security:
     # From the most above section, factories handlers configs will be added to firewalls.
     firewalls:
         dev:
-            pattern: '^/assets/(css|images|js)/'
+            pattern: "^/assets/(css|images|js)/"
             security: false
 
         main:
@@ -53,15 +53,15 @@ security:
             pattern: ^/
 
             # Incase an AccessDeniedException is throw, which url should we be redirected to.
-            access_denied_url: ~
+            access_denied_url: ""
 
-            # Enter the reference id of the AccessDeniedHandlerInterface implemented handler for 
+            # Enter the reference id of the AccessDeniedHandlerInterface implemented handler for
             # catching AccessDeniedException when thrown.
             access_denied_handler: ~
 
             # but the firewall does not require login on every page
             # denying access is done in access_control or in your controllers
-            anonymous: 
+            anonymous:
                 lazy: lazy
 
             # This allows the user to login by submitting a username and password
@@ -73,7 +73,7 @@ security:
                 login_path: security.login
                 # The page users are redirect to when there is no previous page stored in the
                 # session (for example when the users access directly to the login page).
-                default_target_path: './'
+                default_target_path: ./
                 # Whether to check csrf token included post request.
                 csrf_status: false
                 # Should remember me be used on user's entry.
@@ -81,13 +81,13 @@ security:
 
             # This allows the user to login by submitting a "form_login" with remember me
             remember_me:
-                secret: '%env.SALT%'
+                secret: "%env.SALT%"
 
             logout:
                 # The route name the user can go to in order to logout
                 path: security.logout
                 # The name of the route to redirect to after logging out
-                target: './'
+                target: ./
                 # Whether to check csrf token in post request.
                 csrf_status: false
 
@@ -95,9 +95,9 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # this is a catch-all for the admin area and additional security lives in the section
-        - { path: '^/admin', roles: ROLE_ADMIN }
+        - { path: ^/admin, roles: ROLE_ADMIN }
 
-        - { path: '^/register', roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
 
     # Acceptable User Permissions/Roles
     role_hierarchy:

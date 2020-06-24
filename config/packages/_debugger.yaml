@@ -2,11 +2,11 @@
 # You can add a few configurations supported by Tracy
 tracy:
     # The ide that should be used for debugger
-    editor: '%env.IDE%'
+    editor: "%env.IDE%"
 
     # If "bdump" function is called in codebase, where the function
     # was written location should be known, in case of error.
-    showLocation: '%env.DEBUG%'
+    showLocation: "%env.DEBUG%"
 
     # Added panels for profiling on tracy
     bar:
@@ -20,7 +20,7 @@ monolog:
     handlers:
         rotating_file:
             factory: Monolog\Handler\RotatingFileHandler
-            arguments: ['%path.TEMP%/logs/app.log']
-    
+            arguments: ["%path.TEMP%/logs/app.log"]
+
     processors:
         - Monolog\Processor\PsrLogMessageProcessor
