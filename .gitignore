@@ -56,7 +56,6 @@ phpunit
 # Composer
 #-------------------------
 vendor/
-composer.lock
 
 #-------------------------
 # NPM

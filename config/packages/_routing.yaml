@@ -52,5 +52,4 @@ routing:
         - { name: homepage, path: '/*<BiuradPHP\MVC\HomeController@handle>' }
 
         # Import you route
-        imports:
-            - '%path.ROOT%/routing/main.yaml'
+        imports: ~
