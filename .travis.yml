@@ -1,0 +1,60 @@
+# Ensure that PHP is installed in Travis' build environment. Travis provides several versions of
+# PHP like 5.6, 7.0, 7.1, 7.2, 7.3, 7.4, etc., each of them including XDebug and PHPUnit.
+language: php
+
+# Travis can cache content between builds. This speeds up the build process and saves resources.
+cache:
+    directories:
+        # Cache composer packages so "composer install" is faster.
+        - $HOME/.composer/cache/files
+
+env:
+    global:
+        - ACTION="install"
+
+# Defines all jobs which Travis will run in parallel. For each PHP version we support we will run one job.
+jobs:
+    # With fast finishing enabled, Travis CI will mark your build as finished as soon as one of two
+    # conditions are met: The only remaining jobs are allowed to fail, or a job has already failed. In
+    # these cases, the status of the build can already be determined, so there’s no need to wait around
+    # until the other jobs finish.
+    fast_finish: true
+    include:
+        # Run tests with the dependencies from composer.lock
+        - php: 7.2
+        - php: 7.3
+        - php: 7.4
+
+        # Run tests against dev (currently 1.0.x)
+        - php: 7.3
+          env: STABILITY=dev ACTION=update
+
+        # Run tests against dev-master (currently 1.0.x)
+        - php: 7.4
+          env: STABILITY=dev ACTION=update
+
+before_install:
+    - composer selfupdate
+    - phpenv config-rm xdebug.ini || true
+    # Change minimum-stability to allow upcoming versions (dev | alpha | beta | RC)
+    - '[[ -z $STABILITY ]] || composer config minimum-stability "$STABILITY"'
+
+install:
+    - php -r "echo ini_get('memory_limit').PHP_EOL;"
+    # Install or update Composer packages including dev dependencies listed in require-dev.
+    - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer $ACTION
+    - composer require squizlabs/php_codesniffer --dev
+
+script:
+    - ./vendor/bin/phpcs --standard=psr12 --colors app tests
+    # Create a new ".env" file, if doesn't exits.
+    - php -r "file_exists('.env') || copy('env.example', '.env');"
+    # Generate an encryption key before running tests.
+    - php biurad generate:key --ansi
+    # Run tests to make sure, we get everything working.
+    - ./vendor/bin/phpunit
+    # This checks that the source code follows the PSR-12 coding Syntax rules.
+    - '[[ $TRAVIS_PHP_VERSION != "7.4" ]] || ./vendor/bin/phpcs --standard=psr12 --colors src Tests'
+    # Fail CI if the repo is in a dirty state after building assets (only for current release ie install).
+    #-  if [[ "$ACTION" == "install" ]]; then yarn install && yarn encore production && git add --all && git diff --staged --exit-code; fi
+    - composer validate --strict

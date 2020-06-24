@@ -54,11 +54,6 @@ storage/uploads/*
 
 php_errors.log
 
-# Testing configs
-.travis.yml
-appveyor.yml
-.scrutinizer.yml
-
 #-------------------------
 # Test Files
 #-------------------------

@@ -44,13 +44,19 @@ class BasicTest extends TestCase
 
         $this->assertIsString((string) $response->getBody());
         $this->assertEquals('text/plain; charset=utf-8', $response->getHeaderLine('Content-Type'));
-        $this->assertEquals(200, $response->getStatusCode(), \sprintf('The %s public URL loads correctly.', $uri));
+        $this->assertEquals(
+            200,
+            $response->getStatusCode(),
+            \sprintf('The %s public URL loads correctly.', $uri)
+        );
     }
 
     public function testRouteNotFoundError(): void
     {
         $this->expectException(RouteNotFoundException::class);
-        $this->expectErrorMessage('Unable to find the controller for path "not-found". The route is wrongly configured.');
+        $this->expectErrorMessage(
+            'Unable to find the controller for path "not-found". The route is wrongly configured.'
+        );
         $this->runRoute('not-found');
 
         $this->assertNull($this->router->currentRoute());

@@ -37,8 +37,13 @@ trait InteractsWithHttp
      *
      * @param string|UriInterface $uri
      */
-    public function matchRoute($uri, string $method = 'GET', array $query = [], array $headers = [], array $cookies = []): RouteResults
-    {
+    public function matchRoute(
+        $uri,
+        string $method = 'GET',
+        array $query = [],
+        array $headers = [],
+        array $cookies = []
+    ): RouteResults {
         $request = $this->request($uri, $method, $query, $headers, $cookies);
 
         return $this->router->getRouter()->match($request);
@@ -50,13 +55,22 @@ trait InteractsWithHttp
      *
      * @param string|UriInterface $uri
      */
-    public function runRoute($uri, string $method = 'GET', array $query = [], array $headers = [], array $cookies = []): ResponseInterface
-    {
+    public function runRoute(
+        $uri,
+        string $method = 'GET',
+        array $query = [],
+        array $headers = [],
+        array $cookies = []
+    ): ResponseInterface {
         return $this->router->handle($this->request($uri, $method, $query, $headers, $cookies));
     }
 
-    public function runRouteWithAttributes($uri, array $attributes, array $query = [], array $headers = []): ResponseInterface
-    {
+    public function runRouteWithAttributes(
+        $uri,
+        array $attributes,
+        array $query = [],
+        array $headers = []
+    ): ResponseInterface {
         $request = $this->request($uri, 'GET', $query, $headers, []);
 
         foreach ($attributes as $key => $value) {

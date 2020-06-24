@@ -1,6 +1,6 @@
 {
     "name": "biurad/php-framework",
-    "description": "Biurad PHP Framework for PHP - The PHP Framework for now and the future...",
+    "description": "BiuradPHP Framework is a high perfomant framework with expressive, elegant syntax, and great security",
     "keywords": [
         "biurad",
         "biuradphp",
@@ -39,7 +39,7 @@
         "ext-mbstring": "*",
         "ext-sqlite3": "*",
         "phpunit/phpunit": "^8.5",
-        "symfony/var-dumper": "5.0"
+        "symfony/var-dumper": "^5.0"
     },
     "autoload": {
         "psr-4": {
@@ -52,14 +52,11 @@
         }
     },
     "scripts": {
-        "auto-scripts": {
-            "app:env": "@php -r \"file_exists('.env') || copy('env.example', '.env');\"",
-            "app:clean": "@php biurad cache:clean --logs --ansi"
-        },
         "post-autoload-dump": [
-            "@auto-scripts"
+            "@php biurad cache:clean --logs --ansi"
         ],
         "post-create-project-cmd": [
+            "@php -r \"file_exists('.env') || copy('env.example', '.env');\"",
             "@php biurad generate:key --ansi"
         ],
         "coverage-clover": "phpunit --colors=always --do-not-cache-result --coverage-clover clover.xml",

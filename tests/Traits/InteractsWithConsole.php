@@ -89,10 +89,8 @@ trait InteractsWithConsole
         return $commandTester;
     }
 
-    public function runCommandError(string $command, array $arguments = [], array $options = [], bool $normalize = false): string
+    public function runCommandError(CommandTester $commandTester, bool $normalize = false): string
     {
-        $commandTester = $this->runCommand($command, $arguments, $options);
-
         return $commandTester->getErrorOutput($normalize);
     }
 
