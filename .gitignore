@@ -46,15 +46,6 @@ $RECYCLE.BIN/
 Vagrantfile
 
 #-------------------------
-# Temporary Files
-#-------------------------
-storage/caches/*/*
-storage/logs/*
-storage/uploads/*
-
-php_errors.log
-
-#-------------------------
 # Test Files
 #-------------------------
 

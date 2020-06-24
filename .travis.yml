@@ -54,13 +54,12 @@ install:
     - composer require squizlabs/php_codesniffer --dev
 
 script:
+    # This checks that the source code follows the PSR-12 coding Syntax rules.
     - ./vendor/bin/phpcs --standard=psr12 --colors app tests
     # Generate an encryption key before running tests.
     - php biurad generate:key --ansi
     # Run tests to make sure, we get everything working.
     - ./vendor/bin/phpunit
-    # This checks that the source code follows the PSR-12 coding Syntax rules.
-    - '[[ $TRAVIS_PHP_VERSION != "7.4" ]] || ./vendor/bin/phpcs --standard=psr12 --colors src Tests'
     # Fail CI if the repo is in a dirty state after building assets (only for current release ie install).
     #-  if [[ "$ACTION" == "install" ]]; then yarn install && yarn encore production && git add --all && git diff --staged --exit-code; fi
     - composer validate --strict
