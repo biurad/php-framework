@@ -40,6 +40,8 @@ jobs:
 
 before_install:
     - composer selfupdate
+    # Create a new ".env" file, if doesn't exits.
+    - php -r "file_exists('.env') || copy('env.example', '.env');"
     - phpenv config-rm xdebug.ini || true
     # Change minimum-stability to allow upcoming versions (dev | alpha | beta | RC)
     - '[[ -z $STABILITY ]] || composer config minimum-stability "$STABILITY"'
@@ -47,15 +49,12 @@ before_install:
 install:
     - php -r "echo ini_get('memory_limit').PHP_EOL;"
     # Install or update Composer packages including dev dependencies listed in require-dev.
-    - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer $ACTION
     - if [ "$BIURAD_CONSOLE" == yes ]; then php biurad ; else travis_retry composer $ACTION ; fi
     # Install the coding stardand checker
     - composer require squizlabs/php_codesniffer --dev
 
 script:
     - ./vendor/bin/phpcs --standard=psr12 --colors app tests
-    # Create a new ".env" file, if doesn't exits.
-    - php -r "file_exists('.env') || copy('env.example', '.env');"
     # Generate an encryption key before running tests.
     - php biurad generate:key --ansi
     # Run tests to make sure, we get everything working.
