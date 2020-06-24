@@ -11,6 +11,7 @@ cache:
 env:
     global:
         - ACTION="install"
+        - BIURAD_CONSOLE="no"
 
 # Defines all jobs which Travis will run in parallel. For each PHP version we support we will run one job.
 jobs:
@@ -25,13 +26,17 @@ jobs:
         - php: 7.3
         - php: 7.4
 
+        # Run tests against dev and composer.lock (currently 1.0.x)
+        - php: 7.2
+        - env: BIURAD_CONSOLE=yes STABILITY=dev ACTION=update
+
         # Run tests against dev (currently 1.0.x)
         - php: 7.3
           env: STABILITY=dev ACTION=update
 
         # Run tests against dev-master (currently 1.0.x)
         - php: 7.4
-          env: STABILITY=dev ACTION=update
+          env: STABILITY=dev ACTION=update --prefer-source
 
 before_install:
     - composer selfupdate
@@ -43,6 +48,8 @@ install:
     - php -r "echo ini_get('memory_limit').PHP_EOL;"
     # Install or update Composer packages including dev dependencies listed in require-dev.
     - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer $ACTION
+    - if [ "$BIURAD_CONSOLE" == yes ]; then php biurad ; else travis_retry composer $ACTION ; fi
+    # Install the coding stardand checker
     - composer require squizlabs/php_codesniffer --dev
 
 script:

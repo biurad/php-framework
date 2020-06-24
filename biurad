@@ -36,7 +36,7 @@ if (!file_exists(BR_PATH . 'vendor/autoload.php') && function_exists('system')) 
     }
 
     echo "Preparing to install vendor dependencies...\n\n";
-    echo system($path .' --no-interaction --no-dev --prefer-dist -o install');
+    echo system($path .' --no-interaction -o install');
     echo "\n\n";
 }
 

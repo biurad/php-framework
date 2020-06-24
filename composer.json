@@ -52,12 +52,14 @@
         }
     },
     "scripts": {
-        "post-autoload-dump": [
-            "@php biurad cache:clean --logs --ansi"
-        ],
+        "auto-scripts": {
+            "app:env": "@php -r \"file_exists('.env') || copy('env.example', '.env');\"",
+            "app:key": "@php biurad generate:key --ansi",
+            "app:clean": "@php biurad cache:clean --logs --ansi"
+        },
         "post-create-project-cmd": [
-            "@php -r \"file_exists('.env') || copy('env.example', '.env');\"",
-            "@php biurad generate:key --ansi"
+            "@auto-scripts"
+
         ],
         "coverage-clover": "phpunit --colors=always --do-not-cache-result --coverage-clover clover.xml",
         "test": "phpunit --colors=always --do-not-cache-result",
