@@ -1,6 +1,6 @@
 # BiuradPHP is a high performance framework with expressive, elegant syntax, and great security.
 
-BiuradPHP is designed to provide modern and rapid development of websites, web applications and web services, focusing on `Separation of Concerns`, not a strict complaint framework rule (eg: MVC). With BiuradPHP you enjoy maximum customization, and overall flexibility with no limitations. BiuradPHP is fast, light, secure and flexible.
+BiuradPHP is designed to provide modern and rapid development of websites, web applications and web services. Focusing on `Separation of Concerns`, not a strict complaint framework rule (eg: MVC). With BiuradPHP you enjoy maximum customization, and overall flexibility with no limitations. BiuradPHP is fast, light, secure and flexible.
 
 **`Please note that this documentation is currently work-in-progress. Feel free to contribute.`**
 
