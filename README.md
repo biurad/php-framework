@@ -6,21 +6,21 @@ BiuradPHP is designed to provide modern and rapid development of websites, web a
 
 ## Features
 
-- [PSR-4 Autoloader](https://github.com/composer/composer).
-- [High Performance Http Router](https://github.com/divineniiquaye/flight-routing).
-- [Nette Dependency Injection Container](https://github.com/biurad/nette-di-bridge).
-- [Multi Level Caching with Doctrine Cache](https://github.com/biurad/biurad-caching).
-- [Symfony Cloned Session](https://github.com/biurad/biurad-sessions).
-- [Symfony Cloned Security](https://github.com/biurad/biurad-security).
-- [Symfony Cloned Scaffolding](https://github.com/biurad/biurad).
-- [Spiral Cloned Database](https://github.com/biurad/biurad-database).
-- [Cycle ORM for Spiral Cloned Database]('https://github.com/biurad/cycle-orm-bridge').
-- Managed servers:
-    - fpm/fastcgi with Apache or nginX.
-    - [Workerman](https://github.com/biurad/biurad-workerman) - (coming soon). 
-    - [Swoole](https://github.com/biurad/biurad-swoole) - (coming soon).
-    - [Roadrunner](https://github.com/biurad/biurad-roadrunner) - (coming soon).
-- And MORE ...
+-   [PSR-4 Autoloader](https://github.com/composer/composer).
+-   [High Performance Http Router](https://github.com/divineniiquaye/flight-routing).
+-   [Nette Dependency Injection Container](https://github.com/biurad/nette-di-bridge).
+-   [Multi Level Caching with Doctrine Cache](https://github.com/biurad/biurad-caching).
+-   [Symfony Cloned Session](https://github.com/biurad/biurad-sessions).
+-   [Symfony Cloned Security](https://github.com/biurad/biurad-security).
+-   [Symfony Cloned Scaffolding](https://github.com/biurad/biurad).
+-   [Spiral Cloned Database](https://github.com/biurad/biurad-database).
+-   [Cycle ORM for Spiral Cloned Database]('https://github.com/biurad/cycle-orm-bridge').
+-   Managed servers:
+    -   fpm/fastcgi with Apache or nginX.
+    -   [Workerman](https://github.com/biurad/biurad-workerman) - (coming soon).
+    -   [Swoole](https://github.com/biurad/biurad-swoole) - (coming soon).
+    -   [Roadrunner](https://github.com/biurad/biurad-roadrunner) - (coming soon).
+-   And MORE ...
 
 ## Installation
 
@@ -36,9 +36,10 @@ It requires PHP version 7.2 and supports PHP up to 8. The dev-master version req
 
 BiuradPHP is a recent project and does not yet have a large community.
 In the meantime, you can consult:
- - [Quick-Start Guide](https://docs.biurad.com/biuradphp/framework) to discover the framework.
- - [Documentation](https://docs.biurad.com/biuradphp/getting-started) to go deeper.
- - [Examples Documentation](https://docs.birad.com/examples) for demo and examples.
+
+-   [Quick-Start Guide](https://docs.biurad.com/biuradphp/framework) to discover the framework.
+-   [Documentation](https://docs.biurad.com/biuradphp/getting-started) to go deeper.
+-   [Examples Documentation](https://docs.birad.com/examples) for demo and examples.
 
 ## Changelog
 
