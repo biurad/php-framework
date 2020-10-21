@@ -63,7 +63,7 @@
         <middlewares>Laminas\Stratigility\Middleware\OriginalMessages</middlewares>
 
         <!-- Fetch routes from php files or classes as annotation-->
-        <resources>%rootDir%/app</resources>
+        <resources>%appDir%</resources>
 
         <!-- Shortcut routes -->
         <shortcut name="homepage" path="/" controller="phpinfo" />

@@ -12,7 +12,7 @@ if (!in_array(PHP_SAPI, ['cli', 'phpdbg', 'embed'], true)) {
     echo 'Warning: The console should be invoked via the CLI version of PHP, not the '.PHP_SAPI.' SAPI'.PHP_EOL;
 }
 
-if (!file_exists(BR_PATH . 'vendor/autoload.php') && function_exists('system')) {
+if (!file_exists(__DIR__ . '/vendor/autoload.php') && function_exists('system')) {
     // Before we can even start, we need to run composer first
     if (!function_exists('shell_exec')) {
         throw new RuntimeException('Please do run \'composer install\' to use this application');
@@ -39,4 +39,4 @@ set_time_limit(0);
 @ini_set('default_charset', 'UTF-8');
 
 // Let's intialise console application
-require __DIR__ . 'public/index.php';
+require __DIR__ . '/public/index.php';

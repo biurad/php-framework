@@ -20,7 +20,7 @@ namespace App;
 use Biurad\Framework\Bundle;
 use Nette\DI\ContainerBuilder;
 
-class FrameworkBundle extends Bundle
+class AppBundle extends Bundle
 {
     public function boot(): void
     {
