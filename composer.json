@@ -1,28 +1,26 @@
 {
-    "name": "biurad/php-framework",
-    "description": "BiuradPHP Framework is a high performance framework with expressive, elegant syntax, and great security",
-    "keywords": [
-        "biurad",
-        "biuradphp",
-        "psr",
-        "psr-7",
-        "psr-14",
-        "psr-11",
-        "psr-15",
-        "psr-17",
-        "php framework"
-    ],
-    "license": "BSD-3-Clause",
+    "name": "biurad/framework",
+    "description": "Biurad Framework is a high performance framework with expressive, elegant syntax, and great security",
+    "keywords": ["biurad","psr-standard","psr-7","psr-14","psr-11","psr-15","psr-17","php","php framework"],
     "type": "project",
-    "prefer-stable": true,
-    "homepage": "https://biurad.com",
+    "homepage": "https://www.biurad.com",
+    "license": "BSD-3-Clause",
     "authors": [
         {
             "name": "Divine Niiquaye Ibok",
-            "email": "divineibok@gmail.com",
-            "homepage": "https://www.biurad.com"
+            "email": "divineibok@gmail.com"
+        },
+        {
+            "name": "Biurad Lap Community",
+            "homepage": "https://biurad.com/contributors"
         }
     ],
+    "support": {
+        "docs": "https://docs.biurad.com/php-framework#nette",
+        "issues": "https://github.com/biurad/php-framework/issues",
+        "rss": "https://github.com/biurad/php-framework/releases.atom",
+        "source": "https://github.com/biurad/php-framework"
+    },
     "config": {
     	"optimize-autoloader": true,
         "preferred-install": {
@@ -36,14 +34,12 @@
         "ext-dom": "*",
         "ext-json": "*",
         "ext-libxml": "*",
-        "biurad/biurad-framework": "^1.0",
-        "symfony/dotenv": "^4.4"
+        "ext-mbstring": "*",
+        "biurad/php-sdk": "^1.x-dev"
     },
     "require-dev": {
-        "ext-mbstring": "*",
-        "ext-sqlite3": "*",
-        "phpunit/phpunit": "^8.5",
-        "symfony/var-dumper": "^5.0"
+        "phpunit/phpunit": "^9.4",
+        "symfony/var-dumper": "^5.1"
     },
     "autoload": {
         "psr-4": {
@@ -55,18 +51,22 @@
             "App\\Tests\\": "tests/"
         }
     },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    },
     "scripts": {
         "auto-scripts": {
             "app:env": "@php -r \"file_exists('.env') || copy('env.example', '.env');\"",
-            "app:key": "@php biurad generate:key --ansi",
-            "app:clean": "@php biurad cache:clean --logs --ansi"
+            "app:clean": "@php biurad app:clean --logs --ansi"
         },
         "post-create-project-cmd": [
             "@auto-scripts"
-
         ],
-        "coverage-clover": "phpunit --colors=always --do-not-cache-result --coverage-clover clover.xml",
-        "test": "phpunit --colors=always --do-not-cache-result",
-        "serve": "php biurad server:run"
-    }
+        "serve": "@php biurad server:start",
+        "test": "@php ./vendor/bin/phpunit --colors=always --do-not-cache-result"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

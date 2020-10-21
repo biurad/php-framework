@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of BiuradPHP opensource projects.
+ * This file is part of Biurad opensource projects.
  *
  * PHP version 7.2 and above required
  *
@@ -20,8 +20,6 @@ namespace App\Tests;
 use App\Kernel;
 use BiuradPHP\DependencyInjection\Interfaces\FactoryInterface;
 use PHPUnit\Framework\TestCase as BaseTestCase;
-
-use function BiuradPHP\Support\class_uses_recursive;
 
 abstract class TestCase extends BaseTestCase
 {

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of BiuradPHP opensource projects.
+ * This file is part of Biurad opensource projects.
  *
  * PHP version 7.2 and above required
  *
@@ -49,6 +49,7 @@ trait ReflectionAccess
      * @param mixed         $propertyName
      *
      * @throws ReflectionException
+     *
      * @return mixed
      */
     protected static function getProperty($object, $propertyName)
@@ -68,6 +69,7 @@ trait ReflectionAccess
      * @param array         $arguments
      *
      * @throws ReflectionException
+     *
      * @return mixed
      */
     protected static function callMethod($object, $methodName, $arguments = [])

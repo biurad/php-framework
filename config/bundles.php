@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of BiuradPHP opensource projects.
+ * This file is part of Biurad opensource projects.
  *
  * PHP version 7.2 and above required
  *
@@ -15,8 +15,6 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-\error_reporting(\E_ALL | \E_STRICT);
-\ini_set('display_errors', '1');
-
-//Composer
-require \dirname(__DIR__) . '/vendor/autoload.php';
+return [
+    Biurad\Framework\Bundles\FrameworkBundle::class, // Needed to boot the application
+];

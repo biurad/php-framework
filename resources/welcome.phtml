@@ -129,15 +129,15 @@
                 </h4>
                 <?php } ?>
                 <p>
-                    The page you are looking at is being generated dynamically by BiuradPHP.
+                    The page you are looking at is being generated dynamically by Biurad.
                     If you would like to edit this page you will find it located at:
-                    <code>app/MVC/Views/welcome.phtml.</code>
+                    <code>resources/welcome.phtml.</code>
 
                     <?php if (false !== $default) { ?>
-                    <br><br><code>This page is made avialable because, no route has been set for homepage URL.</code>
+                    <br><br><code>This page is made avaliable because, no route has been set for homepage URL.</code>
                     <?php } ?>
                 </p>
-                <a href='./web-readme' class='button'>Check the User Guide !</a>
+                <a href='https://docs.biurad.com' class='button'>Check the User Guide !</a>
 
                 <!-- Auth -->
                 <?php if (false !== $security):  if (!$loggedIn) { ?>
@@ -153,7 +153,7 @@
                     <form id="logout-form" action="./logout" method="POST" style="display: none;"></form>
                 <?php } endif; ?>
                 <hr><br>
-                <p>© <span id="date"></span> Biurad Lap Agency. BiuradPHP Framework is open source project released
+                <p>© <span id="date"></span> Biurad Lap Agency. Biurad Framework is open source project released
                     under the BSD-3-Clause licence.</p>
             </div>
         </div>

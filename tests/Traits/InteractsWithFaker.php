@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of BiuradPHP opensource projects.
+ * This file is part of Biurad opensource projects.
  *
  * PHP version 7.2 and above required
  *
@@ -39,7 +39,8 @@ trait InteractsWithFaker
     /**
      * Get the default Faker instance for a given locale.
      *
-     * @param  string           $locale
+     * @param string $locale
+     *
      * @return \Faker\Generator
      */
     protected function faker($locale = null)
@@ -50,7 +51,8 @@ trait InteractsWithFaker
     /**
      * Create a Faker instance for the given locale.
      *
-     * @param  string           $locale
+     * @param string $locale
+     *
      * @return \Faker\Generator
      */
     protected function makeFaker($locale = null)

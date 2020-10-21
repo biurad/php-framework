@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of BiuradPHP opensource projects.
+ * This file is part of Biurad opensource projects.
  *
  * PHP version 7.2 and above required
  *
@@ -17,18 +17,18 @@ declare(strict_types=1);
 
 namespace App\Tests\Traits;
 
-use BiuradPHP\Http\ServerRequest;
-use BiuradPHP\Http\Traits\ServerRequestDecoratorTrait;
-use BiuradPHP\Routing\RouteCollection;
+use Biurad\Framework\Router;
+use Biurad\Http\ServerRequest;
+use Biurad\Http\Traits\ServerRequestDecoratorTrait;
 use Flight\Routing\Interfaces\RouteCollectorInterface;
-use Flight\Routing\RouteResults;
+use Flight\Routing\RouteHandler;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\UriInterface;
 
 trait InteractsWithHttp
 {
-    /** @var RouteCollection */
+    /** @var Router */
     protected $router;
 
     /**
@@ -43,10 +43,10 @@ trait InteractsWithHttp
         array $query = [],
         array $headers = [],
         array $cookies = []
-    ): RouteResults {
+    ): RouteHandler {
         $request = $this->request($uri, $method, $query, $headers, $cookies);
 
-        return $this->router->getRouter()->match($request);
+        return $this->router->match($request);
     }
 
     /**

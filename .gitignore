@@ -36,6 +36,9 @@ $RECYCLE.BIN/
 # Linux trash folder which might appear on any partition or disk
 .Trash-*
 
+# Google Cloud
+app.yaml
+
 #-------------------------
 # Environment Files
 #-------------------------
@@ -56,6 +59,7 @@ phpunit
 # Composer
 #-------------------------
 vendor/
+composer.lock
 
 #-------------------------
 # NPM
@@ -110,5 +114,3 @@ uml/
 mix-manifest.json
 public/mix-manifest.json
 
-.php_cs.dist
-app.yaml

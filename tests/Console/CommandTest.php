@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of BiuradPHP opensource projects.
+ * This file is part of Biurad opensource projects.
  *
  * PHP version 7.2 and above required
  *
@@ -18,7 +18,7 @@ declare(strict_types=1);
 namespace App\Tests\Console;
 
 use App\Tests\TestCase;
-use BiuradPHP\Terminal\Commands\AboutCommand;
+use Biurad\Framework\Commands\AboutCommand;
 
 class CommandTest extends TestCase
 {

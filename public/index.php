@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-
 /*
- * This file is part of BiuradPHP opensource projects.
+ * This file is part of Biurad opensource projects.
  *
  * PHP version 7.2 and above required
  *
@@ -15,8 +14,6 @@ declare(strict_types=1);
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-\defined('BR_START') || \define('BR_START', \microtime(true));
 
 /*
  * --------------------------------------------------------------------------
@@ -65,7 +62,8 @@ if (\in_array(\PHP_SAPI, ['cli-server', 'cgi-fcgi'], true)) {
 require \dirname(__DIR__) . '/vendor/autoload.php';
 
 // Execute programmatic/declarative application's pipelines.
-App\Kernel::boot(BR_PATH)
-    ->createContainer()
-    ->getByType(App::class)
-    ->serve();
+Biurad\Framework\Kernel::boot([
+    'root'       => BR_PATH,
+    'configDir'  => 'config',
+    'tempDir'    => 'var',
+]);

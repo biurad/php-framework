@@ -3,19 +3,10 @@
 
 /**
  * --------------------------------------------------------------------------
- * Use Full Paths for Better Performance
- * --------------------------------------------------------------------------
- *
- * The full path starting from the index.php file. Improves performance (a bit)
- */
-define('BR_PATH', realpath(dirname(__FILE__, 1)) . '/') || defined('BR_PATH');
-
-/**
- * --------------------------------------------------------------------------
  * Launch ConsoleApp                                                        |
  * --------------------------------------------------------------------------
  *
- * Let's call the Console-App from bootstrap.php in the public directory
+ * Let's call the Console-App from index.php file in the public directory
  */
 if (!in_array(PHP_SAPI, ['cli', 'phpdbg', 'embed'], true)) {
     echo 'Warning: The console should be invoked via the CLI version of PHP, not the '.PHP_SAPI.' SAPI'.PHP_EOL;
@@ -41,11 +32,11 @@ if (!file_exists(BR_PATH . 'vendor/autoload.php') && function_exists('system')) 
 }
 
 if (version_compare($ver = PHP_VERSION, $req = '7.2', '<')) {
-    exit(sprintf("You are running PHP %s, but BiuradPHP needs at least PHP %s to run.\n", $ver, $req));
+    exit(sprintf("You are running PHP %s, but Biurad needs at least PHP %s to run.\n", $ver, $req));
 }
 
 set_time_limit(0);
 @ini_set('default_charset', 'UTF-8');
 
 // Let's intialise console application
-require BR_PATH . 'public/index.php';
+require __DIR__ . 'public/index.php';

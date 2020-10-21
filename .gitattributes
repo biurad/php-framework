@@ -1,17 +1,17 @@
+# Path-based git attributes
+# https://www.kernel.org/pub/software/scm/git/docs/gitattributes.html
+
 # Auto-detect text files, ensure they use LF.
-text=auto eol=lf
-
-# These files are always considered text and should use LF.
 # See core.whitespace @ http://git-scm.com/docs/git-config for whitespace flags.
-.php   text eol=lf whitespace=blank-at-eol,blank-at-eof,space-before-tab,tab-in-indent,tabwidth=4 diff=php
-.json  text eol=lf whitespace=blank-at-eol,blank-at-eof,space-before-tab,tab-in-indent,tabwidth=4
-.test  text eol=lf whitespace=blank-at-eol,blank-at-eof,space-before-tab,tab-in-indent,tabwidth=4
-.yml   text eol=lf whitespace=blank-at-eol,blank-at-eof,space-before-tab,tab-in-indent,tabwidth=2
+text=auto eol=lf whitespace=blank-at-eol,blank-at-eof
 
-# Exclude non-essential files from dist
-.idea/ export-ignore
-.vscode/ export-ignore
-.github/ export-ignore
-.php_cs export-ignore
-appveyor.yml export-ignore
-.scrutinizer.yml export-ignore
+# Ignore all test and documentation with "export-ignore".
+/.editorconfig        export-ignore
+/.gitattributes       export-ignore
+/.github              export-ignore
+/.gitignore           export-ignore
+# /phpcs.xml.dist       export-ignore
+# /phpstan.neon.dist    export-ignore
+# /phpunit.xml.dist     export-ignore
+# /psalm.xml            export-ignore
+# /tests                export-ignore

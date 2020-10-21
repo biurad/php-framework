@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://biurad.com/schema/nette-config">
+    <!-- The main framework config-->
+    <framework cache_driver="file://%tempDir%/cache/nette.caches" />
+
+    <!-- Put parameters here that don't need to change on each machine where the app is deployed -->
+    <!-- Parameters defined are called using "%" around it in any config you create. -->
+    <!-- <parameters></parameters> -->
+
+    <!-- Http Galaxy Configuration -->
+    <http>
+        <!-- An associative array of the HTTP headers added before making the request and response. -->
+        <headers>
+            <!-- This determines what cross-origin operations may execute in web browsers. -->
+            <cors allowedPaths="null" allowedOrigins="*" allowedHeaders="*" allowedMethods="*" allowCredentials="true" exposedHeaders="null" maxAge="null" />
+
+            <!-- Automatically add headers to every request passed to PHP -->
+            <!-- <request Request-Header="A Value" /> -->
+
+            <!-- Automatically add headers to every response passed to Browser -->
+            <response X-Powered-By="Biurad-Framework" />
+        </headers>
+
+        <!-- This determines the http policies operations execute in web browsers -->
+        <policies frame_policy="SAMEORIGIN">
+            <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy -->
+            <content_security_policy
+                font-src="'self' blob: data: fonts.gstatic.com fonts.googleapis.com"
+                media-src="'self' blob: data:"
+                object-src="'self' blob: data:"
+                default-src="'self' www.google.com www.gstatic.com"
+                form-action="'self'"
+                script-src="'self' 'unsafe-inline' 'unsafe-eval' cdnjs.cloudflare.com www.google.com www.gstatic.com"
+                style-src="'self' 'unsafe-inline' fonts.googleapis.com"
+                worker-src="'self' blob:"
+                connect-src="'self' blob: api.biurad.com"
+                img-src="'self' blob: data: cdn.biurad.com"
+                report-uri="https://biurad.report-uri.com/r/d/csp/enforce"
+            />
+
+            <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy-Report-Only -->
+            <!-- <csp_report_only /> -->
+
+            <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy -->
+            <!-- <feature_policy /> -->
+        </policies>
+
+        <!-- With HTTP Caching, you cache the full output of a page (i.e. the response) -->
+        <!-- <caching /> -->
+
+        <!-- The settings for managing php sessions -->
+        <sessions>
+            <!-- Sets session.* ini variables. For convenience we omit 'session.' from the beginning of the keys -->
+            <options name="biurad-sess" />
+        </sessions>
+    </http>
+
+    <!-- Flight Routing Configutation -->
+    <routing namespace="App\">
+        <!-- Middlewares runs from buttom to top. Last in, first out. -->
+        <middlewares>Flight\Routing\Middlewares\CacheControlMiddleware</middlewares>
+        <middlewares>Biurad\Http\Middlewares\MethodOverrideMiddleware</middlewares>
+        <middlewares>Laminas\Stratigility\Middleware\OriginalMessages</middlewares>
+
+        <!-- Fetch routes from php files or classes as annotation-->
+        <resources>%rootDir%/app</resources>
+
+        <!-- Shortcut routes -->
+        <shortcut name="homepage" path="/" controller="phpinfo" />
+    </routing>
+
+    <!-- Tacy Debugger COnfiguratiob -->
+    <tracy showBar="true" showLocation="true" />
+</container>
