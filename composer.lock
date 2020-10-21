@@ -187,12 +187,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/biurad/php-http-galaxy.git",
-                "reference": "51f384e8e426506de47841eb07b3a0e3001351be"
+                "reference": "1dbf116f8685d3b4be79269dac8e4a598659d4a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/biurad/php-http-galaxy/zipball/51f384e8e426506de47841eb07b3a0e3001351be",
-                "reference": "51f384e8e426506de47841eb07b3a0e3001351be",
+                "url": "https://api.github.com/repos/biurad/php-http-galaxy/zipball/1dbf116f8685d3b4be79269dac8e4a598659d4a0",
+                "reference": "1dbf116f8685d3b4be79269dac8e4a598659d4a0",
                 "shasum": ""
             },
             "require": {
@@ -276,7 +276,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2020-10-18T23:54:00+00:00"
+            "time": "2020-10-21T09:21:14+00:00"
         },
         {
             "name": "biurad/php-sdk",
