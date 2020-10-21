@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://biurad.com/schema/nette-config">
-    <!-- The main framework config-->
-    <framework cache_driver="file://%tempDir%/cache/nette.caches" />
-
     <!-- Put parameters here that don't need to change on each machine where the app is deployed -->
     <!-- Parameters defined are called using "%" around it in any config you create. -->
     <!-- <parameters></parameters> -->
+
+    <!-- The main framework config-->
+    <framework cache_driver="file://%tempDir%/cache/nette.caches" />
+
+    <!-- Templating UI COnfiguration -->
+    <templating paths="%rootDir%/resources" />
 
     <!-- Http Galaxy Configuration -->
     <http>
@@ -68,6 +71,27 @@
         <!-- Shortcut routes -->
         <shortcut name="homepage" path="/" controller="phpinfo" />
     </routing>
+
+    <!-- League Filesystem COnfiguration -->
+    <filesystem default="local">
+        <!-- Should Filesystem be cached or not. -->
+        <caching enable="%productionMode%" key="flysystem" ttl="600" />
+
+        <!-- The supported connections into filesystem. Plus custom-->
+        <connections>
+            <local path="%rootDir%" />
+            <awss3 key="your-key" secret="your-secret" bucket="your-bucket" region="your-region" version="latest" />
+            <azure account-name="your-account-name" api-key="your-api-key" container="your-container" />
+            <dropbox token="your-token" />
+            <ftp host="ftp.example.com" port="21" username="your-username" password="your-password" />
+            <gcs projectId="your-project-id" keyFile="your-key-file" bucket="your-bucket" />
+            <gridfs server="mongodb://localhost:27017" database="your-database" />
+            <rackspace endpoint="your-endpoint" region="your-region" username="your-username" apiKey="your-api-key" container="your-container" />
+            <sftp host="sftp.example.com" port="22" username="your-username" password="your-password" />
+            <webdav baseUri="http://example.org/dav/" userName="your-username" password="your-password" />
+            <zip path="%tempDir%/files.zip" />
+        </connections>
+    </filesystem>
 
     <!-- Tacy Debugger COnfiguratiob -->
     <tracy showBar="true" showLocation="true" />
