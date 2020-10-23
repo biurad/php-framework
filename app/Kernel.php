@@ -17,19 +17,15 @@ declare(strict_types=1);
 
 namespace App;
 
-use Biurad\Framework\Bundle;
-use Nette\DI\ContainerBuilder;
+use Biurad\Framework\Kernel as AppKernel;
 
-class AppBundle extends Bundle
+class Kernel extends AppKernel
 {
-    public function boot(): void
-    {
-    }
-
     /**
      * {@inheritdoc}
      */
-    public function build(ContainerBuilder $container): void
+    public static function boot(array $directories, bool $handleErrors = true, bool $return = false)
     {
+        parent::boot($directories, $handleErrors, $return);
     }
 }

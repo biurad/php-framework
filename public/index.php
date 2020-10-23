@@ -62,7 +62,7 @@ if (\in_array(\PHP_SAPI, ['cli-server', 'cgi-fcgi'], true)) {
 require \dirname(__DIR__) . '/vendor/autoload.php';
 
 // Execute programmatic/declarative application's pipelines.
-Biurad\Framework\Kernel::boot([
+App\Kernel::boot([
     'root'       => BR_PATH,
     'configDir'  => 'config',
     'tempDir'    => 'var',
