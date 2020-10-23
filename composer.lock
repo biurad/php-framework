@@ -284,18 +284,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/biurad/php-sdk.git",
-                "reference": "c26efe0a65f921e58cd803987fd3a2d72b4c901d"
+                "reference": "0863a4b61a4d0cf498b98a250f814b832dd60236"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/biurad/php-sdk/zipball/c26efe0a65f921e58cd803987fd3a2d72b4c901d",
-                "reference": "c26efe0a65f921e58cd803987fd3a2d72b4c901d",
+                "url": "https://api.github.com/repos/biurad/php-sdk/zipball/0863a4b61a4d0cf498b98a250f814b832dd60236",
+                "reference": "0863a4b61a4d0cf498b98a250f814b832dd60236",
                 "shasum": ""
             },
             "require": {
                 "biurad/cache": "1.x-dev",
                 "biurad/events-bus": "1.x-dev",
                 "biurad/http-galaxy": "1.x-dev",
+                "biurad/templating": "1.x-dev",
                 "divineniiquaye/flight-routing": "1.x-dev",
                 "doctrine/annotations": "^1.10",
                 "ext-json": "*",
@@ -311,7 +312,6 @@
             },
             "require-dev": {
                 "biurad/flysystem": "1.x-dev",
-                "biurad/templating": "1.x-dev",
                 "composer/package-versions-deprecated": "^1.11",
                 "cycle/annotated": "^2.0",
                 "cycle/migrations": "^1.0",
@@ -329,6 +329,7 @@
                 "cycle/annotated": "To add Doctrine annotations support to Cycle ORM",
                 "cycle/migrations": "For Automated migrations on commands using Cycle ORM",
                 "cycle/orm": "A DataMapper, ORM and Data Modelling engine based on Spiral Database",
+                "nextras/orm": "A Lightweight and high-performance ORM with clean object design.",
                 "spiral/migrations": "A Database migrations, migration scaffolding for Spiral Database",
                 "tharos/leanmapper": "An ORM based on powerful Dibi database abstraction library"
             },
@@ -372,7 +373,83 @@
                 "rss": "https://github.com/biurad/php-sdk/releases.atom",
                 "source": "https://github.com/biurad/php-sdk"
             },
-            "time": "2020-10-21T03:08:44+00:00"
+            "time": "2020-10-21T21:17:38+00:00"
+        },
+        {
+            "name": "biurad/templating",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/biurad/php-templating.git",
+                "reference": "590757092663fa5237a3e3d261d3bddc00ca1300"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/biurad/php-templating/zipball/590757092663fa5237a3e3d261d3bddc00ca1300",
+                "reference": "590757092663fa5237a3e3d261d3bddc00ca1300",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1 || ^8.0"
+            },
+            "require-dev": {
+                "composer/package-versions-deprecated": "^1.8",
+                "phpstan/phpstan": "^0.12",
+                "phpstan/phpstan-strict-rules": "^0.12",
+                "phpunit/phpunit": "^8.5 || ^9.0",
+                "squizlabs/php_codesniffer": "^3.5",
+                "vimeo/psalm": "^3.11 || ^4.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Biurad\\UI\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Divine Niiquaye Ibok",
+                    "email": "divineibok@gmail.com"
+                },
+                {
+                    "name": "Biurad Lap Community",
+                    "homepage": "https://biurad.com/projects/contributors"
+                }
+            ],
+            "description": "A library that provides all the tools needed in working with any kind of template system",
+            "homepage": "https://www.biurad.com",
+            "keywords": [
+                "PHP7",
+                "biurad",
+                "biuradphp"
+            ],
+            "support": {
+                "docs": "https://docs.biurad.com/php-templating/",
+                "issues": "https://github.com/biurad/php-templating/issues",
+                "rss": "https://github.com/biurad/php-templating/releases.atom",
+                "source": "https://github.com/biurad/php-templating"
+            },
+            "funding": [
+                {
+                    "url": "https://biurad.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/biurad",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2020-10-21T16:46:24+00:00"
         },
         {
             "name": "cache/simple-cache-bridge",
