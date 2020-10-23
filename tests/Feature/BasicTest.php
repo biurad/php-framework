@@ -19,8 +19,9 @@ namespace App\Tests\Feature;
 
 use App\Tests\TestCase;
 use Flight\Routing\Exceptions\RouteNotFoundException;
-use Flight\Routing\RouteResults;
+use Flight\Routing\Route;
 use Generator;
+use Psr\Http\Server\RequestHandlerInterface;
 
 class BasicTest extends TestCase
 {
@@ -32,15 +33,16 @@ class BasicTest extends TestCase
      */
     public function testRoutingActionWorks(string $uri, string $body): void
     {
-        $this->router->get($uri, function () use ($body): string {
-            return $body;
-        });
+        $this->router->addRoute(
+            new Route('test', ['GET', 'HEAD'], $uri, function () use ($body) {
+                return $body;
+            })
+        );
 
-        $matched    = $this->matchRoute(\ltrim($uri, '/'));
-        $response   = $this->runRoute(\ltrim($uri, '/'));
+        $matched  = $this->matchRoute(\ltrim($uri, '/'));
+        $response = $this->runRoute(\ltrim($uri, '/'));
 
-        $this->assertNull($matched->getRedirectLink());
-        $this->assertSame(RouteResults::FOUND, $matched->getRouteStatus());
+        $this->assertInstanceOf(RequestHandlerInterface::class, $matched);
 
         $this->assertIsString((string) $response->getBody());
         $this->assertEquals('text/plain; charset=utf-8', $response->getHeaderLine('Content-Type'));
@@ -57,14 +59,13 @@ class BasicTest extends TestCase
         $this->expectErrorMessage(
             'Unable to find the controller for path "not-found". The route is wrongly configured.'
         );
-        $this->runRoute('not-found');
 
-        $this->assertNull($this->router->currentRoute());
+        $this->runRoute('not-found');
     }
 
     public function getPublicUrls(): ?Generator
     {
-        yield ['/site/hello', 'Welcome To BiuradPHP Framework'];
+        yield ['/site/hello', 'I ♥ Biurad PHP Framework'];
 
         yield ['/site/blog/', 'Welcome To A Blog HomePage'];
 

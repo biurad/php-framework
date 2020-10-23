@@ -49,7 +49,15 @@ abstract class TestCase extends BaseTestCase
 
     protected function makeApp(): FactoryInterface
     {
-        return Kernel::boot(\dirname(__DIR__))->createContainer();
+        return Kernel::boot(
+            [
+                'root'       => \dirname(__DIR__),
+                'configDir'  => 'config',
+                'tempDir'    => 'var',
+            ],
+            true,
+            true
+        );
     }
 
     /**
@@ -57,7 +65,14 @@ abstract class TestCase extends BaseTestCase
      */
     protected function setUpTraits(): array
     {
-        $uses = \array_flip(class_uses_recursive(static::class));
+        $results = [];
+        $class = static::class;
+
+        foreach (\array_reverse(\class_parents($class)) + [$class => $class] as $class) {
+            $results += $this->addTrait($class);
+        }
+
+        $uses = \array_flip(\array_unique($results));
 
         if (isset($uses[Traits\InteractsWithHttp::class])) {
             $this->setUpRouter();
@@ -72,5 +87,23 @@ abstract class TestCase extends BaseTestCase
         }
 
         return $uses;
+    }
+
+    /**
+     * Returns all traits used by a trait and its traits.
+     *
+     * @param string $trait
+     *
+     * @return array<string,string>
+     */
+    private function addTrait(string $trait): array
+    {
+        $traits = \class_uses($trait);
+
+        foreach ($traits as $trait) {
+            $traits += $this->addTrait($trait);
+        }
+
+        return $traits;
     }
 }
