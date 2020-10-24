@@ -8,7 +8,7 @@
     <framework cache_driver="file://%tempDir%/cache/nette.caches" />
 
     <!-- Templating UI COnfiguration -->
-    <templating paths="%rootDir%/resources" />
+    <templating paths="%rootDir%/resources" cache_path="%tempDir%/cache/nette.ui" />
 
     <!-- Http Galaxy Configuration -->
     <http>

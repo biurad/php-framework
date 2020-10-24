@@ -26,6 +26,6 @@ class Kernel extends AppKernel
      */
     public static function boot(array $directories, bool $handleErrors = true, bool $return = false)
     {
-        parent::boot($directories, $handleErrors, $return);
+        return parent::boot($directories, $handleErrors, $return);
     }
 }
