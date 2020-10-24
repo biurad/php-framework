@@ -1,4 +1,4 @@
-# My Official Website 👊
+# Official Project Written With [Biurad] 👊
 
 This project is built with a [PHP] based PSR complaint framework [Biurad], a high performance framework with expressive, elegant syntax, and great security which was bootstrapped using [Composer].
 
@@ -6,7 +6,7 @@ This project is built with a [PHP] based PSR complaint framework [Biurad], a hig
 
 ## 🔰 Introduction
 
-This project was is designed with [Biurad] [PHP] framework to provide modern and rapid development to our project, focusing on `Separation of Concerns`, and not a strict complaint framework rule (eg: MVC). With [Biurad] you enjoy maximum customization, and overall flexibility with no limitations. [Biurad] is fast, light, secure and flexible.
+This project is designed with [Biurad] [PHP] framework to provide modern and rapid development to our project, focusing on `Separation of Concerns`, and not a strict complaint framework rule (eg: MVC). With [Biurad] you enjoy maximum customization, and overall flexibility with no limitations. [Biurad] is fast, light, secure and flexible.
 
 ## 🔥 Features
 
