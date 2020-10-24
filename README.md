@@ -2,7 +2,7 @@
 
 This project is built with a [PHP] based PSR complaint framework [Biurad], a high performance framework with expressive, elegant syntax, and great security which was bootstrapped using [Composer].
 
-> :rocket: `master` is automatically deployed to [demo.biurad.studio]
+> :rocket: `master` is automatically deployed to [demo.biurad.studio](https://demo.biurad.studio)
 
 ## 🔰 Introduction
 
@@ -14,6 +14,8 @@ This project was is designed with [Biurad] [PHP] framework to provide modern and
 -   [Biurad PHP Framework](https://github.com/biurad/php-sdk).
 -   [A Full PSR Http Manager](https://github.com/biurad/http-galaxy).
 -   [High Performance Http Router](https://github.com/divineniiquaye/flight-routing).
+-   [High Performance Templating](https://github.com/biurad/php-templating).
+-   [Symfony Improved Events Dispatcher](https://github.com/biurad/php-events-bus).
 -   [Nette Dependency Injection Container](https://github.com/nette/di).
 -   [Multi Level Caching with Doctrine Cache](https://github.com/biurad/php-cache).
 -   Managed servers:
@@ -26,7 +28,7 @@ This project was is designed with [Biurad] [PHP] framework to provide modern and
 
 ## 📦 Getting Started & Installation
 
-For getting started with this project or contributing, you have to follow the below procedure. First navigate to the main directory. Then run below command for getting started with specific part.
+For getting started with this project or contributing, you have to follow the below procedure. First navigate to a main directory. Then run below command on terminal for getting started.
 
 ```sh
 git clone https://github.com/biurad/php-framework.git
@@ -41,7 +43,7 @@ OR
 composer create-project biurad/php-framework my_project
 ```
 
-Runs the app in the development mode.<br />
+To run the app in the development mode.<br />
 Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
 
 ```sh
