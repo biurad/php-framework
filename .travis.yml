@@ -22,7 +22,6 @@ jobs:
     fast_finish: true
     include:
         # Run tests with the dependencies from composer.lock
-        - php: 7.2
         - php: 7.3
         - php: 7.4
 
