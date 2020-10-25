@@ -31,11 +31,4 @@ class CommandTest extends TestCase
         $command = $this->getCommand(AboutCommand::class);
         $this->assertEquals('about', $command->getName());
     }
-
-    public function testCommandErrorStatus(): void
-    {
-        $command = $this->runCommandObject(new AboutCommand());
-        $this->assertIsInt($command->getStatusCode());
-        $this->assertEquals(1, $command->getStatusCode());
-    }
 }

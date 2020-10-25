@@ -21,7 +21,6 @@ use Biurad\Framework\Router;
 use Biurad\Http\ServerRequest;
 use Biurad\Http\Traits\ServerRequestDecoratorTrait;
 use Flight\Routing\RouteHandler;
-use Flight\Routing\RoutePipeline;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\UriInterface;
@@ -30,9 +29,6 @@ trait InteractsWithHttp
 {
     /** @var Router */
     protected $router;
-
-    /** @var RoutePipeline */
-    protected $pipeline;
 
     /**
      * This helper method abstracts the boilerplate code needed to test the
@@ -65,7 +61,7 @@ trait InteractsWithHttp
         array $headers = [],
         array $cookies = []
     ): ResponseInterface {
-        return $this->pipeline->process($this->request($uri, $method, $query, $headers, $cookies), $this->router);
+        return $this->router->handle($this->request($uri, $method, $query, $headers, $cookies));
     }
 
     public function runRouteWithAttributes(
@@ -80,7 +76,7 @@ trait InteractsWithHttp
             $request = $request->withAttribute($key, $value);
         }
 
-        return $this->pipeline->process($request, $this->router);
+        return $this->router->handle($request, $this->router);
     }
 
     /**
@@ -105,7 +101,6 @@ trait InteractsWithHttp
     protected function setUpRouter(): void
     {
         $this->router = $this->app->get(Router::class);
-        $this->pipeline = $this->app->get(RoutePipeline::class);
     }
 
     protected function fetchCookies(array $header): array

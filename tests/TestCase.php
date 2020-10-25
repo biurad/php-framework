@@ -18,7 +18,7 @@ declare(strict_types=1);
 namespace App\Tests;
 
 use App\Kernel;
-use BiuradPHP\DependencyInjection\Interfaces\FactoryInterface;
+use Biurad\Framework\Container;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
@@ -47,7 +47,7 @@ abstract class TestCase extends BaseTestCase
         self::$booted = false;
     }
 
-    protected function makeApp(): FactoryInterface
+    protected function makeApp(): Container
     {
         return Kernel::boot(
             [

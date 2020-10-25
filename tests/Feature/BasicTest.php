@@ -18,7 +18,6 @@ declare(strict_types=1);
 namespace App\Tests\Feature;
 
 use App\Tests\TestCase;
-use Flight\Routing\Exceptions\RouteNotFoundException;
 use Flight\Routing\Route;
 use Generator;
 use Psr\Http\Server\RequestHandlerInterface;
@@ -51,16 +50,6 @@ class BasicTest extends TestCase
             $response->getStatusCode(),
             \sprintf('The %s public URL loads correctly.', $uri)
         );
-    }
-
-    public function testRouteNotFoundError(): void
-    {
-        $this->expectException(RouteNotFoundException::class);
-        $this->expectErrorMessage(
-            'Unable to find the controller for path "not-found". The route is wrongly configured.'
-        );
-
-        $this->runRoute('not-found');
     }
 
     public function getPublicUrls(): ?Generator
