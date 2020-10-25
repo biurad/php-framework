@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b243ae48ecdd2b600983466f16ee6b40",
+    "content-hash": "692c2256e33ac534433150b2f1b7362e",
     "packages": [
         {
             "name": "biurad/cache",
@@ -531,12 +531,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/divineniiquaye/flight-routing.git",
-                "reference": "940219a47825a2bb9aa278ac051655cf16bd88dc"
+                "reference": "6831931cb5d1ca8d392156ccf5ddd1440aa681ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/divineniiquaye/flight-routing/zipball/940219a47825a2bb9aa278ac051655cf16bd88dc",
-                "reference": "940219a47825a2bb9aa278ac051655cf16bd88dc",
+                "url": "https://api.github.com/repos/divineniiquaye/flight-routing/zipball/6831931cb5d1ca8d392156ccf5ddd1440aa681ee",
+                "reference": "6831931cb5d1ca8d392156ccf5ddd1440aa681ee",
                 "shasum": ""
             },
             "require": {
@@ -617,7 +617,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2020-10-15T02:28:12+00:00"
+            "time": "2020-10-25T04:28:43+00:00"
         },
         {
             "name": "divineniiquaye/php-invoker",
@@ -6109,7 +6109,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.2.5",
+        "php": "^7.3 || ^8.0",
         "ext-dom": "*",
         "ext-json": "*",
         "ext-libxml": "*",
