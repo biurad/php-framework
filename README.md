@@ -40,7 +40,7 @@ composer install
 OR
 
 ```sh
-composer create-project biurad/php-framework my_project
+composer create-project biurad/framework my_project
 ```
 
 To run the app in the development mode.<br />
