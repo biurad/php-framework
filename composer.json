@@ -30,7 +30,7 @@
         "sort-packages": true
     },
     "require": {
-        "php": ">=7.2.5",
+        "php": "^7.3 || ^8.0",
         "ext-dom": "*",
         "ext-json": "*",
         "ext-libxml": "*",
@@ -65,7 +65,7 @@
             "@auto-scripts"
         ],
         "serve": "@php biurad server:start",
-        "test": "@php ./vendor/bin/phpunit --colors=always --do-not-cache-result"
+        "test": "\"./vendor/bin/phpunit\""
     },
     "minimum-stability": "dev",
     "prefer-stable": true

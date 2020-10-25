@@ -31,4 +31,8 @@
             <directory suffix=".php">app</directory>
         </whitelist>
     </filter>
+
+    <php>
+        <env name="PHPUNIT_TESTING" value="true" />
+    </php>
 </phpunit>
