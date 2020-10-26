@@ -13,18 +13,19 @@ env:
         - ACTION="install"
         - BIURAD_CONSOLE="no"
 
-matrix:
+# Defines all jobs which Travis will run in parallel. For each PHP version we support we will run one job.
+jobs:
     # With fast finishing enabled, Travis CI will mark your build as finished as soon as one of two
     # conditions are met: The only remaining jobs are allowed to fail, or a job has already failed. In
     # these cases, the status of the build can already be determined, so there’s no need to wait around
     # until the other jobs finish.
     fast_finish: true
 
+    # Allow fail on 7.2 and 8 so we can fix issues found
     allow_failures:
+        - php: 7.2
         - php: nightly
 
-# Defines all jobs which Travis will run in parallel. For each PHP version we support we will run one job.
-jobs:
     include:
         # Run tests with the dependencies from composer.lock
         - php: 7.3
