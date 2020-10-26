@@ -2,7 +2,7 @@
 
 This project is built with a [PHP] based PSR complaint framework [Biurad], a high performance framework with expressive, elegant syntax, and great security which was bootstrapped using [Composer].
 
-> :rocket: `master` is automatically deployed to [demo.biurad.studio](https://demo.biurad.studio):  [![Build status](https://dev.azure.com/biurad/Biurad%20PHP%20Framework/_apis/build/status/Azure%20Deployment%20-%20CI)](https://dev.azure.com/biurad/Biurad%20PHP%20Framework/_build/latest?definitionId=3)
+> :rocket: `master` is automatically deployed to [demo.biurad.studio](https://demo.biurad.studio):  [![Build status](https://dev.azure.com/biurad/Biurad%20PHP%20Framework/_apis/build/status/Azure%20Deployment%20-%20CI)](https://dev.azure.com/biurad/Biurad%20PHP%20Framework/_build/latest?definitionId=4)
 
 ## 🔰 Introduction
 
