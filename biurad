@@ -21,9 +21,10 @@ if (!file_exists(__DIR__ . '/vendor/autoload.php') && function_exists('system'))
     // check for global composer install
     $path = stripos(PHP_OS, 'win') === 0 ? (shell_exec('composer info') !== null ? 'composer' : '') : trim(shell_exec('command -v composer'));
 
-    // fall back to grav bundled composer
+    // fallback to download composer.phar
     if (!$path || !preg_match('/(composer|composer\.phar)$/', $path)) {
-        throw new RuntimeException('Composer not found, please do run \'composer install\' to use this application');
+        shell_exec('curl -s https://getcomposer.org/installer | php');
+        $path = 'php composer.phar';
     }
 
     echo "Preparing to install vendor dependencies...\n\n";
