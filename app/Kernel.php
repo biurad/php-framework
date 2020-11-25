@@ -25,16 +25,16 @@ class Kernel extends AppKernel
     /**
      * {@inheritdoc}
      */
-     public static function boot(Directory $directories, bool $handleErrors = true, bool $return = false)
-     {
-         return self::initializeApp($directories, $handleErrors, $return);
-     }
+    public static function boot(Directory $directories, bool $handleErrors = true, bool $return = false)
+    {
+        return self::initializeApp($directories, $handleErrors, $return);
+    }
 
-     /**
-      * {@inheritdoc}
-      */
-     protected static function initializeEnv(string $envFile): void
-     {
+    /**
+     * {@inheritdoc}
+     */
+    protected static function initializeEnv(string $envFile): void
+    {
         //
-     }
+    }
 }
