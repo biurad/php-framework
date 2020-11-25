@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace App;
 
+use Biurad\Framework\Directory;
 use Biurad\Framework\Kernel as AppKernel;
 
 class Kernel extends AppKernel
@@ -24,8 +25,16 @@ class Kernel extends AppKernel
     /**
      * {@inheritdoc}
      */
-    public static function boot(array $directories, bool $handleErrors = true, bool $return = false)
-    {
-        return parent::boot($directories, $handleErrors, $return);
-    }
+     public static function boot(Directory $directories, bool $handleErrors = true, bool $return = false)
+     {
+         return self::initializeApp($directories, $handleErrors, $return);
+     }
+
+     /**
+      * {@inheritdoc}
+      */
+     protected static function initializeEnv(string $envFile): void
+     {
+        //
+     }
 }

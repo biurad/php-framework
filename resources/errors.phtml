@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="noindex" />
-    <title>🐘 We Run Into An Error </title>
+    <title>🐘 We Run Into An Error</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <style type="text/css">
@@ -75,11 +75,11 @@
 
 <body>
     <div id="prod-error">
-        <h1>🐘 Opps... <?php echo $reason; ?></h1>
-        <p><?php echo $message; ?></p> <br />
+        <h1>🐘 Opps... We Run Into An Error</h1>
+        <p><?php echo $e->getMessage(); ?></p> <br />
 
         <h4>Please check entered address and try again</h4>
-        <h6>Error Code: <?php echo $code; ?></h6>
+        <h6>Error Code: <?php echo $e->getCode(); ?></h6>
     </div>
 </body>
 

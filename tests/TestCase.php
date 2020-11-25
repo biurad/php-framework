@@ -18,7 +18,8 @@ declare(strict_types=1);
 namespace App\Tests;
 
 use App\Kernel;
-use Biurad\Framework\Container;
+use Biurad\DependencyInjection\Container;
+use Biurad\Framework\Directory;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
@@ -49,15 +50,14 @@ abstract class TestCase extends BaseTestCase
 
     protected function makeApp(): Container
     {
-        return Kernel::boot(
-            [
-                'root'       => \dirname(__DIR__),
-                'configDir'  => 'config',
-                'tempDir'    => 'var',
-            ],
-            true,
-            true
-        );
+        // Directories needed to boot the application
+        $directories = new Directory([
+            'root'       => \dirname(__DIR__),
+            'configDir'  => 'config',
+            'tempDir'    => 'var',
+        ]);
+
+        return Kernel::boot($directories, true, true); // Boot Application ...
     }
 
     /**
@@ -66,7 +66,7 @@ abstract class TestCase extends BaseTestCase
     protected function setUpTraits(): array
     {
         $results = [];
-        $class = static::class;
+        $class   = static::class;
 
         foreach (\array_reverse(\class_parents($class)) + [$class => $class] as $class) {
             $results += $this->addTrait($class);
