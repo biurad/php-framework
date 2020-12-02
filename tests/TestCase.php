@@ -57,7 +57,7 @@ abstract class TestCase extends BaseTestCase
             'tempDir'    => 'var',
         ]);
 
-        return Kernel::boot($directories, true, true); // Boot Application ...
+        return Kernel::boot($directories, true); // Boot Application ...
     }
 
     /**

@@ -17,10 +17,10 @@ declare(strict_types=1);
 
 namespace App\Tests\Traits;
 
-use Biurad\Framework\Router;
 use Biurad\Http\ServerRequest;
 use Biurad\Http\Traits\ServerRequestDecoratorTrait;
 use Flight\Routing\RouteHandler;
+use Flight\Routing\Router;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\UriInterface;

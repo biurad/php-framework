@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+use Biurad\Framework\Interfaces\KernelInterface;
+use Biurad\Http\Factories\GuzzleHttpPsr7Factory;
+
 /*
  * This file is part of Biurad opensource projects.
  *
@@ -68,4 +71,6 @@ $directories = new Biurad\Framework\Directory([
     'tempDir'    => 'var',
 ]);
 
-App\Kernel::boot($directories); // Boot Application ...
+App\Kernel::boot($directories)
+    ->get(KernelInterface::class)
+        ->serve(GuzzleHttpPsr7Factory::fromGlobalRequest());

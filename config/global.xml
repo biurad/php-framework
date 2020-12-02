@@ -4,6 +4,9 @@
     <!-- Parameters defined are called using "%" around it in any config you create. -->
     <!-- <parameters></parameters> -->
 
+    <!-- Fetch annotations from php classes-->
+    <annotation resources="%appDir%" />
+
     <!-- The main framework config-->
     <framework cache_driver="file://%tempDir%/cache/nette.caches" />
 
@@ -65,11 +68,8 @@
         <middlewares>Biurad\Http\Middlewares\MethodOverrideMiddleware</middlewares>
         <middlewares>Laminas\Stratigility\Middleware\OriginalMessages</middlewares>
 
-        <!-- Fetch routes from php files or classes as annotation-->
-        <resources>%appDir%</resources>
-
         <!-- Shortcut routes -->
-        <shortcut name="homepage" path="/" controller="phpinfo" />
+        <shortcut name="homepage" path="/" controller="phpinfo" arguments="[what => -1]" />
     </routing>
 
     <!-- League Filesystem COnfiguration -->
