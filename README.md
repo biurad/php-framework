@@ -2,7 +2,7 @@
 
 This project is built with a [PHP] based PSR complaint framework [Biurad], a high performance framework with expressive, elegant syntax, and great security which was bootstrapped using [Composer].
 
-> :rocket: `master` is automatically deployed to [demo.biurad.studio](https://demo.biurad.studio): [![Heroku](https://heroku-badge.herokuapp.com/?app=biurad-framework)]
+> :rocket: `master` is automatically deployed to [demo.biurad.studio](https://demo.biurad.studio): [![Heroku](https://heroku-badge.herokuapp.com/?app=biurad-framework)](https://demo.biurad.studio)
 
 ## 🔰 Introduction
 
