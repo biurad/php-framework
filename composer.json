@@ -59,7 +59,7 @@
     "scripts": {
         "auto-scripts": {
             "app:env": "@php -r \"file_exists('.env') || copy('env.example', '.env');\"",
-            "app:clean": "@php biurad app:clean --logs --ansi"
+            "app:clean": "@php biurad cache:clean --logs --ansi"
         },
         "post-create-project-cmd": [
             "@auto-scripts"
