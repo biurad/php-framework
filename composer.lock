@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/biurad/php-dependency-injection.git",
-                "reference": "b18ae0a82003cdf8afbb2c0c7ba67d184045dca0"
+                "reference": "059934e3c18a29c53eac889909faf72b7e7d7aff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/biurad/php-dependency-injection/zipball/b18ae0a82003cdf8afbb2c0c7ba67d184045dca0",
-                "reference": "b18ae0a82003cdf8afbb2c0c7ba67d184045dca0",
+                "url": "https://api.github.com/repos/biurad/php-dependency-injection/zipball/059934e3c18a29c53eac889909faf72b7e7d7aff",
+                "reference": "059934e3c18a29c53eac889909faf72b7e7d7aff",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2020-11-24T02:31:48+00:00"
+            "time": "2020-12-10T05:11:59+00:00"
         },
         {
             "name": "biurad/http-galaxy",
@@ -92,12 +92,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/biurad/php-http-galaxy.git",
-                "reference": "4621efbc590827742111d64b8efe9dd7c1cabb6a"
+                "reference": "44fe0ff8433de54a1c576f8b96554383568a55ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/biurad/php-http-galaxy/zipball/4621efbc590827742111d64b8efe9dd7c1cabb6a",
-                "reference": "4621efbc590827742111d64b8efe9dd7c1cabb6a",
+                "url": "https://api.github.com/repos/biurad/php-http-galaxy/zipball/44fe0ff8433de54a1c576f8b96554383568a55ae",
+                "reference": "44fe0ff8433de54a1c576f8b96554383568a55ae",
                 "shasum": ""
             },
             "require": {
@@ -181,7 +181,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2020-11-30T11:38:01+00:00"
+            "time": "2020-12-10T04:10:24+00:00"
         },
         {
             "name": "biurad/php-sdk",
@@ -189,12 +189,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/biurad/php-sdk.git",
-                "reference": "ed7269613b86135a14bb077c2416067b821865e5"
+                "reference": "12b8fd1b75cd83e513ee00e82e5b6ca108e1b36e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/biurad/php-sdk/zipball/ed7269613b86135a14bb077c2416067b821865e5",
-                "reference": "ed7269613b86135a14bb077c2416067b821865e5",
+                "url": "https://api.github.com/repos/biurad/php-sdk/zipball/12b8fd1b75cd83e513ee00e82e5b6ca108e1b36e",
+                "reference": "12b8fd1b75cd83e513ee00e82e5b6ca108e1b36e",
                 "shasum": ""
             },
             "require": {
@@ -284,7 +284,7 @@
                 "rss": "https://github.com/biurad/php-sdk/releases.atom",
                 "source": "https://github.com/biurad/php-sdk"
             },
-            "time": "2020-12-05T21:10:43+00:00"
+            "time": "2020-12-10T18:50:34+00:00"
         },
         {
             "name": "contributte/di",
