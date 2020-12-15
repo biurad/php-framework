@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/biurad/php-dependency-injection.git",
-                "reference": "059934e3c18a29c53eac889909faf72b7e7d7aff"
+                "reference": "ed990b37366b659bdad7f0bbf4d3ee031099830e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/biurad/php-dependency-injection/zipball/059934e3c18a29c53eac889909faf72b7e7d7aff",
-                "reference": "059934e3c18a29c53eac889909faf72b7e7d7aff",
+                "url": "https://api.github.com/repos/biurad/php-dependency-injection/zipball/ed990b37366b659bdad7f0bbf4d3ee031099830e",
+                "reference": "ed990b37366b659bdad7f0bbf4d3ee031099830e",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2020-12-10T05:11:59+00:00"
+            "time": "2020-12-14T22:31:14+00:00"
         },
         {
             "name": "biurad/http-galaxy",
@@ -92,12 +92,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/biurad/php-http-galaxy.git",
-                "reference": "44fe0ff8433de54a1c576f8b96554383568a55ae"
+                "reference": "7162df1687fae57703ed24e77823bec2c77bf1f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/biurad/php-http-galaxy/zipball/44fe0ff8433de54a1c576f8b96554383568a55ae",
-                "reference": "44fe0ff8433de54a1c576f8b96554383568a55ae",
+                "url": "https://api.github.com/repos/biurad/php-http-galaxy/zipball/7162df1687fae57703ed24e77823bec2c77bf1f4",
+                "reference": "7162df1687fae57703ed24e77823bec2c77bf1f4",
                 "shasum": ""
             },
             "require": {
@@ -111,11 +111,11 @@
                 "psr/http-message": "^1.0"
             },
             "require-dev": {
-                "composer/package-versions-deprecated": "^1.8",
-                "phpunit/phpunit": "^8.5 || ^9.0",
+                "composer/package-versions-deprecated": "^1.11",
+                "phpunit/phpunit": "^8.5 || ^9.5",
                 "psr/cache": "^1.0",
                 "squizlabs/php_codesniffer": "^3.5",
-                "vimeo/psalm": "^3.11 || ^4.0"
+                "vimeo/psalm": "^3.11 || ^4.3"
             },
             "suggest": {
                 "biurad/cache": "To use the Cache Session Handler",
@@ -181,7 +181,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2020-12-10T04:10:24+00:00"
+            "time": "2020-12-15T06:50:51+00:00"
         },
         {
             "name": "biurad/php-sdk",
@@ -189,12 +189,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/biurad/php-sdk.git",
-                "reference": "12b8fd1b75cd83e513ee00e82e5b6ca108e1b36e"
+                "reference": "0ae64f27b25a196d4d2f1a197ec6ad64f0e58676"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/biurad/php-sdk/zipball/12b8fd1b75cd83e513ee00e82e5b6ca108e1b36e",
-                "reference": "12b8fd1b75cd83e513ee00e82e5b6ca108e1b36e",
+                "url": "https://api.github.com/repos/biurad/php-sdk/zipball/0ae64f27b25a196d4d2f1a197ec6ad64f0e58676",
+                "reference": "0ae64f27b25a196d4d2f1a197ec6ad64f0e58676",
                 "shasum": ""
             },
             "require": {
@@ -284,7 +284,7 @@
                 "rss": "https://github.com/biurad/php-sdk/releases.atom",
                 "source": "https://github.com/biurad/php-sdk"
             },
-            "time": "2020-12-10T18:50:34+00:00"
+            "time": "2020-12-15T07:18:50+00:00"
         },
         {
             "name": "contributte/di",
@@ -453,16 +453,16 @@
         },
         {
             "name": "divineniiquaye/php-invoker",
-            "version": "v0.9.3",
+            "version": "v0.9.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/divineniiquaye/php-invoker.git",
-                "reference": "09c0e250b5bd662d9dfc33e7c2dc74c64222178a"
+                "reference": "4946a99e4f5dfe2091203f437574d2a30bb38414"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/divineniiquaye/php-invoker/zipball/09c0e250b5bd662d9dfc33e7c2dc74c64222178a",
-                "reference": "09c0e250b5bd662d9dfc33e7c2dc74c64222178a",
+                "url": "https://api.github.com/repos/divineniiquaye/php-invoker/zipball/4946a99e4f5dfe2091203f437574d2a30bb38414",
+                "reference": "4946a99e4f5dfe2091203f437574d2a30bb38414",
                 "shasum": ""
             },
             "require": {
@@ -470,10 +470,10 @@
                 "psr/container": "^1.0"
             },
             "require-dev": {
-                "composer/package-versions-deprecated": "^1.8",
+                "composer/package-versions-deprecated": "^1.11",
                 "phpstan/phpstan": "^0.12",
                 "phpstan/phpstan-strict-rules": "^0.12",
-                "phpunit/phpunit": "^8.5 || ^9.0",
+                "phpunit/phpunit": "^8.5 || ^9.5",
                 "squizlabs/php_codesniffer": "^3.5",
                 "vimeo/psalm": "^3.11"
             },
@@ -521,7 +521,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2020-10-31T12:07:27+00:00"
+            "time": "2020-12-15T05:49:56+00:00"
         },
         {
             "name": "fig/http-message-util",
@@ -3346,16 +3346,16 @@
         },
         {
             "name": "phar-io/version",
-            "version": "3.0.3",
+            "version": "3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phar-io/version.git",
-                "reference": "726c026815142e4f8677b7cb7f2249c9ffb7ecae"
+                "reference": "e4782611070e50613683d2b9a57730e9a3ba5451"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phar-io/version/zipball/726c026815142e4f8677b7cb7f2249c9ffb7ecae",
-                "reference": "726c026815142e4f8677b7cb7f2249c9ffb7ecae",
+                "url": "https://api.github.com/repos/phar-io/version/zipball/e4782611070e50613683d2b9a57730e9a3ba5451",
+                "reference": "e4782611070e50613683d2b9a57730e9a3ba5451",
                 "shasum": ""
             },
             "require": {
@@ -3391,9 +3391,9 @@
             "description": "Library for handling version information and constraints",
             "support": {
                 "issues": "https://github.com/phar-io/version/issues",
-                "source": "https://github.com/phar-io/version/tree/3.0.3"
+                "source": "https://github.com/phar-io/version/tree/3.0.4"
             },
-            "time": "2020-11-30T09:21:21+00:00"
+            "time": "2020-12-13T23:18:30+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
