@@ -18,9 +18,9 @@ declare(strict_types=1);
 namespace App\Tests\Feature;
 
 use App\Tests\TestCase;
+use Flight\Routing\Interfaces\RouteInterface;
 use Flight\Routing\Route;
 use Generator;
-use Psr\Http\Server\RequestHandlerInterface;
 
 class BasicTest extends TestCase
 {
@@ -41,7 +41,7 @@ class BasicTest extends TestCase
         $matched  = $this->matchRoute(\ltrim($uri, '/'));
         $response = $this->runRoute(\ltrim($uri, '/'));
 
-        $this->assertInstanceOf(RequestHandlerInterface::class, $matched);
+        $this->assertInstanceOf(RouteInterface::class, $matched);
 
         $this->assertIsString((string) $response->getBody());
         $this->assertEquals('text/plain; charset=utf-8', $response->getHeaderLine('Content-Type'));

@@ -19,7 +19,7 @@ namespace App\Tests\Traits;
 
 use Biurad\Http\ServerRequest;
 use Biurad\Http\Traits\ServerRequestDecoratorTrait;
-use Flight\Routing\RouteHandler;
+use Flight\Routing\Interfaces\RouteInterface;
 use Flight\Routing\Router;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -42,7 +42,7 @@ trait InteractsWithHttp
         array $query = [],
         array $headers = [],
         array $cookies = []
-    ): RouteHandler {
+    ): RouteInterface {
         $request = $this->request($uri, $method, $query, $headers, $cookies);
 
         return $this->router->match($request);

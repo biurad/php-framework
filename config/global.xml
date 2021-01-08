@@ -18,10 +18,9 @@
         <!-- An associative array of the HTTP headers added before making the request and response. -->
         <headers>
             <!-- This determines what cross-origin operations may execute in web browsers. -->
-            <cors allow_origin="*" allow_headers="*" allow_credentials="true" max_age="0">
-                <!-- Add allowed paths to cors-->
+            <!-- <cors allow_origin="*" allow_headers="*" allow_credentials="true" max_age="0">
                 <allow_paths value="*" />
-            </cors>
+            </cors> -->
 
             <!-- Automatically add headers to every request passed to PHP -->
             <!-- <request Request-Header="A Value" /> -->
