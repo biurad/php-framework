@@ -35,6 +35,7 @@
         "ext-json": "*",
         "ext-libxml": "*",
         "ext-mbstring": "*",
+        "ext-blackfire": "*",
         "biurad/php-sdk": "^1.x-dev"
     },
     "require-dev": {
