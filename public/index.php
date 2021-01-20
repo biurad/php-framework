@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
-use Biurad\Framework\Interfaces\KernelInterface;
+use Biurad\Framework\Kernels\KernelInterface;
 use Biurad\Http\Factories\GuzzleHttpPsr7Factory;
+use Psr\Container\ContainerInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 /*
  * This file is part of Biurad opensource projects.
@@ -71,6 +73,16 @@ $directories = new Biurad\Framework\Directory([
     'tempDir'    => 'var',
 ]);
 
-App\Kernel::boot($directories)
-    ->get(KernelInterface::class)
-        ->serve(GuzzleHttpPsr7Factory::fromGlobalRequest());
+// PSR-11 Container instance
+$container = App\Kernel::boot($directories);
+
+// PSR-7 ServerRequest instance
+$serverRequest = $container->runScope(
+    ['request' => GuzzleHttpPsr7Factory::fromGlobalRequest()],
+    static function (ContainerInterface $container) {
+        return $container->get(ServerRequestInterface::class);
+    }
+);
+
+// A kernel for dispatching application
+$container->get(KernelInterface::class)->serve($serverRequest);
