@@ -67,11 +67,14 @@
     </http>
 
     <!-- Flight Routing Configutation -->
-    <routing namespace="App\">
-        <!-- Middlewares runs from buttom to top. Last in, first out. -->
+    <routing>
+        <!-- Middlewares runs from top to buttom. first in, last out. -->
         <middlewares>Flight\Routing\Middlewares\CacheControlMiddleware</middlewares>
         <middlewares>Biurad\Http\Middlewares\MethodOverrideMiddleware</middlewares>
         <middlewares>Laminas\Stratigility\Middleware\OriginalMessages</middlewares>
+
+        <!-- Options for Router -->
+        <options namespace="App\" cache_dir="null" />
 
         <!-- Shortcut routes -->
         <shortcut name="homepage" path="/" controller="phpinfo" arguments="[what => -1]" />
