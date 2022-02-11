@@ -4,92 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "48a09fede3c5e3da8a2539cbf71090fa",
+    "content-hash": "941a54e18221d013aace89fb57ec939a",
     "packages": [
-        {
-            "name": "biurad/annotations",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/biurad/php-annotations.git",
-                "reference": "f1e462c7bf10083eeb50eeccfd06a6057fcbb9c7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/biurad/php-annotations/zipball/f1e462c7bf10083eeb50eeccfd06a6057fcbb9c7",
-                "reference": "f1e462c7bf10083eeb50eeccfd06a6057fcbb9c7",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.2 || ^8.0",
-                "symfony/polyfill-php80": "^1.22"
-            },
-            "require-dev": {
-                "composer/package-versions-deprecated": "^1.11",
-                "doctrine/annotations": "^1.11",
-                "phpstan/phpstan": "^0.12",
-                "phpstan/phpstan-strict-rules": "^0.12",
-                "phpunit/phpunit": "^8.5 || ^9.5",
-                "spiral/attributes": "dev-master",
-                "squizlabs/php_codesniffer": "^3.6",
-                "vimeo/psalm": "^4.7"
-            },
-            "suggest": {
-                "doctrine/annotations": "^1.8 for Doctrine metadata driver support",
-                "spiral/attributes": "For loading doctrine and/or PHP 8 attributes for PHP 7"
-            },
-            "default-branch": true,
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Biurad\\Annotations\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Divine Niiquaye Ibok",
-                    "email": "divineibok@gmail.com"
-                },
-                {
-                    "name": "Biurad Lap Community",
-                    "homepage": "https://biurad.com/projects/contributors"
-                }
-            ],
-            "description": "A library that provides a Simple, Lazy, Fast & Lightweight Annotation for php classes",
-            "homepage": "https://www.biurad.com",
-            "keywords": [
-                "annotations",
-                "biurad",
-                "php",
-                "phpdoc"
-            ],
-            "support": {
-                "docs": "https://docs.biurad.com/php-annotations/",
-                "issues": "https://github.com/biurad/php-annotations/issues",
-                "rss": "https://github.com/biurad/php-annotations/releases.atom",
-                "source": "https://github.com/biurad/php-annotations"
-            },
-            "funding": [
-                {
-                    "url": "https://biurad.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.patreon.com/biurad",
-                    "type": "patreon"
-                }
-            ],
-            "time": "2021-08-30T05:32:46+00:00"
-        },
         {
             "name": "biurad/http-galaxy",
             "version": "dev-master",
@@ -288,12 +204,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/divineniiquaye/php-rade.git",
-                "reference": "c16eaf7dc10e1a53d49adfbe9ab4db340420e283"
+                "reference": "bbaaef4c8642b3057ea61309055e92bf672c38a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/divineniiquaye/php-rade/zipball/c16eaf7dc10e1a53d49adfbe9ab4db340420e283",
-                "reference": "c16eaf7dc10e1a53d49adfbe9ab4db340420e283",
+                "url": "https://api.github.com/repos/divineniiquaye/php-rade/zipball/bbaaef4c8642b3057ea61309055e92bf672c38a4",
+                "reference": "bbaaef4c8642b3057ea61309055e92bf672c38a4",
                 "shasum": ""
             },
             "require": {
@@ -396,7 +312,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-02-08T11:33:53+00:00"
+            "time": "2022-02-11T21:18:23+00:00"
         },
         {
             "name": "divineniiquaye/rade-di",
@@ -404,12 +320,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/divineniiquaye/rade-di.git",
-                "reference": "431e97104b762c7ed9e1400f27f61e6dba49ee31"
+                "reference": "ad3b9263936abfb38ef724af839c804067d0dc82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/divineniiquaye/rade-di/zipball/431e97104b762c7ed9e1400f27f61e6dba49ee31",
-                "reference": "431e97104b762c7ed9e1400f27f61e6dba49ee31",
+                "url": "https://api.github.com/repos/divineniiquaye/rade-di/zipball/ad3b9263936abfb38ef724af839c804067d0dc82",
+                "reference": "ad3b9263936abfb38ef724af839c804067d0dc82",
                 "shasum": ""
             },
             "require": {
@@ -487,7 +403,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-02-08T11:31:36+00:00"
+            "time": "2022-02-11T20:46:49+00:00"
         },
         {
             "name": "fig/http-message-util",

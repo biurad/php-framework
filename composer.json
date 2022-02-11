@@ -31,7 +31,6 @@
     },
     "require": {
         "php": "^8.0",
-        "biurad/annotations": "1.*",
         "divineniiquaye/php-rade": "2.*",
         "nikic/php-parser": "^4.13",
         "symfony/cache": "^6.0",
@@ -64,8 +63,9 @@
             "@php -r \"file_exists('.env') || copy('env.example', '.env');\""
         ],
         "post-autoload-dump": [
-            "@php -r \"\\array_map(fn($v)=>@rmdir($v)||@unlink($v),iterator_to_array(new FilesystemIterator(__DIR__.'/var/cache',FilesystemIterator::CURRENT_AS_PATHNAME|FilesystemIterator::SKIP_DOTS)));\""
+            "@clean"
         ],
+        "clean": "@php -r \"\\array_map(fn($v)=>@rmdir($v)||@unlink($v),iterator_to_array(new FilesystemIterator(__DIR__.'/var/cache',FilesystemIterator::CURRENT_AS_PATHNAME|FilesystemIterator::SKIP_DOTS)));\"",
         "serve": "@php rade serve",
         "test": "\"./vendor/bin/phpunit\""
     },
