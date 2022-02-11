@@ -1,0 +1,40 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * --------------------------------------------------------------------------
+ * Launch ConsoleApp                                                        |
+ * --------------------------------------------------------------------------.
+ *
+ * Let's call the Console-App from index.php file in the public directory
+ */
+if (!\in_array(\PHP_SAPI, ['cli', 'phpdbg', 'embed'], true)) {
+    echo 'Warning: The console should be invoked via the CLI version of PHP, not the ' . \PHP_SAPI . ' SAPI' . \PHP_EOL;
+}
+
+if (!\file_exists(__DIR__ . '/vendor/autoload.php') && \function_exists('system')) {
+    // Before we can even start, we need to run composer first
+    if (!\function_exists('shell_exec')) {
+        throw new RuntimeException('Please do run \'composer install\' to use this application');
+    }
+
+    // check for global composer install
+    $path = 0 === \stripos(\PHP_OS, 'win') ? (null !== \shell_exec('composer info') ? 'composer' : '') : \trim(\shell_exec('command -v composer'));
+
+    // fallback to download composer.phar
+    if (!$path || !\preg_match('/(composer|composer\.phar)$/', $path)) {
+        \shell_exec('curl -s https://getcomposer.org/installer | php');
+        $path = 'php composer.phar';
+    }
+
+    echo "Preparing to install vendor dependencies...\n\n";
+    echo \system($path . ' --no-interaction -o install');
+    echo "\n\n";
+}
+
+if (\version_compare($ver = \PHP_VERSION, $req = '7.2', '<')) {
+    exit(\sprintf("You are running PHP %s, but Biurad needs at least PHP %s to run.\n", $ver, $req));
+}
+
+// Let's intialise console application
+require __DIR__ . '/public/index.php';
