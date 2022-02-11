@@ -17,93 +17,31 @@ declare(strict_types=1);
 
 namespace App\Tests;
 
-use App\Kernel;
-use Biurad\DependencyInjection\Container;
-use Biurad\Framework\Directory;
 use PHPUnit\Framework\TestCase as BaseTestCase;
+use Rade\Application;
+use Rade\KernelInterface;
 
 abstract class TestCase extends BaseTestCase
 {
-    use Traits\InteractsWithConsole;
-    use Traits\InteractsWithHttp;
-
-    /** @var FactoryInterface */
-    protected $app;
-
-    protected static $booted = false;
-
-    protected function setUp(): void
-    {
-        $this->app    = $this->makeApp();
-        self::$booted = true;
-
-        $this->setUpTraits();
-    }
+    protected Application|KernelInterface|null $app = null;
 
     protected function tearDown(): void
     {
         parent::tearDown();
-
-        $this->app    = null;
-        self::$booted = false;
+        $this->app = null;
     }
 
-    protected function makeApp(): Container
+    protected function makeApp(bool $debug = true): Application
     {
-        // Directories needed to boot the application
-        $directories = new Directory([
-            'root'       => \dirname(__DIR__),
-            'configDir'  => 'config',
-            'tempDir'    => 'var',
-        ]);
-
-        return Kernel::boot($directories, true); // Boot Application ...
-    }
-
-    /**
-     * Boot the testing helper traits.
-     */
-    protected function setUpTraits(): array
-    {
-        $results = [];
-        $class   = static::class;
-
-        foreach (\array_reverse(\class_parents($class)) + [$class => $class] as $class) {
-            $results += $this->addTrait($class);
+        if (null !== $booted = $this->app) {
+            return $booted;
         }
 
-        $uses = \array_flip(\array_unique($results));
+        [$extensions, $config] = require __DIR__ . '/../resources/bootstrap.php';
+        $rade = new Application(debug: $debug);
+        $rade->loadExtensions($extensions, $config);
+        $rade->load(__DIR__ . '/../resources/services.php');
 
-        if (isset($uses[Traits\InteractsWithHttp::class])) {
-            $this->setUpRouter();
-        }
-
-        if (isset($uses[Traits\InteractsWithConsole::class])) {
-            $this->setUpConsole();
-        }
-
-        if (isset($uses[Traits\InteractsWithFaker::class])) {
-            $this->setUpFaker();
-        }
-
-        return $uses;
-    }
-
-    /**
-     * Returns all traits used by a trait and its traits.
-     *
-     * @param string $trait
-     *
-     * @return array<string,string>
-     */
-    private function addTrait(string $trait): array
-    {
-        $traits = \class_uses($trait);
-
-        foreach ($traits as $trait) {
-            $traits += $this->addTrait($trait);
-        }
-
-        return $traits;
+        return $this->app = $rade; // Boot Application ...
     }
 }

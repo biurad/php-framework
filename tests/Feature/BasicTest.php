@@ -18,12 +18,14 @@ declare(strict_types=1);
 namespace App\Tests\Feature;
 
 use App\Tests\TestCase;
-use Flight\Routing\Interfaces\RouteInterface;
+use App\Tests\Traits\InteractsWithHttp;
 use Flight\Routing\Route;
-use Generator;
+use Psr\Http\Message\ResponseInterface;
 
 class BasicTest extends TestCase
 {
+    use InteractsWithHttp;
+
     /**
      * PHPUnit's data providers allow to execute the same tests repeated times
      * using a different set of data each time.
@@ -32,18 +34,12 @@ class BasicTest extends TestCase
      */
     public function testRoutingActionWorks(string $uri, string $body): void
     {
-        $this->router->addRoute(
-            new Route('test', ['GET', 'HEAD'], $uri, function () use ($body) {
-                return $body;
-            })
-        );
+        $this->makeApp()->match($uri, Route::DEFAULT_METHODS, fn () => $body)->bind('test');
 
-        $matched  = $this->matchRoute(\ltrim($uri, '/'));
-        $response = $this->runRoute(\ltrim($uri, '/'));
+        $response = $this->makeApp()->handle($this->request($uri));
+        $this->assertInstanceOf(ResponseInterface::class, $response);
 
-        $this->assertInstanceOf(RouteInterface::class, $matched);
-
-        $this->assertIsString((string) $response->getBody());
+        $this->assertEquals($body, (string) $response->getBody());
         $this->assertEquals('text/plain; charset=utf-8', $response->getHeaderLine('Content-Type'));
         $this->assertEquals(
             200,
@@ -52,12 +48,12 @@ class BasicTest extends TestCase
         );
     }
 
-    public function getPublicUrls(): ?Generator
+    public function getPublicUrls(): \Generator
     {
         yield ['/site/hello', 'I ♥ Biurad PHP Framework'];
 
         yield ['/site/blog/', 'Welcome To A Blog HomePage'];
 
-        yield ['site/login', 'Welcome To Login Page'];
+        yield ['/site/login', 'Welcome To Login Page'];
     }
 }

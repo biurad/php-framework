@@ -17,46 +17,15 @@ declare(strict_types=1);
 
 namespace App\Tests\Traits;
 
-use Faker\Factory;
-
 trait InteractsWithFaker
 {
-    /**
-     * The Faker instance.
-     *
-     * @var \Faker\Generator
-     */
-    protected $faker;
-
-    /**
-     * Setup up the Faker instance.
-     */
-    protected function setUpFaker(): void
-    {
-        $this->faker = $this->makeFaker();
-    }
-
-    /**
-     * Get the default Faker instance for a given locale.
-     *
-     * @param string $locale
-     *
-     * @return \Faker\Generator
-     */
-    protected function faker($locale = null)
-    {
-        return null === $locale ? $this->faker : $this->makeFaker($locale);
-    }
+    protected ?\Faker\Generator $faker;
 
     /**
      * Create a Faker instance for the given locale.
-     *
-     * @param string $locale
-     *
-     * @return \Faker\Generator
      */
-    protected function makeFaker($locale = null)
+    protected function makeFaker(string $locale = null): \Faker\Generator
     {
-        return Factory::create($locale ?? Factory::DEFAULT_LOCALE);
+        return $this->faker ??= \Faker\Factory::create($locale ?? \Faker\Factory::DEFAULT_LOCALE);
     }
 }

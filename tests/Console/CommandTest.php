@@ -18,10 +18,13 @@ declare(strict_types=1);
 namespace App\Tests\Console;
 
 use App\Tests\TestCase;
-use Biurad\Framework\Commands\AboutCommand;
+use App\Tests\Traits\InteractsWithConsole;
+use Rade\Commands\AboutCommand;
 
 class CommandTest extends TestCase
 {
+    use InteractsWithConsole;
+
     public function testCommandActionWorks(): void
     {
         $status = $this->getCommandStatusCode(AboutCommand::class);

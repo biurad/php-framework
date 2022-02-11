@@ -25,9 +25,6 @@ use Symfony\Component\Console\Tester\CommandTester;
 
 trait InteractsWithConsole
 {
-    /** @var Application */
-    protected $console;
-
     /**
      * This helper method abstracts the boilerplate code needed to test the
      * execution of a command.
@@ -38,7 +35,7 @@ trait InteractsWithConsole
      *  - verbosity: Sets the output verbosity flag
      *  - capture_stderr_separately: Make output of stdOut and stdErr separately available
      *
-     * @param string $command   The cammand class
+     * @param string $command   The command class
      * @param array  $arguments All the arguments passed when executing the command
      * @param array  $options   An array of execution options
      */
@@ -49,8 +46,8 @@ trait InteractsWithConsole
         }
 
         // this uses container that allows you to fetch services.
-        $command = $this->app->get($command);
-        $command->setApplication($this->console);
+        $command = $this->makeApp()->get($command);
+        $command->setApplication($this->getConsole());
 
         $commandTester = new CommandTester($command);
         $commandTester->execute($arguments, $options);
@@ -60,7 +57,7 @@ trait InteractsWithConsole
 
     public function runCommandObject(Command $command, array $arguments = [], array $options = []): CommandTester
     {
-        $command->setApplication($this->console);
+        $command->setApplication($this->getConsole());
         $commandTester = new CommandTester($command);
         $commandTester->execute($arguments, $options);
 
@@ -69,24 +66,20 @@ trait InteractsWithConsole
 
     public function runCommandDebug(string $command, array $arguments = []): CommandTester
     {
-        $commandTester =  $this->runCommand(
+        return $this->runCommand(
             $command,
             $arguments,
             ['verbosity' => OutputInterface::VERBOSITY_DEBUG]
         );
-
-        return $commandTester;
     }
 
     public function runCommandVeryVerbose(string $command, array $arguments = []): CommandTester
     {
-        $commandTester = $this->runCommand(
+        return $this->runCommand(
             $command,
             $arguments,
             ['verbosity' => OutputInterface::VERBOSITY_VERY_VERBOSE]
         );
-
-        return $commandTester;
     }
 
     public function runCommandError(CommandTester $commandTester, bool $normalize = false): string
@@ -102,8 +95,8 @@ trait InteractsWithConsole
      */
     public function getCommand($command, array $arguments = [], array $options = []): Command
     {
-        $command = \is_object($command) ? $command : $this->app->get($command);
-        $command->setApplication($this->console);
+        $command = \is_object($command) ? $command : $this->makeApp()->get($command);
+        $command->setApplication($this->getConsole());
 
         $commandTester = new CommandTester($command);
         $commandTester->execute($arguments, $options);
@@ -121,8 +114,8 @@ trait InteractsWithConsole
     /**
      * Setup up the Router instance.
      */
-    protected function setUpConsole(): void
+    protected function getConsole(): Application
     {
-        $this->console = $this->app->get(Application::class);
+        return $this->makeApp()->get(Application::class);
     }
 }

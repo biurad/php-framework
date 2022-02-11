@@ -17,26 +17,19 @@ declare(strict_types=1);
 
 namespace App\Tests\Traits;
 
-use ReflectionClass;
-use ReflectionException;
-
 /**
- * Include functionality for accessing protected/private members and methods
+ * Include functionality for accessing protected/private members and methods.
  */
 trait ReflectionAccess
 {
     /**
      * Set a property for a class.
      *
-     * @param object|string $object
-     * @param string        $propertyName
-     * @param mixed         $propertyValue
-     *
-     * @throws ReflectionException
+     * @throws \ReflectionException
      */
-    protected static function setProperty($object, $propertyName, $propertyValue): void
+    protected static function setProperty(object|string $object, string $propertyName, mixed $propertyValue): void
     {
-        $reflection          = new ReflectionClass($object);
+        $reflection = new \ReflectionClass($object);
         $reflection_property = $reflection->getProperty($propertyName);
         $reflection_property->setAccessible(true);
         $reflection_property->setValue($object, $propertyValue);
@@ -45,16 +38,11 @@ trait ReflectionAccess
     /**
      * Get a class property's value.
      *
-     * @param object|string $object
-     * @param mixed         $propertyName
-     *
-     * @throws ReflectionException
-     *
-     * @return mixed
+     * @throws \ReflectionException
      */
-    protected static function getProperty($object, $propertyName)
+    protected static function getProperty(object|string $object, mixed $propertyName): mixed
     {
-        $reflection          = new ReflectionClass($object);
+        $reflection = new \ReflectionClass($object);
         $reflection_property = $reflection->getProperty($propertyName);
         $reflection_property->setAccessible(true);
 
@@ -64,17 +52,11 @@ trait ReflectionAccess
     /**
      * Invoke a class method with arguments.
      *
-     * @param object|string $object
-     * @param string        $methodName
-     * @param array         $arguments
-     *
-     * @throws ReflectionException
-     *
-     * @return mixed
+     * @throws \ReflectionException
      */
-    protected static function callMethod($object, $methodName, $arguments = [])
+    protected static function callMethod(object|string $object, string $methodName, array $arguments = []): mixed
     {
-        $reflection        = new ReflectionClass($object);
+        $reflection = new \ReflectionClass($object);
         $reflection_method = $reflection->getMethod($methodName);
         $reflection_method->setAccessible(true);
 
