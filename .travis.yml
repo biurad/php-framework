@@ -23,26 +23,12 @@ jobs:
 
     # Allow fail on 7.2 and 8 so we can fix issues found
     allow_failures:
-        - php: 7.2.2
         - php: nightly
 
     include:
         # Run tests with the dependencies from composer.lock
-        - php: 7.3
-        - php: 7.4
+        - php: 8.0
         - php: nightly
-
-        # Run tests against dev and composer.lock (currently 1.0.x)
-        - php: 7.3
-        - env: BIURAD_CONSOLE=yes STABILITY=dev ACTION=update
-
-        # Run tests against dev (currently 1.0.x)
-        - php: 7.3
-          env: STABILITY=dev ACTION=update
-
-        # Run tests against dev-master (currently 1.0.x)
-        - php: 7.4
-          env: STABILITY=dev ACTION=update --prefer-source
 
 before_install:
     - composer selfupdate
@@ -55,7 +41,7 @@ before_install:
 install:
     - php -r "echo ini_get('memory_limit').PHP_EOL;"
     # Install or update Composer packages including dev dependencies listed in require-dev.
-    - if [ "$BIURAD_CONSOLE" == yes ]; then php biurad ; else travis_retry composer $ACTION ; fi
+    - if [ "$BIURAD_CONSOLE" == yes ]; then php rade ; else travis_retry composer $ACTION ; fi
     # Install the coding stardand checker
     - composer require squizlabs/php_codesniffer --dev
 
