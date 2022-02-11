@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * This file is part of Biurad opensource projects.
  *
- * PHP version 7.2 and above required
+ * PHP version 8.0 and above required
  *
  * @author    Divine Niiquaye Ibok <divineibok@gmail.com>
  * @copyright 2019 Biurad Group (https://biurad.com/)

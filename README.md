@@ -1,29 +1,31 @@
-# Official Project Written With [Biurad] 👊
+# Application Skeleton for [PHP-Rade] 👊
 
-This project is built with a [PHP] based PSR complaint framework [Biurad], a high performance framework with expressive, elegant syntax, and great security which was bootstrapped using [Composer].
+This is a skeleton application for creating applications using [PHP-Rade]. It is pre-configured, clean and easy to use. If you interested, you might check out our demo applications:
 
-> :rocket: `master` is automatically deployed to [demo.biurad.studio](https://demo.biurad.studio): [![Heroku](https://heroku-badge.herokuapp.com/?app=biurad-framework)](https://demo.biurad.studio)
+[Distributed Chat App][] - This application implements an simple and real-time messaging system in PHP.
+[Symfony Like Blog App][] - This application is a simple and a [symfony's demo][] like application.
+[Distributed Blog App][] - This application implements an advanced viral media blogging system in PHP.
+
+> :rocket: `master` is automatically deployed to [radephp.ml](https://radephp.ml)
 
 ## 🔰 Introduction
 
-This project is designed with [Biurad] [PHP] framework to provide modern and rapid development to our project, focusing on `Separation of Concerns`, and not a strict complaint framework rule (eg: MVC). With [Biurad] you enjoy maximum customization, and overall flexibility with no limitations. [Biurad] is fast, light, secure and flexible.
+This project is structured using [Separation of Concerns][SOC] principle, instead of strictly following [MVC] design pattern. Providing modern and rapid development, with the flexibility to customized and use with any php library out there.
+
+> Note: The core of for this project is available on [Github][PHP-Rade]. Thus, if you want to use core only or just want to check it out.
 
 ## 🔥 Features
 
--   [PSR-4 Autoloader](https://github.com/composer/composer).
--   [Biurad PHP Framework](https://github.com/biurad/php-sdk).
--   [A Full PSR Http Manager](https://github.com/biurad/http-galaxy).
--   [High Performance Http Router](https://github.com/divineniiquaye/flight-routing).
--   [High Performance Templating](https://github.com/biurad/php-templating).
--   [Symfony Improved Events Dispatcher](https://github.com/biurad/php-events-bus).
--   [Nette Dependency Injection Container](https://github.com/nette/di).
--   [Multi Level Caching with Doctrine Cache](https://github.com/biurad/php-cache).
--   Managed servers:
-    -   fpm/fastcgi with Apache or nginX.
-    -   [Workerman](https://github.com/biurad/php-workerman) - (coming soon).
-    -   [Swoole](https://github.com/biurad/php-swoole) - (coming soon).
-    -   [Roadrunner](https://github.com/biurad/php-roadrunner) - (coming soon).
--   And MORE ...
+- Flexible URI routing.
+- Code reusable and easier to maintain.
+- High-performance Lightweight PHP framework
+- Perfect Container management, Dependency Injection (DI)
+- PSR-{2,3,4,6,7,11,15,16,17} compliant
+- Integration with external libraries
+- Shipped with Tracy exceptions handler and debugger
+- Flexible configuration's setup, highly scalable
+- Supports hybrid runtime: [RoadRunner], [ReactPHP], [AmPHP], or [Swoole]
+- And MORE ...
 
 
 ## 📦 Getting Started & Installation
@@ -43,14 +45,17 @@ OR
 composer create-project biurad/framework my_project
 ```
 
-To run the app in the development mode.<br />
-Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
+Once installed, you can test it out immediately using PHP's built-in web server:
 
 ```sh
-composer serve
+$ php rade serve
+# OR use php command
+$ php -S 127.0.0.1:8000 -t public
+# OR use the composer alias:
+$ composer run --timeout 0 serve
 ```
 
-> Before running `composer serve`, cd into your project directory then run the script
+> Before running the built in server, cd into your project directory then run the script
 
 ## 📓 Documentation
 
@@ -64,25 +69,11 @@ Information on how to upgrade to newer versions of this library can be found in 
 
 [SemVer](http://semver.org/) is followed closely. Minor and patch releases should not introduce breaking changes to the codebase; See [CHANGELOG] for more information on what has changed recently.
 
-## 🛠️ Maintenance & Support
-
-When a new **major** version is released (`1.0`, `2.0`, etc), the previous one (`0.19.x`) will receive bug fixes for _at least_ 3 months and security updates for 6 months after that new release comes out.
-
-(This policy may change in the future and exceptions may be made on a case-by-case basis.)
-
-**Professional support, including notification of new releases and security updates, is available at [Biurad Commits][commit].**
-
 ## 👷‍♀️ Contributing
 
 To report a security vulnerability, please use the [Biurad Security](https://security.biurad.com). We will coordinate the fix and eventually commit the solution in this project.
 
-Contributions to this library are **welcome**, especially ones that:
-
-- Improve usability or flexibility without compromising our ability to adhere to [React].
-- Optimize performance
-- Fix issues with code and backward compatability.
-
-Please see [CONTRIBUTING] for additional details.
+Contributions to this library are **welcome**, please see [CONTRIBUTING] for additional details.
 
 ## 🧪 Testing
 
@@ -108,14 +99,19 @@ Are you interested in sponsoring development of this project? Reach out and supp
 **biurad/php-framework** is licensed under the BSD-3 license. See the [`LICENSE`](LICENSE) file for more details.
 
 [@divineniiquaye]: https://github.com/divineniiquaye
-[commit]: https://commits.biurad.com/php-framework.git
 [UPGRADE]: UPGRADE.md
 [CHANGELOG]: CHANGELOG.md
 [CONTRIBUTING]: ./.github/CONTRIBUTING.md
 [All Contributors]: https://github.com/divineniiquaye/php-framework/contributors
-[Biurad Lap]: https://team.biurad.com
-[email]: support@biurad.com
-[message]: https://biurad.com/#contact
-[Biurad]: https://framework.biurad.com/php/
 [PHP]: https://php.net
 [Composer]: https://getcomposer.org/
+[PHP-Rade]: https://github.com/divineniiquaye/php-rade
+[RoadRunner]: https://github.com/spiral/roadrunner
+[ReactPHP]: https://github.com/reactphp/reactphp
+[AmPHP]: https://github.com/amphp/http-server
+[Swoole]: https://www.swoole.co.uk/
+[Distributed Chat App]: https://github.com/biurad/spacechat
+[Distributed Blog App]: https://github.com/biurad/spaceblog
+[Symfony Like Blog App]: https://github.com/divineniiquaye/rade-blog
+[SOC]: https://en.wikipedia.org/wiki/Separation_of_concerns
+[MVC]: https://en.wikipedia.org/wiki/Model-view-controller

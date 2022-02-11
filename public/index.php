@@ -2,10 +2,18 @@
 
 declare(strict_types=1);
 
-use Biurad\Framework\Kernels\KernelInterface;
-use Biurad\Http\Factories\GuzzleHttpPsr7Factory;
-use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ServerRequestInterface;
+/*
+ * This file is part of Biurad opensource projects.
+ *
+ * PHP version 8.0 and above required
+ *
+ * @author    Divine Niiquaye Ibok <divineibok@gmail.com>
+ * @copyright 2019 Biurad Group (https://biurad.com/)
+ * @license   https://opensource.org/licenses/BSD-3-Clause License
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 /*
  * This file is part of Biurad opensource projects.
@@ -27,7 +35,7 @@ use Psr\Http\Message\ServerRequestInterface;
  *
  * This is to shorten the full write of directory separator.
  */
-\define('DS', \DIRECTORY_SEPARATOR) || \defined('DS');
+\defined('DS') || \define('DS', \DIRECTORY_SEPARATOR);
 
 /*
  * --------------------------------------------------------------------------
@@ -36,53 +44,41 @@ use Psr\Http\Message\ServerRequestInterface;
  *
  * The full path starting from the index.php file. Improves performance (a bit)
  */
-\defined('BR_PATH') || \define('BR_PATH', \realpath(\dirname(__FILE__, 2)) . DS);
-
-/*
- *--------------------------------------------------------------------------
- * Cli & CGI WebServer Booting
- *-------------------------------------------------------------------------
- *
- * Decline static file requests back to the PHP built-in web-server
- *
- */
-if (\in_array(\PHP_SAPI, ['cli-server', 'cgi-fcgi'], true)) {
-    $path = \realpath(__DIR__ . \parse_url($_SERVER['REQUEST_URI'], \PHP_URL_PATH));
-
-    if (__FILE__ !== $path && \is_file((string) $path)) {
-        return false;
-    }
-
-    unset($path);
-}
+\defined('BR_PATH') || \define('BR_PATH', $_SERVER['APP_DIR'] ?? $_ENV['APP_DIR'] ?? __DIR__ . '/../');
 
 /**
  * --------------------------------------------------------------------------
  * Register the Composer Autoloader                                         |
- * --------------------------------------------------------------------------
+ * --------------------------------------------------------------------------.
  *
  * Composer is our best friend. He maintains our dependencies and manage
  * the autoloader very well. Good guy Composer.
  */
-require \dirname(__DIR__) . '/vendor/autoload.php';
+require BR_PATH . 'vendor/autoload.php';
 
-// Directories needed to boot the application
-$directories = new Biurad\Framework\Directory([
-    'root'       => BR_PATH,
-    'configDir'  => 'config',
-    'tempDir'    => 'var',
-]);
+// Load environment variables
+if (\is_file($env = BR_PATH . '.env')) {
+    (new \Symfony\Component\Dotenv\Dotenv())->load($env);
+}
+
+// Enable the error handler
+\Tracy\Debugger::enable($debug = $_SERVER['APP_DEBUG'] ?? $_ENV['APP_DEBUG'] ?? null, BR_PATH . 'var/logs');
 
 // PSR-11 Container instance
-$container = App\Kernel::boot($directories);
+$app = \Rade\AppBuilder::build(
+    static function (\Rade\AppBuilder $creator): void {
+        // Add resource to re-compile if changes are made to this file.
+        $creator->addResource(new \Symfony\Component\Config\Resource\FileResource(__FILE__));
+        [$extensions, $config] = require BR_PATH . 'resources/bootstrap.php';
 
-// PSR-7 ServerRequest instance
-$serverRequest = $container->runScope(
-    ['request' => GuzzleHttpPsr7Factory::fromGlobalRequest()],
-    static function (ContainerInterface $container) {
-        return $container->get(ServerRequestInterface::class);
-    }
+        $creator->loadExtensions($extensions, $config, BR_PATH . 'var/config');
+        $creator->load(BR_PATH . 'resources/services.php');
+    },
+    [
+        'debug' => $debug ?? true,
+        'cacheDir' => BR_PATH . '/var/cache',
+    ]
 );
 
 // A kernel for dispatching application
-$container->get(KernelInterface::class)->serve($serverRequest);
+$app->run();
