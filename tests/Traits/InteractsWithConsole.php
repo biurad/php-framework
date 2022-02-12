@@ -90,10 +90,8 @@ trait InteractsWithConsole
     /**
      * This helper method abstracts the boilerplate code needed to test the
      * execution of a command and return it's class object.
-     *
-     * @param Command|string $command
      */
-    public function getCommand($command, array $arguments = [], array $options = []): Command
+    public function getCommand(Command|string $command, array $arguments = [], array $options = []): Command
     {
         $command = \is_object($command) ? $command : $this->makeApp()->get($command);
         $command->setApplication($this->getConsole());

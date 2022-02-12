@@ -18,10 +18,8 @@ declare(strict_types=1);
 namespace App\Tests\Traits;
 
 use Biurad\Http\ServerRequest;
-use Biurad\Http\Traits\ServerRequestDecoratorTrait;
 use Flight\Routing\Route;
 use Flight\Routing\Router;
-use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\UriInterface;
 
 trait InteractsWithHttp
@@ -29,11 +27,9 @@ trait InteractsWithHttp
     /**
      * This helper method abstracts the boilerplate code needed to test the
      * execution of a matched route.
-     *
-     * @param string|UriInterface $uri
      */
     public function matchRoute(
-        $uri,
+        string|UriInterface $uri,
         string $method = 'GET',
         array $attributes = [],
         array $query = [],
@@ -52,13 +48,14 @@ trait InteractsWithHttp
     /**
      * This helper method abstracts the boilerplate code needed to test the
      * execution of a server request.
-     *
-     * @param string|UriInterface $uri
-     *
-     * @return ServerRequestDecoratorTrait|ServerRequestInterface
      */
-    public function request($uri, string $method = 'GET', array $query = [], array $headers = [], array $cookies = [])
-    {
+    public function request(
+        string|UriInterface $uri,
+        string $method = 'GET',
+        array $query = [],
+        array $headers = [],
+        array $cookies = []
+    ): ServerRequest {
         $servers = $_SERVER + ['SERVER_PROTOCOL' => 'HTTP/1.1'];
 
         return (new ServerRequest($method, $uri, $headers, 'php://input', '1.1', $servers))->withCookieParams($cookies)->withQueryParams($query);
