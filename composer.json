@@ -16,7 +16,7 @@
         }
     ],
     "support": {
-        "docs": "https://docs.biurad.com/php-framework#nette",
+        "docs": "https://docs.biurad.com/php-framework",
         "issues": "https://github.com/biurad/php-framework/issues",
         "rss": "https://github.com/biurad/php-framework/releases.atom",
         "source": "https://github.com/biurad/php-framework"
@@ -65,7 +65,7 @@
         "post-autoload-dump": [
             "@clean"
         ],
-        "clean": "@php -r \"\\array_map(fn($v)=>@rmdir($v)||@unlink($v),iterator_to_array(new FilesystemIterator(__DIR__.'/var/cache',FilesystemIterator::CURRENT_AS_PATHNAME|FilesystemIterator::SKIP_DOTS)));\"",
+        "clean": "@php -r \"array_map(fn($v)=>@rmdir($v)||@unlink($v),iterator_to_array(new FilesystemIterator(__DIR__.'/var/cache',FilesystemIterator::CURRENT_AS_PATHNAME|FilesystemIterator::SKIP_DOTS)));\"",
         "serve": "@php rade serve",
         "test": "\"./vendor/bin/phpunit\""
     },
