@@ -111,6 +111,7 @@ public/vendor/
 results/
 uml/
 
+.phpcs-cache
 .phpunit.result.cache
 mix-manifest.json
 public/mix-manifest.json
