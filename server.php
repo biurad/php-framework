@@ -15,15 +15,21 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-require __DIR__ . '/public/index.php';
+ /*
+ *--------------------------------------------------------------------------
+ * Cli & CGI WebServer Booting
+ *-------------------------------------------------------------------------
+ *
+ * Decline static file requests back to the PHP built-in web-server
+ *
+ */
+if (\in_array(\PHP_SAPI, ['cli-server', 'cgi-fcgi'], true)) {
+    $path = \realpath(__DIR__ . \parse_url($_SERVER['REQUEST_URI'], \PHP_URL_PATH));
 
-$uri = \urldecode(
-    \parse_url($_SERVER['REQUEST_URI'], \PHP_URL_PATH)
-);
-
-// This file allows us to emulate Apache's "mod_rewrite" functionality from the
-// built-in PHP web server. This provides a convenient way to test a Laravel
-// application without having installed a "real" web server software here.
-if ('/' !== $uri && \file_exists(__DIR__ . '/public' . $uri)) {
-    return false;
+    if (__FILE__ !== $path && \is_file((string) $path)) {
+        return false;
+    }
+    unset($path);
 }
+
+require __DIR__ . '/public/index.php';
