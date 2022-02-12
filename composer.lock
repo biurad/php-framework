@@ -204,12 +204,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/divineniiquaye/php-rade.git",
-                "reference": "bbaaef4c8642b3057ea61309055e92bf672c38a4"
+                "reference": "c180c0412d3507e54e831fd6d7b3c487ff266d1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/divineniiquaye/php-rade/zipball/bbaaef4c8642b3057ea61309055e92bf672c38a4",
-                "reference": "bbaaef4c8642b3057ea61309055e92bf672c38a4",
+                "url": "https://api.github.com/repos/divineniiquaye/php-rade/zipball/c180c0412d3507e54e831fd6d7b3c487ff266d1d",
+                "reference": "c180c0412d3507e54e831fd6d7b3c487ff266d1d",
                 "shasum": ""
             },
             "require": {
@@ -312,7 +312,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-02-11T21:18:23+00:00"
+            "time": "2022-02-12T09:06:53+00:00"
         },
         {
             "name": "divineniiquaye/rade-di",
