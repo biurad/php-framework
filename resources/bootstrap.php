@@ -59,9 +59,8 @@ return [
         'routing' => [
             //'cache' => '%project.cache_dir%/load_CachedRoutes.php',
             'pipes' => [
-                Biurad\Http\Middlewares\ContentTypeOptionsMiddleware::class,
-                Biurad\Http\Middlewares\ContentLengthMiddleware::class,
-                Laminas\Stratigility\Middleware\OriginalMessages::class,
+                //Biurad\Http\Middlewares\ContentTypeOptionsMiddleware::class,
+                //Biurad\Http\Middlewares\ContentLengthMiddleware::class,
             ],
         ],
     ],
