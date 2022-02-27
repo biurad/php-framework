@@ -32,8 +32,8 @@ if (!\file_exists(__DIR__ . '/vendor/autoload.php') && \function_exists('system'
     echo "\n\n";
 }
 
-if (\version_compare($ver = \PHP_VERSION, $req = '7.2', '<')) {
-    exit(\sprintf("You are running PHP %s, but Biurad needs at least PHP %s to run.\n", $ver, $req));
+if (\version_compare($ver = \PHP_VERSION, $req = '8.0', '<')) {
+    exit(\sprintf("You are running PHP %s, but Application needs at least PHP %s to run.\n", $ver, $req));
 }
 
 // Let's initialise console application
