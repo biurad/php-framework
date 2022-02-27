@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/biurad/php-http-galaxy.git",
-                "reference": "11e2bdba33daad7af7c1fa68c4034cd83f57adb4"
+                "reference": "72013625c2ffafc0add4c02a97eb6d8bb7619ec7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/biurad/php-http-galaxy/zipball/11e2bdba33daad7af7c1fa68c4034cd83f57adb4",
-                "reference": "11e2bdba33daad7af7c1fa68c4034cd83f57adb4",
+                "url": "https://api.github.com/repos/biurad/php-http-galaxy/zipball/72013625c2ffafc0add4c02a97eb6d8bb7619ec7",
+                "reference": "72013625c2ffafc0add4c02a97eb6d8bb7619ec7",
                 "shasum": ""
             },
             "require": {
@@ -103,7 +103,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-01-27T21:59:10+00:00"
+            "time": "2022-02-22T17:10:22+00:00"
         },
         {
             "name": "divineniiquaye/flight-routing",
@@ -204,12 +204,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/divineniiquaye/php-rade.git",
-                "reference": "c180c0412d3507e54e831fd6d7b3c487ff266d1d"
+                "reference": "190ea00a49aa7f5e862076f0b2d603a08a60747b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/divineniiquaye/php-rade/zipball/c180c0412d3507e54e831fd6d7b3c487ff266d1d",
-                "reference": "c180c0412d3507e54e831fd6d7b3c487ff266d1d",
+                "url": "https://api.github.com/repos/divineniiquaye/php-rade/zipball/190ea00a49aa7f5e862076f0b2d603a08a60747b",
+                "reference": "190ea00a49aa7f5e862076f0b2d603a08a60747b",
                 "shasum": ""
             },
             "require": {
@@ -226,11 +226,11 @@
             "require-dev": {
                 "biurad/annotations": "1.*",
                 "biurad/cache": "1.*",
-                "biurad/flysystem": "1.*",
                 "biurad/security": "1.*",
                 "biurad/templating": "1.*",
                 "doctrine/annotations": "^1.12",
                 "latte/latte": "^2.10",
+                "league/flysystem": "^2.0 || ^3.0",
                 "monolog/monolog": "^2",
                 "phpstan/phpstan": "^1.1",
                 "phpunit/phpunit": "^9.5",
@@ -245,19 +245,21 @@
                 "symfony/rate-limiter": "^5.4 || ^6.0",
                 "symfony/serializer": "^5.4 || ^6.0",
                 "symfony/translation": "^5.4 || ^6.0",
-                "symfony/twig-bridge": "^5.2",
+                "symfony/twig-bridge": "^5.4 || ^6.0",
                 "symfony/validator": "^5.4 || ^6.0",
                 "symfony/var-dumper": "^5.4 || ^6.0",
                 "symfony/workflow": "^5.4 || ^6.0",
                 "symfony/yaml": "^5.4 || ^6.0",
                 "tracy/tracy": "^2.8",
-                "vimeo/psalm": "^4.10"
+                "vimeo/psalm": "^4.10",
+                "webonyx/graphql-php": "^14.11"
             },
             "suggest": {
                 "biurad/annotations": "A powerful annotations and attributes support for PHP 7.2+",
                 "biurad/cache": "A powerful cache library for advanced caching using PSR-6 or PSR-16",
-                "biurad/flysystem": "A FileManager for handling filesystem on local disk and cloud storage",
-                "biurad/templating": "A library that provides all the tools needed in working with any kind of template system"
+                "biurad/templating": "A library that provides all the tools needed in working with any kind of template system",
+                "league/flysystem": "A FileManager for handling filesystem on local disk and cloud storage",
+                "tracy/tracy": "A library that makes PHP exceptions look friendly, and provides debugging support"
             },
             "default-branch": true,
             "type": "library",
@@ -312,7 +314,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-02-12T09:06:53+00:00"
+            "time": "2022-02-25T07:53:24+00:00"
         },
         {
             "name": "divineniiquaye/rade-di",
@@ -320,12 +322,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/divineniiquaye/rade-di.git",
-                "reference": "ad3b9263936abfb38ef724af839c804067d0dc82"
+                "reference": "d452b3dce442b4919165ef1e6726e76d8c77ef55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/divineniiquaye/rade-di/zipball/ad3b9263936abfb38ef724af839c804067d0dc82",
-                "reference": "ad3b9263936abfb38ef724af839c804067d0dc82",
+                "url": "https://api.github.com/repos/divineniiquaye/rade-di/zipball/d452b3dce442b4919165ef1e6726e76d8c77ef55",
+                "reference": "d452b3dce442b4919165ef1e6726e76d8c77ef55",
                 "shasum": ""
             },
             "require": {
@@ -338,16 +340,14 @@
                 "symfony/service-contracts": "^2.4"
             },
             "require-dev": {
-                "composer/package-versions-deprecated": "^1.11",
                 "divineniiquaye/php-invoker": "^0.9",
                 "nikic/php-parser": "^4.13",
-                "phpstan/phpstan": "^0.12",
-                "phpstan/phpstan-strict-rules": "^0.12",
-                "phpunit/phpunit": "^8.5 || ^9.5",
+                "phpstan/phpstan": "^1.0",
+                "phpunit/phpunit": "^9.5",
                 "squizlabs/php_codesniffer": "^3.6",
                 "symfony/config": "^5.3 || ^6.0",
                 "symfony/yaml": "^5.3 || ^6.0",
-                "vimeo/psalm": "^4.10"
+                "vimeo/psalm": "^4.21"
             },
             "suggest": {
                 "nikic/php-parser": "For using container builder class with service builders",
@@ -403,7 +403,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-02-11T20:46:49+00:00"
+            "time": "2022-02-24T10:51:28+00:00"
         },
         {
             "name": "fig/http-message-util",
@@ -2038,12 +2038,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Ctype\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Ctype\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -2285,12 +2285,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Mbstring\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -2672,12 +2672,12 @@
             },
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\String\\": ""
-                },
                 "files": [
                     "Resources/functions.php"
                 ],
+                "psr-4": {
+                    "Symfony\\Component\\String\\": ""
+                },
                 "exclude-from-classmap": [
                     "/Tests/"
                 ]
@@ -2799,16 +2799,16 @@
         },
         {
             "name": "tracy/tracy",
-            "version": "v2.9.0",
+            "version": "v2.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/tracy.git",
-                "reference": "551a7d936dfbd7075ced9a604b9527d1f7bfa8b4"
+                "reference": "4180b3221ff852fe10d5eab30d80be6f6ab7221e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/tracy/zipball/551a7d936dfbd7075ced9a604b9527d1f7bfa8b4",
-                "reference": "551a7d936dfbd7075ced9a604b9527d1f7bfa8b4",
+                "url": "https://api.github.com/repos/nette/tracy/zipball/4180b3221ff852fe10d5eab30d80be6f6ab7221e",
+                "reference": "4180b3221ff852fe10d5eab30d80be6f6ab7221e",
                 "shasum": ""
             },
             "require": {
@@ -2867,9 +2867,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/tracy/issues",
-                "source": "https://github.com/nette/tracy/tree/v2.9.0"
+                "source": "https://github.com/nette/tracy/tree/v2.9.1"
             },
-            "time": "2021-12-20T18:19:46+00:00"
+            "time": "2022-02-15T16:38:30+00:00"
         }
     ],
     "packages-dev": [
@@ -3059,16 +3059,16 @@
         },
         {
             "name": "phar-io/version",
-            "version": "3.1.1",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phar-io/version.git",
-                "reference": "15a90844ad40f127afd244c0cad228de2a80052a"
+                "reference": "4f7fd7836c6f332bb2933569e566a0d6c4cbed74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phar-io/version/zipball/15a90844ad40f127afd244c0cad228de2a80052a",
-                "reference": "15a90844ad40f127afd244c0cad228de2a80052a",
+                "url": "https://api.github.com/repos/phar-io/version/zipball/4f7fd7836c6f332bb2933569e566a0d6c4cbed74",
+                "reference": "4f7fd7836c6f332bb2933569e566a0d6c4cbed74",
                 "shasum": ""
             },
             "require": {
@@ -3104,9 +3104,9 @@
             "description": "Library for handling version information and constraints",
             "support": {
                 "issues": "https://github.com/phar-io/version/issues",
-                "source": "https://github.com/phar-io/version/tree/3.1.1"
+                "source": "https://github.com/phar-io/version/tree/3.2.1"
             },
-            "time": "2022-02-07T21:56:48+00:00"
+            "time": "2022-02-21T01:04:05+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -3337,16 +3337,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.10",
+            "version": "9.2.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "d5850aaf931743067f4bfc1ae4cbd06468400687"
+                "reference": "deac8540cb7bd40b2b8cfa679b76202834fd04e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/d5850aaf931743067f4bfc1ae4cbd06468400687",
-                "reference": "d5850aaf931743067f4bfc1ae4cbd06468400687",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/deac8540cb7bd40b2b8cfa679b76202834fd04e8",
+                "reference": "deac8540cb7bd40b2b8cfa679b76202834fd04e8",
                 "shasum": ""
             },
             "require": {
@@ -3402,7 +3402,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.10"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.13"
             },
             "funding": [
                 {
@@ -3410,7 +3410,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-05T09:12:13+00:00"
+            "time": "2022-02-23T17:02:38+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -3655,16 +3655,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.5.13",
+            "version": "9.5.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "597cb647654ede35e43b137926dfdfef0fb11743"
+                "reference": "5ff8c545a50226c569310a35f4fa89d79f1ddfdc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/597cb647654ede35e43b137926dfdfef0fb11743",
-                "reference": "597cb647654ede35e43b137926dfdfef0fb11743",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/5ff8c545a50226c569310a35f4fa89d79f1ddfdc",
+                "reference": "5ff8c545a50226c569310a35f4fa89d79f1ddfdc",
                 "shasum": ""
             },
             "require": {
@@ -3680,7 +3680,7 @@
                 "phar-io/version": "^3.0.2",
                 "php": ">=7.3",
                 "phpspec/prophecy": "^1.12.1",
-                "phpunit/php-code-coverage": "^9.2.7",
+                "phpunit/php-code-coverage": "^9.2.13",
                 "phpunit/php-file-iterator": "^3.0.5",
                 "phpunit/php-invoker": "^3.1.1",
                 "phpunit/php-text-template": "^2.0.3",
@@ -3742,7 +3742,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.13"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.16"
             },
             "funding": [
                 {
@@ -3754,7 +3754,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-01-24T07:33:35+00:00"
+            "time": "2022-02-23T17:10:58+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -4262,16 +4262,16 @@
         },
         {
             "name": "sebastian/global-state",
-            "version": "5.0.4",
+            "version": "5.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/global-state.git",
-                "reference": "19c519631c5a511b7ed0ad64a6713fdb3fd25fe4"
+                "reference": "0ca8db5a5fc9c8646244e629625ac486fa286bf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/19c519631c5a511b7ed0ad64a6713fdb3fd25fe4",
-                "reference": "19c519631c5a511b7ed0ad64a6713fdb3fd25fe4",
+                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/0ca8db5a5fc9c8646244e629625ac486fa286bf2",
+                "reference": "0ca8db5a5fc9c8646244e629625ac486fa286bf2",
                 "shasum": ""
             },
             "require": {
@@ -4314,7 +4314,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/global-state/issues",
-                "source": "https://github.com/sebastianbergmann/global-state/tree/5.0.4"
+                "source": "https://github.com/sebastianbergmann/global-state/tree/5.0.5"
             },
             "funding": [
                 {
@@ -4322,7 +4322,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-02-10T07:01:19+00:00"
+            "time": "2022-02-14T08:28:10+00:00"
         },
         {
             "name": "sebastian/lines-of-code",
