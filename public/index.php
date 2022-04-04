@@ -45,7 +45,7 @@ require BR_PATH . 'vendor/autoload.php';
 
 // Load environment variables
 if (\is_file($env = BR_PATH . '.env')) {
-    (new \Symfony\Component\Dotenv\Dotenv())->load($env);
+    \class_exists(\Symfony\Component\Dotenv\Dotenv::class) && (new \Symfony\Component\Dotenv\Dotenv())->load($env);
 }
 
 // Enable the error handler
@@ -54,18 +54,25 @@ if (\is_file($env = BR_PATH . '.env')) {
 // PSR-11 Container instance
 $app = \Rade\AppBuilder::build(
     static function (\Rade\AppBuilder $creator): void {
+        [$extensions, $config] = require $bootstrap = BR_PATH . 'resources/bootstrap.php';
+        $creator->loadExtensions($extensions, $config, BR_PATH . 'var/config');
+        $creator->load($services = BR_PATH . 'resources/services.php');
+
         // Add resource to re-compile if changes are made to this file.
         $creator->addResource(new \Symfony\Component\Config\Resource\FileResource(__FILE__));
-        [$extensions, $config] = require BR_PATH . 'resources/bootstrap.php';
-
-        $creator->loadExtensions($extensions, $config, BR_PATH . 'var/config');
-        $creator->load(BR_PATH . 'resources/services.php');
+        $creator->addResource(new \Symfony\Component\Config\Resource\FileResource($bootstrap));
+        $creator->addResource(new \Symfony\Component\Config\Resource\FileResource($services));
     },
     [
         'debug' => $debug ?? true,
-        'cacheDir' => BR_PATH . '/var/cache',
+        'cacheDir' => BR_PATH . '/var/app',
     ]
 );
 
-// A kernel for dispatching application
-$app->run();
+try {
+    $app->run(); // A kernel for dispatching application
+} finally {
+    if ($app->has('tracy.bar')) {
+        $app->get('tracy.bar');
+    }
+}

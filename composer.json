@@ -33,9 +33,6 @@
         "php": "^8.0",
         "divineniiquaye/php-rade": "2.*",
         "nikic/php-parser": "^4.13",
-        "symfony/cache": "^6.0",
-        "symfony/dotenv": "^6.0",
-        "symfony/event-dispatcher": "^6.0",
         "tracy/tracy": "^2.9"
     },
     "require-dev": {
@@ -53,10 +50,10 @@
             "App\\Tests\\": "tests/"
         }
     },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.x-dev"
-        }
+    "suggest": {
+      "symfony/cache": "Adds a cache layer to the application",
+      "symfony/dotenv": "Allows to load environment variables from a .env file",
+      "symfony/event-dispatcher": "Allows to register symfony's supported listeners and trigger events"
     },
     "scripts": {
         "post-create-project-cmd": [

@@ -20,18 +20,19 @@ use Rade\DI\Extensions;
 return [
     [
         [Extensions\CoreExtension::class, [__DIR__ . '/../']],
-        Extensions\Symfony\CacheExtension::class,
+        //Extensions\Symfony\EventDispatcherExtension::class,
+        //Extensions\Symfony\CacheExtension::class,
         //Extensions\AnnotationExtension::class,
         //Extensions\TemplateExtension::class,
         Extensions\Symfony\ConsoleExtension::class,
     ],
     [
         'core' => [
-            'events_dispatcher' => Symfony\Component\EventDispatcher\EventDispatcher::class,
+            //'events_dispatcher' => Symfony\Component\EventDispatcher\EventDispatcher::class,
         ],
         'config' => [
             'locale' => 'en',
-            'paths' => ['%project_dir%/app/config', '%project_dir%/resources/config'],
+            'paths' => ['%project_dir%/resources/config'],
         ],
         'cache' => [
             'directory' => '%project_dir%/var/cache',
@@ -40,8 +41,8 @@ return [
         //    'resources' => ['%project_dir%/app/Handlers'],
         //],
         //'templating' => [
-        //    'cache_dir' => '%project.cache_dir%',
-        //    'paths' => '%project_dir%/resources/views',
+        //    'cache_dir' => '%project.cache_dir%/views',
+        //    'paths' => '%project_dir%/resources/templates',
         //    'renders' => [
         //        Biurad\UI\Renders\PhpNativeRender::class => ['php', 'phtml'],
         //        Biurad\UI\Renders\LatteRender::class,
