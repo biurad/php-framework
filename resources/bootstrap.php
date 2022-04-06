@@ -28,6 +28,7 @@ return [
     ],
     [
         'core' => [
+            //'var_path' => '%project_dir%/var',
             //'events_dispatcher' => Symfony\Component\EventDispatcher\EventDispatcher::class,
         ],
         'config' => [
@@ -35,13 +36,13 @@ return [
             'paths' => ['%project_dir%/resources/config'],
         ],
         'cache' => [
-            'directory' => '%project_dir%/var/cache',
+            'directory' => '%project.var_dir%/cache',
         ],
         //'annotation' => [
         //    'resources' => ['%project_dir%/app/Handlers'],
         //],
         //'templating' => [
-        //    'cache_dir' => '%project.cache_dir%/views',
+        //    'cache_dir' => '%project.var_dir%/views',
         //    'paths' => '%project_dir%/resources/templates',
         //    'renders' => [
         //        Biurad\UI\Renders\PhpNativeRender::class => ['php', 'phtml'],
@@ -54,11 +55,11 @@ return [
         //    ],
         //    'session' => [
         //        'enabled' => true,
-        //        'save_path' => '%project.cache_dir%/sessions',
+        //        'save_path' => '%project.var_dir%/sessions',
         //    ],
         //],
         'routing' => [
-            //'cache' => '%project.cache_dir%/load_CachedRoutes.php',
+            //'cache' => '%project.var_dir%/app/load_CachedRoutes.php',
             'pipes' => [
                 //Biurad\Http\Middlewares\ContentTypeOptionsMiddleware::class,
                 //Biurad\Http\Middlewares\ContentLengthMiddleware::class,
