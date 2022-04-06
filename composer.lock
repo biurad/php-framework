@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/biurad/php-http-galaxy.git",
-                "reference": "b1ec69eed65fd6087b0d03513e1d94a2fb2df4fd"
+                "reference": "63b68cabecefb636cbbb2c35c4ea0260901e8085"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/biurad/php-http-galaxy/zipball/b1ec69eed65fd6087b0d03513e1d94a2fb2df4fd",
-                "reference": "b1ec69eed65fd6087b0d03513e1d94a2fb2df4fd",
+                "url": "https://api.github.com/repos/biurad/php-http-galaxy/zipball/63b68cabecefb636cbbb2c35c4ea0260901e8085",
+                "reference": "63b68cabecefb636cbbb2c35c4ea0260901e8085",
                 "shasum": ""
             },
             "require": {
@@ -103,7 +103,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-04-03T11:45:56+00:00"
+            "time": "2022-04-04T23:14:11+00:00"
         },
         {
             "name": "divineniiquaye/flight-routing",
@@ -200,12 +200,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/divineniiquaye/php-rade.git",
-                "reference": "7656d0ef43d8f5e488991487149e09635c167389"
+                "reference": "91959b608ae0075329a99f733768172dcb5195fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/divineniiquaye/php-rade/zipball/7656d0ef43d8f5e488991487149e09635c167389",
-                "reference": "7656d0ef43d8f5e488991487149e09635c167389",
+                "url": "https://api.github.com/repos/divineniiquaye/php-rade/zipball/91959b608ae0075329a99f733768172dcb5195fd",
+                "reference": "91959b608ae0075329a99f733768172dcb5195fd",
                 "shasum": ""
             },
             "require": {
@@ -310,7 +310,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-04-04T13:28:21+00:00"
+            "time": "2022-04-06T10:32:34+00:00"
         },
         {
             "name": "divineniiquaye/rade-di",
@@ -318,12 +318,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/divineniiquaye/rade-di.git",
-                "reference": "e8c43d58db38240be64a244856fb56b482c5471c"
+                "reference": "0b168bf6a76dd54469085ae4da718ecaecb3bb00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/divineniiquaye/rade-di/zipball/e8c43d58db38240be64a244856fb56b482c5471c",
-                "reference": "e8c43d58db38240be64a244856fb56b482c5471c",
+                "url": "https://api.github.com/repos/divineniiquaye/rade-di/zipball/0b168bf6a76dd54469085ae4da718ecaecb3bb00",
+                "reference": "0b168bf6a76dd54469085ae4da718ecaecb3bb00",
                 "shasum": ""
             },
             "require": {
@@ -399,7 +399,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-04-01T02:55:46+00:00"
+            "time": "2022-04-06T02:47:24+00:00"
         },
         {
             "name": "fig/http-message-util",
@@ -1236,16 +1236,16 @@
         },
         {
             "name": "symfony/deprecation-contracts",
-            "version": "v2.5.0",
+            "version": "v2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
-                "reference": "6f981ee24cf69ee7ce9736146d1c57c2780598a8"
+                "reference": "e8b495ea28c1d97b5e0c121748d6f9b53d075c66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/6f981ee24cf69ee7ce9736146d1c57c2780598a8",
-                "reference": "6f981ee24cf69ee7ce9736146d1c57c2780598a8",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/e8b495ea28c1d97b5e0c121748d6f9b53d075c66",
+                "reference": "e8b495ea28c1d97b5e0c121748d6f9b53d075c66",
                 "shasum": ""
             },
             "require": {
@@ -1283,7 +1283,7 @@
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/deprecation-contracts/tree/v2.5.0"
+                "source": "https://github.com/symfony/deprecation-contracts/tree/v2.5.1"
             },
             "funding": [
                 {
@@ -1299,20 +1299,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-12T14:48:14+00:00"
+            "time": "2022-01-02T09:53:40+00:00"
         },
         {
             "name": "symfony/event-dispatcher-contracts",
-            "version": "v3.0.0",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher-contracts.git",
-                "reference": "aa5422287b75594b90ee9cd807caf8f0df491385"
+                "reference": "7bc61cc2db649b4637d331240c5346dcc7708051"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher-contracts/zipball/aa5422287b75594b90ee9cd807caf8f0df491385",
-                "reference": "aa5422287b75594b90ee9cd807caf8f0df491385",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher-contracts/zipball/7bc61cc2db649b4637d331240c5346dcc7708051",
+                "reference": "7bc61cc2db649b4637d331240c5346dcc7708051",
                 "shasum": ""
             },
             "require": {
@@ -1362,7 +1362,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v3.0.0"
+                "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v3.0.1"
             },
             "funding": [
                 {
@@ -1378,7 +1378,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-15T12:33:35+00:00"
+            "time": "2022-01-02T09:55:41+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -2131,22 +2131,22 @@
         },
         {
             "name": "symfony/service-contracts",
-            "version": "v2.5.0",
+            "version": "v2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/service-contracts.git",
-                "reference": "1ab11b933cd6bc5464b08e81e2c5b07dec58b0fc"
+                "reference": "24d9dc654b83e91aa59f9d167b131bc3b5bea24c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/1ab11b933cd6bc5464b08e81e2c5b07dec58b0fc",
-                "reference": "1ab11b933cd6bc5464b08e81e2c5b07dec58b0fc",
+                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/24d9dc654b83e91aa59f9d167b131bc3b5bea24c",
+                "reference": "24d9dc654b83e91aa59f9d167b131bc3b5bea24c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
                 "psr/container": "^1.1",
-                "symfony/deprecation-contracts": "^2.1"
+                "symfony/deprecation-contracts": "^2.1|^3"
             },
             "conflict": {
                 "ext-psr": "<1.1|>=2"
@@ -2194,7 +2194,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/service-contracts/tree/v2.5.0"
+                "source": "https://github.com/symfony/service-contracts/tree/v2.5.1"
             },
             "funding": [
                 {
@@ -2210,7 +2210,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-11-04T16:48:04+00:00"
+            "time": "2022-03-13T20:07:29+00:00"
         },
         {
             "name": "symfony/string",
