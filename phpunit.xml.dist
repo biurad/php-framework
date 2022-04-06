@@ -14,6 +14,11 @@
          verbose="true"
          executionOrder="default"
 >
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">app</directory>
+        </include>
+    </coverage>
     <testsuites>
         <testsuite name="Unit Test Suite">
             <directory>tests/Unit</directory>
@@ -25,13 +30,6 @@
             <directory>tests/Console</directory>
         </testsuite>
     </testsuites>
-
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">app</directory>
-        </whitelist>
-    </filter>
-
     <php>
         <env name="PHPUNIT_TESTING" value="true" />
     </php>
