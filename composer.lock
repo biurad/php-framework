@@ -107,16 +107,16 @@
         },
         {
             "name": "divineniiquaye/flight-routing",
-            "version": "v1.4.1",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/divineniiquaye/flight-routing.git",
-                "reference": "a278962c7787f10f014b9f354db40251a772f419"
+                "reference": "c15e09cacb3127158e5aa24b0af65ee5d848c4d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/divineniiquaye/flight-routing/zipball/a278962c7787f10f014b9f354db40251a772f419",
-                "reference": "a278962c7787f10f014b9f354db40251a772f419",
+                "url": "https://api.github.com/repos/divineniiquaye/flight-routing/zipball/c15e09cacb3127158e5aa24b0af65ee5d848c4d1",
+                "reference": "c15e09cacb3127158e5aa24b0af65ee5d848c4d1",
                 "shasum": ""
             },
             "require": {
@@ -126,14 +126,14 @@
                 "symfony/polyfill-php80": "^1.22"
             },
             "require-dev": {
-                "biurad/annotations": "^0.3",
+                "biurad/annotations": "^1.0",
                 "divineniiquaye/php-invoker": "^0.9",
                 "doctrine/annotations": "^1.11",
                 "nyholm/psr7": "^1.4",
                 "nyholm/psr7-server": "^1.0",
                 "phpstan/phpstan": "^1.0",
                 "phpunit/phpunit": "^9.5",
-                "spiral/attributes": "dev-master",
+                "spiral/attributes": "^2.9",
                 "squizlabs/php_codesniffer": "^3.6",
                 "vimeo/psalm": "^4.13"
             },
@@ -192,7 +192,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-04-01T02:35:05+00:00"
+            "time": "2022-04-14T07:15:56+00:00"
         },
         {
             "name": "divineniiquaye/php-rade",
@@ -200,17 +200,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/divineniiquaye/php-rade.git",
-                "reference": "91959b608ae0075329a99f733768172dcb5195fd"
+                "reference": "af9fd7244edc0dbd4ddedb7739e38d5f3a6c2392"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/divineniiquaye/php-rade/zipball/91959b608ae0075329a99f733768172dcb5195fd",
-                "reference": "91959b608ae0075329a99f733768172dcb5195fd",
+                "url": "https://api.github.com/repos/divineniiquaye/php-rade/zipball/af9fd7244edc0dbd4ddedb7739e38d5f3a6c2392",
+                "reference": "af9fd7244edc0dbd4ddedb7739e38d5f3a6c2392",
                 "shasum": ""
             },
             "require": {
                 "biurad/http-galaxy": "1.*",
-                "divineniiquaye/flight-routing": "^1.4",
+                "divineniiquaye/flight-routing": "^1.5",
                 "divineniiquaye/rade-di": "dev-rade-best",
                 "php": "^7.4 || ^8.0",
                 "symfony/config": "^5.4 || ^6.0",
@@ -310,7 +310,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-04-06T10:32:34+00:00"
+            "time": "2022-04-16T12:53:00+00:00"
         },
         {
             "name": "divineniiquaye/rade-di",
@@ -318,12 +318,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/divineniiquaye/rade-di.git",
-                "reference": "0b168bf6a76dd54469085ae4da718ecaecb3bb00"
+                "reference": "1ef1c2a14b40d7b637d08c403faaea2e1a7f5df2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/divineniiquaye/rade-di/zipball/0b168bf6a76dd54469085ae4da718ecaecb3bb00",
-                "reference": "0b168bf6a76dd54469085ae4da718ecaecb3bb00",
+                "url": "https://api.github.com/repos/divineniiquaye/rade-di/zipball/1ef1c2a14b40d7b637d08c403faaea2e1a7f5df2",
+                "reference": "1ef1c2a14b40d7b637d08c403faaea2e1a7f5df2",
                 "shasum": ""
             },
             "require": {
@@ -399,7 +399,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-04-06T02:47:24+00:00"
+            "time": "2022-04-14T21:03:59+00:00"
         },
         {
             "name": "fig/http-message-util",
