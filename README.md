@@ -3,7 +3,7 @@
 This is a skeleton application for creating applications using [PHP-Rade]. It is pre-configured, clean and easy to use. If you interested, you might check out our demo applications:
 
 * [Distributed Chat App][] - This application implements an simple and real-time messaging system in PHP.
-* [Symfony Like Blog App][] - This application is a simple and a [symfony's demo][] like application.
+* [Symfony Like Blog App][] - This application is a simple and a [symfony's demo][sf-demo] like application.
 * [Distributed Blog App][] - This application implements an advanced viral media blogging system in PHP.
 
 > :rocket: `master` is automatically deployed to [radephp.ml](https://radephp.ml)
@@ -111,5 +111,6 @@ Are you interested in sponsoring development of this project? Reach out and supp
 [Distributed Chat App]: https://github.com/biurad/spacechat
 [Distributed Blog App]: https://github.com/biurad/spaceblog
 [Symfony Like Blog App]: https://github.com/divineniiquaye/rade-blog
+[sf-demo]: https://github.com/symfony/demo
 [SOC]: https://en.wikipedia.org/wiki/Separation_of_concerns
 [MVC]: https://en.wikipedia.org/wiki/Model-view-controller
