@@ -107,16 +107,16 @@
         },
         {
             "name": "divineniiquaye/flight-routing",
-            "version": "v1.5.0",
+            "version": "v1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/divineniiquaye/flight-routing.git",
-                "reference": "c15e09cacb3127158e5aa24b0af65ee5d848c4d1"
+                "reference": "67a6c5c68d03bb896e71e95a1421422900d8e9d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/divineniiquaye/flight-routing/zipball/c15e09cacb3127158e5aa24b0af65ee5d848c4d1",
-                "reference": "c15e09cacb3127158e5aa24b0af65ee5d848c4d1",
+                "url": "https://api.github.com/repos/divineniiquaye/flight-routing/zipball/67a6c5c68d03bb896e71e95a1421422900d8e9d0",
+                "reference": "67a6c5c68d03bb896e71e95a1421422900d8e9d0",
                 "shasum": ""
             },
             "require": {
@@ -192,7 +192,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-04-14T07:15:56+00:00"
+            "time": "2022-04-17T19:10:32+00:00"
         },
         {
             "name": "divineniiquaye/php-rade",
