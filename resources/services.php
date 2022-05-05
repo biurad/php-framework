@@ -21,10 +21,9 @@ return static function (\Rade\DI\DefinitionBuilder $builder): void {
     // Write service definitions here ...
     $c = $builder->getContainer();
 
-    // This should be the last definition
     if ($c->isDebug() && \class_exists(\Tracy\Debugger::class)) {
         $c->set('tracy.bar', service('Tracy\Debugger::getBar'))
-           ->bind('addPanel', wrap(\Rade\Debug\Tracy\ContainerPanel::class, [1 => \array_keys($c->definitions())]))
+           ->bind('addPanel', wrap(\Rade\Debug\Tracy\ContainerPanel::class))
            ->bind('addPanel', wrap(\Rade\Debug\Tracy\RoutesPanel::class))
            //->bind('addPanel', wrap(\Rade\Debug\Tracy\TemplatesPanel::class))
         ;
