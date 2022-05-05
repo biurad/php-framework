@@ -318,12 +318,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/divineniiquaye/rade-di.git",
-                "reference": "19645a5e14fd5494e2a72267b210a9b01a3ba969"
+                "reference": "cab791a7bc664b7bcc16a57dce2a208dfc644ea4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/divineniiquaye/rade-di/zipball/19645a5e14fd5494e2a72267b210a9b01a3ba969",
-                "reference": "19645a5e14fd5494e2a72267b210a9b01a3ba969",
+                "url": "https://api.github.com/repos/divineniiquaye/rade-di/zipball/cab791a7bc664b7bcc16a57dce2a208dfc644ea4",
+                "reference": "cab791a7bc664b7bcc16a57dce2a208dfc644ea4",
                 "shasum": ""
             },
             "require": {
@@ -399,7 +399,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-05-04T06:20:42+00:00"
+            "time": "2022-05-05T19:25:36+00:00"
         },
         {
             "name": "fig/http-message-util",
