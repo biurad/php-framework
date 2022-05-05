@@ -24,7 +24,6 @@ return [
         //Extensions\Symfony\CacheExtension::class,
         //Extensions\AnnotationExtension::class,
         //Extensions\TemplateExtension::class,
-        Extensions\Symfony\ConsoleExtension::class,
     ],
     [
         'core' => [
