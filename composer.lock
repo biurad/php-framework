@@ -107,16 +107,16 @@
         },
         {
             "name": "divineniiquaye/flight-routing",
-            "version": "v1.5.1",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/divineniiquaye/flight-routing.git",
-                "reference": "67a6c5c68d03bb896e71e95a1421422900d8e9d0"
+                "reference": "7c5b4e1ea501cd340b55635ecbc370f06db6a4ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/divineniiquaye/flight-routing/zipball/67a6c5c68d03bb896e71e95a1421422900d8e9d0",
-                "reference": "67a6c5c68d03bb896e71e95a1421422900d8e9d0",
+                "url": "https://api.github.com/repos/divineniiquaye/flight-routing/zipball/7c5b4e1ea501cd340b55635ecbc370f06db6a4ee",
+                "reference": "7c5b4e1ea501cd340b55635ecbc370f06db6a4ee",
                 "shasum": ""
             },
             "require": {
@@ -135,6 +135,7 @@
                 "phpunit/phpunit": "^9.5",
                 "spiral/attributes": "^2.9",
                 "squizlabs/php_codesniffer": "^3.6",
+                "symfony/var-exporter": "^5.4 || ^6.0",
                 "vimeo/psalm": "^4.13"
             },
             "suggest": {
@@ -142,7 +143,8 @@
                 "biurad/http-galaxy": "For handling router, an alternative is nyholm/psr7, slim/psr7 or laminas/laminas-diactoros",
                 "divineniiquaye/php-invoker": "For auto-configuring route handler parameters as needed with or without PSR-11 support",
                 "divineniiquaye/rade-di": "For full support of PSR-11 and autowiring capabilities on routes (recommended for install).",
-                "laminas/laminas-httphandlerrunner": "For emitting response headers and body contents to browser"
+                "laminas/laminas-httphandlerrunner": "For emitting response headers and body contents to browser",
+                "symfony/var-exporter": "For handling cached routes with better performance (recommended for install)."
             },
             "type": "library",
             "extra": {
@@ -192,7 +194,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-04-17T19:10:32+00:00"
+            "time": "2022-05-09T07:59:07+00:00"
         },
         {
             "name": "divineniiquaye/php-rade",
@@ -200,17 +202,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/divineniiquaye/php-rade.git",
-                "reference": "271d5dba386ab81fdd798ac69a10cff762cd473b"
+                "reference": "999c4ba9b1035fe995ded2426bb76c31ebef1869"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/divineniiquaye/php-rade/zipball/271d5dba386ab81fdd798ac69a10cff762cd473b",
-                "reference": "271d5dba386ab81fdd798ac69a10cff762cd473b",
+                "url": "https://api.github.com/repos/divineniiquaye/php-rade/zipball/999c4ba9b1035fe995ded2426bb76c31ebef1869",
+                "reference": "999c4ba9b1035fe995ded2426bb76c31ebef1869",
                 "shasum": ""
             },
             "require": {
                 "biurad/http-galaxy": "1.*",
-                "divineniiquaye/flight-routing": "^1.5",
+                "divineniiquaye/flight-routing": "^1.6",
                 "divineniiquaye/rade-di": "dev-rade-best",
                 "php": "^7.4 || ^8.0",
                 "symfony/config": "^5.4 || ^6.0",
@@ -310,7 +312,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-05-05T14:55:04+00:00"
+            "time": "2022-05-09T11:22:22+00:00"
         },
         {
             "name": "divineniiquaye/rade-di",
@@ -318,12 +320,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/divineniiquaye/rade-di.git",
-                "reference": "cab791a7bc664b7bcc16a57dce2a208dfc644ea4"
+                "reference": "1cabefd20568e3191800355b6412d7b6329897fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/divineniiquaye/rade-di/zipball/cab791a7bc664b7bcc16a57dce2a208dfc644ea4",
-                "reference": "cab791a7bc664b7bcc16a57dce2a208dfc644ea4",
+                "url": "https://api.github.com/repos/divineniiquaye/rade-di/zipball/1cabefd20568e3191800355b6412d7b6329897fc",
+                "reference": "1cabefd20568e3191800355b6412d7b6329897fc",
                 "shasum": ""
             },
             "require": {
@@ -399,7 +401,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-05-05T19:25:36+00:00"
+            "time": "2022-05-05T22:28:29+00:00"
         },
         {
             "name": "fig/http-message-util",
