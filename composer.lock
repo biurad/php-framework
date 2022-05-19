@@ -107,16 +107,16 @@
         },
         {
             "name": "divineniiquaye/flight-routing",
-            "version": "v1.6.0",
+            "version": "v1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/divineniiquaye/flight-routing.git",
-                "reference": "7c5b4e1ea501cd340b55635ecbc370f06db6a4ee"
+                "reference": "95d817754cd34350c57e8319cf2753848ee5cbd1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/divineniiquaye/flight-routing/zipball/7c5b4e1ea501cd340b55635ecbc370f06db6a4ee",
-                "reference": "7c5b4e1ea501cd340b55635ecbc370f06db6a4ee",
+                "url": "https://api.github.com/repos/divineniiquaye/flight-routing/zipball/95d817754cd34350c57e8319cf2753848ee5cbd1",
+                "reference": "95d817754cd34350c57e8319cf2753848ee5cbd1",
                 "shasum": ""
             },
             "require": {
@@ -194,7 +194,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-05-09T07:59:07+00:00"
+            "time": "2022-05-11T09:39:17+00:00"
         },
         {
             "name": "divineniiquaye/php-rade",
@@ -202,12 +202,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/divineniiquaye/php-rade.git",
-                "reference": "999c4ba9b1035fe995ded2426bb76c31ebef1869"
+                "reference": "b163cdb26557e6dc3839cf6986535bc6e2f322ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/divineniiquaye/php-rade/zipball/999c4ba9b1035fe995ded2426bb76c31ebef1869",
-                "reference": "999c4ba9b1035fe995ded2426bb76c31ebef1869",
+                "url": "https://api.github.com/repos/divineniiquaye/php-rade/zipball/b163cdb26557e6dc3839cf6986535bc6e2f322ca",
+                "reference": "b163cdb26557e6dc3839cf6986535bc6e2f322ca",
                 "shasum": ""
             },
             "require": {
@@ -241,6 +241,7 @@
                 "symfony/mailer": "^5.4 || ^6.0",
                 "symfony/notifier": "^5.4 || ^6.0",
                 "symfony/rate-limiter": "^5.4 || ^6.0",
+                "symfony/security-csrf": "^5.4 || ^6.0",
                 "symfony/serializer": "^5.4 || ^6.0",
                 "symfony/translation": "^5.4 || ^6.0",
                 "symfony/twig-bridge": "^5.4 || ^6.0",
@@ -312,7 +313,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-05-09T11:22:22+00:00"
+            "time": "2022-05-19T17:23:30+00:00"
         },
         {
             "name": "divineniiquaye/rade-di",
