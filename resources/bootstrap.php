@@ -51,7 +51,7 @@ return [
             //],
             'headers' => [
                 'response' => [
-                    'Transfer-Encoding' => 'gzip, chunked', // A work around header for tracy debugger
+                    'Transfer-Encoding' => 'gzip, deflate', // A work around header for tracy debugger
                 ],
             ],
         ],
