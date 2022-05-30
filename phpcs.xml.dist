@@ -15,9 +15,12 @@
     <arg value="nps"/>
 
     <!-- Directories to be checked -->
-    <file>app</file>
+    <file>src</file>
     <file>tests/</file>
 
     <!-- Include full PSR-12 Coding Standard -->
-    <rule ref="PSR12"/>
+    <rule ref="PSR12">
+        <exclude name="PSR12.Files.OpenTag.NotAlone" />
+        <exclude name="PSR12.Files.FileHeader.SpacingAfterBlock" />
+    </rule>
 </ruleset>

@@ -1,13 +1,8 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 $header = <<<'EOF'
 This file is part of Biurad opensource projects.
 
-PHP version 8.0 and above required
-
-@author    Divine Niiquaye Ibok <divineibok@gmail.com>
 @copyright 2019 Biurad Group (https://biurad.com/)
 @license   https://opensource.org/licenses/BSD-3-Clause License
 
@@ -17,7 +12,14 @@ EOF;
 
 return (new PhpCsFixer\Config())
     ->setRiskyAllowed(true)
-    ->setFinder((new PhpCsFixer\Finder())->append([__FILE__]))
+    ->setFinder(
+        (new PhpCsFixer\Finder())
+            ->in(__DIR__)
+            ->append([__FILE__])
+            ->exclude(['vendor', 'var'])
+            ->ignoreDotFiles(true)
+            ->ignoreVCS(true)
+    )
     ->setRules([
         '@PSR12' => true,
         //'DoctrineAnnotation' => true,
@@ -77,6 +79,7 @@ return (new PhpCsFixer\Config())
         'void_return' => true,
         //'global_namespace_import' => true,
         'no_unused_imports' => true,
+        'group_import' => true,
         'single_import_per_statement' => false,
         'combine_consecutive_issets' => true,
         'combine_consecutive_unsets' => true,
@@ -96,7 +99,8 @@ return (new PhpCsFixer\Config())
         'ternary_to_null_coalescing' => true,
         'unary_operator_spaces' => true,
         'echo_tag_syntax' => true,
-        'linebreak_after_opening_tag' => true,
+        'linebreak_after_opening_tag' => false,
+        'blank_line_after_opening_tag' => false,
         'align_multiline_comment' => true,
         'no_blank_lines_after_phpdoc' => true,
         'php_unit_construct' => true,
@@ -140,6 +144,7 @@ return (new PhpCsFixer\Config())
         //'simplified_null_return' => true,
         //'no_empty_statement' => true,
         //'no_singleline_whitespace_before_semicolons' => true,
+        'single_class_element_per_statement' => false,
         'semicolon_after_instruction' => true,
         'space_after_semicolon' => [
             'remove_in_empty_for_expressions' => true,
@@ -149,8 +154,8 @@ return (new PhpCsFixer\Config())
         'array_indentation' => true,
         'blank_line_before_statement' => [
             'statements' => [
-                'break',
-                'continue',
+                //'break',
+                //'continue',
                 'declare',
                 'do',
                 'for',

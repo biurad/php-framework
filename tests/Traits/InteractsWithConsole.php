@@ -1,13 +1,8 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 /*
  * This file is part of Biurad opensource projects.
  *
- * PHP version 8.0 and above required
- *
- * @author    Divine Niiquaye Ibok <divineibok@gmail.com>
  * @copyright 2019 Biurad Group (https://biurad.com/)
  * @license   https://opensource.org/licenses/BSD-3-Clause License
  *
@@ -17,6 +12,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Traits;
 
+use Rade\DI\Exceptions\NotFoundServiceException;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Exception\CommandNotFoundException;
@@ -39,32 +35,21 @@ trait InteractsWithConsole
      * @param array  $arguments All the arguments passed when executing the command
      * @param array  $options   An array of execution options
      */
-    public function runCommand(string $command, array $arguments = [], array $options = []): CommandTester
+    public function runCommand(Command|string $command, array $arguments = [], array $options = []): CommandTester
     {
-        if (!\class_exists($command) || !\is_subclass_of($command, Command::class)) {
-            throw new CommandNotFoundException(\sprintf('It looks like your command %s isn\'t valid', $command));
-        }
-
-        // this uses container that allows you to fetch services.
-        $command = $this->makeApp()->get($command);
-        $command->setApplication($this->getConsole());
-
+        $command = $this->getCommand($command);
         $commandTester = new CommandTester($command);
         $commandTester->execute($arguments, $options);
 
         return $commandTester;
     }
 
-    public function runCommandObject(Command $command, array $arguments = [], array $options = []): CommandTester
-    {
-        $command->setApplication($this->getConsole());
-        $commandTester = new CommandTester($command);
-        $commandTester->execute($arguments, $options);
-
-        return $commandTester;
-    }
-
-    public function runCommandDebug(string $command, array $arguments = []): CommandTester
+    /**
+     * Run command with debug verbosity level (-vv).
+     *
+     * @see runCommand() method
+     */
+    public function runCommandDebug(Command|string $command, array $arguments = []): CommandTester
     {
         return $this->runCommand(
             $command,
@@ -73,7 +58,12 @@ trait InteractsWithConsole
         );
     }
 
-    public function runCommandVeryVerbose(string $command, array $arguments = []): CommandTester
+    /**
+     * Run command with very verbose verbosity level (-vvv).
+     *
+     * @see runCommand() method
+     */
+    public function runCommandVeryVerbose(Command|string $command, array $arguments = []): CommandTester
     {
         return $this->runCommand(
             $command,
@@ -82,31 +72,32 @@ trait InteractsWithConsole
         );
     }
 
-    public function runCommandError(CommandTester $commandTester, bool $normalize = false): string
-    {
-        return $commandTester->getErrorOutput($normalize);
-    }
-
     /**
      * This helper method abstracts the boilerplate code needed to test the
      * execution of a command and return it's class object.
+     *
+     * @throws CommandNotFoundException if command not found
      */
-    public function getCommand(Command|string $command, array $arguments = [], array $options = []): Command
+    public function getCommand(Command|string $command): Command
     {
-        $command = \is_object($command) ? $command : $this->makeApp()->get($command);
-        $command->setApplication($this->getConsole());
+        if (\is_string($command)) {
+            $console = $this->getConsole();
 
-        $commandTester = new CommandTester($command);
-        $commandTester->execute($arguments, $options);
+            if ($console->has($command)) {
+                $command = $console->get($command);
+            } else {
+                try {
+                    $command = $this->makeApp()->get($command);
+                    $command->setApplication($console);
+                } catch (NotFoundServiceException $e) {
+                    throw new CommandNotFoundException(\sprintf('It looks like your command %s isn\'t valid', $command), [], 0, $e);
+                }
+            }
+        } elseif (!$command->getApplication()) {
+            $command->setApplication($this->getConsole());
+        }
 
         return $command;
-    }
-
-    public function getCommandStatusCode(string $command, array $arguments = [], array $options = []): int
-    {
-        $commandTester = $this->runCommand($command, $arguments, $options);
-
-        return $commandTester->getStatusCode();
     }
 
     /**

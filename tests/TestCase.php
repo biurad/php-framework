@@ -1,13 +1,8 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 /*
  * This file is part of Biurad opensource projects.
  *
- * PHP version 8.0 and above required
- *
- * @author    Divine Niiquaye Ibok <divineibok@gmail.com>
  * @copyright 2019 Biurad Group (https://biurad.com/)
  * @license   https://opensource.org/licenses/BSD-3-Clause License
  *
@@ -19,11 +14,10 @@ namespace App\Tests;
 
 use PHPUnit\Framework\TestCase as BaseTestCase;
 use Rade\Application;
-use Rade\KernelInterface;
 
 abstract class TestCase extends BaseTestCase
 {
-    protected Application|KernelInterface|null $app = null;
+    protected Application|null $app = null;
 
     protected function tearDown(): void
     {

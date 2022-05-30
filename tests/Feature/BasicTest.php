@@ -1,13 +1,8 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 /*
  * This file is part of Biurad opensource projects.
  *
- * PHP version 8.0 and above required
- *
- * @author    Divine Niiquaye Ibok <divineibok@gmail.com>
  * @copyright 2019 Biurad Group (https://biurad.com/)
  * @license   https://opensource.org/licenses/BSD-3-Clause License
  *
@@ -31,6 +26,7 @@ class BasicTest extends TestCase
      * using a different set of data each time.
      *
      * @dataProvider getPublicUrls
+     * @runInSeparateProcess
      */
     public function testRoutingActionWorks(string $uri, string $body): void
     {

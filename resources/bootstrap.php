@@ -1,13 +1,8 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 /*
  * This file is part of Biurad opensource projects.
  *
- * PHP version 8.0 and above required
- *
- * @author    Divine Niiquaye Ibok <divineibok@gmail.com>
  * @copyright 2019 Biurad Group (https://biurad.com/)
  * @license   https://opensource.org/licenses/BSD-3-Clause License
  *
@@ -26,17 +21,17 @@ return [
         //Extensions\TemplateExtension::class,
     ],
     [
-        'core' => [
-            //'var_path' => '%project_dir%/var',
-            //'events_dispatcher' => Symfony\Component\EventDispatcher\EventDispatcher::class,
-        ],
-        'config' => [
-            'locale' => 'en',
-            'paths' => ['%project_dir%/resources/config'],
-        ],
-        'cache' => [
-            'directory' => '%project.var_dir%/cache',
-        ],
+        //'config' => [
+        //    'locale' => 'en',
+        //    'paths' => ['%project_dir%/resources/config'],
+        //],
+        //'core' => [
+        //    //'var_path' => '%project_dir%/var',
+        //    //'events_dispatcher' => Symfony\Component\EventDispatcher\EventDispatcher::class,
+        //],
+        //'cache' => [
+        //    'directory' => '%project.var_dir%/cache', // Recommended to be uncomment to use symfony's cache
+        //],
         //'annotation' => [
         //    'resources' => ['%project_dir%/app/Handlers'],
         //],
@@ -48,21 +43,24 @@ return [
         //        Biurad\UI\Renders\LatteRender::class,
         //    ],
         //],
-        //'http_galaxy' => [
-        //    'cookie' => [
-        //        'enabled' => true,
-        //    ],
-        //    'session' => [
-        //        'enabled' => true,
-        //        'save_path' => '%project.var_dir%/sessions',
-        //    ],
-        //],
-        'routing' => [
-            //'cache' => '%project.var_dir%/app/load_CachedRoutes.php',
-            'pipes' => [
-                //Biurad\Http\Middlewares\ContentTypeOptionsMiddleware::class,
-                //Biurad\Http\Middlewares\ContentLengthMiddleware::class,
+        'http_galaxy' => [
+            //'cookie' => true,
+            //'session' => [
+            //    'enabled' => true,
+            //    'save_path' => '%project.var_dir%/sessions',
+            //],
+            'headers' => [
+                'response' => [
+                    'Transfer-Encoding' => 'gzip, chunked', // A work around header for tracy debugger
+                ],
             ],
         ],
+        //'routing' => [
+        //    //'cache' => '%project.var_dir%/app/load_CachedRoutes.php',
+        //    'pipes' => [
+        //        //Biurad\Http\Middlewares\ContentTypeOptionsMiddleware::class,
+        //        //Biurad\Http\Middlewares\ContentLengthMiddleware::class,
+        //    ],
+        //],
     ],
 ];

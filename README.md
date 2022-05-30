@@ -53,7 +53,11 @@ $ php -S 127.0.0.1:8000 -t public
 $ composer run --timeout 0 serve
 ```
 
-> Before running the built in server, cd into your project directory then run the script
+To update the project directory's structure to the latest version, run the following command:
+
+```sh
+php rade self-update
+```
 
 ## 📓 Documentation
 

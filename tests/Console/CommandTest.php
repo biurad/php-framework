@@ -1,13 +1,8 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 /*
  * This file is part of Biurad opensource projects.
  *
- * PHP version 8.0 and above required
- *
- * @author    Divine Niiquaye Ibok <divineibok@gmail.com>
  * @copyright 2019 Biurad Group (https://biurad.com/)
  * @license   https://opensource.org/licenses/BSD-3-Clause License
  *
@@ -27,9 +22,8 @@ class CommandTest extends TestCase
 
     public function testCommandActionWorks(): void
     {
-        $status = $this->getCommandStatusCode(AboutCommand::class);
-        $this->assertIsInt($status);
-        $this->assertEquals(0, $status);
+        $command = $this->runCommand('about');
+        $command->assertCommandIsSuccessful();
 
         $command = $this->getCommand(AboutCommand::class);
         $this->assertEquals('about', $command->getName());
