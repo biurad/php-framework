@@ -34,7 +34,8 @@ For getting started with this project or contributing, you have to follow the be
 git clone https://github.com/biurad/php-framework.git
 cd php-framework
 
-composer install
+# Default packages in composer.lock maybe not be compatible with your PHP version.
+composer update
 ```
 
 OR
