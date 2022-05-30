@@ -11,7 +11,7 @@ cache:
 env:
     global:
         - ACTION="install"
-        - BIURAD_CONSOLE="no"
+        - BIURAD_CONSOLE="yes"
 
 # Defines all jobs which Travis will run in parallel. For each PHP version we support we will run one job.
 jobs:
