@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/biurad/flange.git",
-                "reference": "d3f88677c8f7f5b0ed8d2269e852b5ae17693cf4"
+                "reference": "d316abed4daf639daa1c465e9f29e1b5fd47cb1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/biurad/flange/zipball/d3f88677c8f7f5b0ed8d2269e852b5ae17693cf4",
-                "reference": "d3f88677c8f7f5b0ed8d2269e852b5ae17693cf4",
+                "url": "https://api.github.com/repos/biurad/flange/zipball/d316abed4daf639daa1c465e9f29e1b5fd47cb1a",
+                "reference": "d316abed4daf639daa1c465e9f29e1b5fd47cb1a",
                 "shasum": ""
             },
             "require": {
@@ -128,7 +128,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-11-02T15:00:29+00:00"
+            "time": "2022-11-02T16:29:37+00:00"
         },
         {
             "name": "biurad/http-galaxy",
