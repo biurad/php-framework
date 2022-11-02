@@ -1,7 +1,7 @@
 {
     "name": "biurad/framework",
-    "description": "PHP Rade Framework is a high performance framework with expressive, elegant syntax, and maintainable",
-    "keywords": ["biurad","psr-standard","psr-7","psr-14","psr-11","psr-15","psr-17","php","php framework"],
+    "description": "PHP Flange Framework is a high performance framework with expressive, elegant syntax, and maintainable",
+    "keywords": ["biurad","psr-standard","psr-7","psr-14","psr-11","psr-15","psr-17","php", "flange","php framework"],
     "type": "project",
     "homepage": "https://www.biurad.com",
     "license": "BSD-3-Clause",
@@ -31,7 +31,7 @@
     },
     "require": {
         "php": "^8.0",
-        "divineniiquaye/php-rade": "2.*",
+        "biurad/flange": "2.*",
         "nikic/php-parser": "^4.13",
         "tracy/tracy": "^2.9"
     },
