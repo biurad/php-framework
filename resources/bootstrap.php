@@ -14,8 +14,8 @@ use Flange\Extensions;
 
 return [
     [
+        //Extensions\EventDispatcherExtension::class,
         [Extensions\CoreExtension::class, [__DIR__ . '/../']],
-        //Extensions\Symfony\EventDispatcherExtension::class,
         //Extensions\Symfony\CacheExtension::class,
         //Extensions\AnnotationExtension::class,
         //Extensions\TemplateExtension::class,
@@ -54,10 +54,10 @@ return [
             ],
         ],
         //'routing' => [
-        //    //'cache' => '%project.var_dir%/app/load_CachedRoutes.php',
+        //    'cache' => '%project.var_dir%/app/load_CachedRoutes.php',
         //    'pipes' => [
-        //        //Biurad\Http\Middlewares\ContentTypeOptionsMiddleware::class,
-        //        //Biurad\Http\Middlewares\ContentLengthMiddleware::class,
+        //        Biurad\Http\Middlewares\ContentTypeOptionsMiddleware::class,
+        //        Biurad\Http\Middlewares\ContentLengthMiddleware::class,
         //    ],
         //],
     ],
