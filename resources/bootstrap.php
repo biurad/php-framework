@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-use Rade\DI\Extensions;
+use Flange\Extensions;
 
 return [
     [
@@ -23,14 +23,12 @@ return [
     [
         //'config' => [
         //    'locale' => 'en',
+        //    'var_path' => '%project_dir%/var',
+        //    'cache_path' => '%project.var_dir%/cache', // Recommended to be uncomment to use symfony's cache if you decide to use another path
         //    'paths' => ['%project_dir%/resources/config'],
         //],
-        //'core' => [
-        //    //'var_path' => '%project_dir%/var',
-        //    //'events_dispatcher' => Symfony\Component\EventDispatcher\EventDispatcher::class,
-        //],
-        //'cache' => [
-        //    'directory' => '%project.var_dir%/cache', // Recommended to be uncomment to use symfony's cache
+        //'events_dispatcher' => [
+        //    'dispatcher_class' => Symfony\Component\EventDispatcher\EventDispatcher::class,
         //],
         //'annotation' => [
         //    'resources' => ['%project_dir%/app/Handlers'],

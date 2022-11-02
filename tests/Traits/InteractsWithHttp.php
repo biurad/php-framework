@@ -13,7 +13,6 @@
 namespace App\Tests\Traits;
 
 use Biurad\Http\ServerRequest;
-use Flight\Routing\Route;
 use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\UriInterface;
 
@@ -22,6 +21,8 @@ trait InteractsWithHttp
     /**
      * This helper method abstracts the boilerplate code needed to test the
      * execution of a matched route.
+     *
+     * @return \Flight\Routing\Route|array|null
      */
     public function matchRoute(
         string|UriInterface $uri,
@@ -30,7 +31,7 @@ trait InteractsWithHttp
         array $query = [],
         array $headers = [],
         array $cookies = []
-    ): ?Route {
+    ) {
         $request = $this->request($uri, $method, $query, $headers, $cookies);
 
         foreach ($attributes as $key => $value) {

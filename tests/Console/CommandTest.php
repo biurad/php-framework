@@ -14,7 +14,7 @@ namespace App\Tests\Console;
 
 use App\Tests\TestCase;
 use App\Tests\Traits\InteractsWithConsole;
-use Rade\Commands\AboutCommand;
+use Flange\Commands\AboutCommand;
 
 class CommandTest extends TestCase
 {

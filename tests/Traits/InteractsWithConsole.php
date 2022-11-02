@@ -12,7 +12,7 @@
 
 namespace App\Tests\Traits;
 
-use Rade\DI\Exceptions\NotFoundServiceException;
+use Rade\DI\Exceptions\ContainerResolutionException;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Exception\CommandNotFoundException;
@@ -87,9 +87,9 @@ trait InteractsWithConsole
                 $command = $console->get($command);
             } else {
                 try {
-                    $command = $this->makeApp()->get($command);
+                    $command = $this->makeApp()->call($command);
                     $command->setApplication($console);
-                } catch (NotFoundServiceException $e) {
+                } catch (ContainerResolutionException $e) {
                     throw new CommandNotFoundException(\sprintf('It looks like your command %s isn\'t valid', $command), [], 0, $e);
                 }
             }

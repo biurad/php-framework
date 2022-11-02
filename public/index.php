@@ -47,8 +47,8 @@ if (\is_file($env = BR_PATH . '.env')) {
 \Tracy\Debugger::enable($debug = $_SERVER['APP_DEBUG'] ?? $_ENV['APP_DEBUG'] ?? null, BR_PATH . 'var/logs');
 
 // PSR-11 Container instance
-$app = \Rade\AppBuilder::build(
-    static function (\Rade\AppBuilder $creator): void {
+$app = Flange\AppBuilder::build(
+    static function (Flange\AppBuilder $creator): void {
         [$extensions, $config] = require $bootstrap = BR_PATH . 'resources/bootstrap.php';
         $creator->loadExtensions($extensions, $config, BR_PATH . 'var/config');
         $creator->load($services = BR_PATH . 'resources/services.php');

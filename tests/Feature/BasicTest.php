@@ -14,7 +14,7 @@ namespace App\Tests\Feature;
 
 use App\Tests\TestCase;
 use App\Tests\Traits\InteractsWithHttp;
-use Flight\Routing\Route;
+use Flight\Routing\Router;
 use Psr\Http\Message\ResponseInterface;
 
 class BasicTest extends TestCase
@@ -30,13 +30,13 @@ class BasicTest extends TestCase
      */
     public function testRoutingActionWorks(string $uri, string $body): void
     {
-        $this->makeApp()->match($uri, Route::DEFAULT_METHODS, fn () => $body)->bind('test');
+        $this->makeApp()->match($uri, Router::DEFAULT_METHODS, fn () => $body)->bind('test');
 
         $response = $this->makeApp()->handle($this->request($uri));
         $this->assertInstanceOf(ResponseInterface::class, $response);
 
         $this->assertEquals($body, (string) $response->getBody());
-        $this->assertEquals('text/plain; charset=utf-8', $response->getHeaderLine('Content-Type'));
+        $this->assertEquals('text/plain; charset=UTF-8', $response->getHeaderLine('Content-Type'));
         $this->assertEquals(
             200,
             $response->getStatusCode(),

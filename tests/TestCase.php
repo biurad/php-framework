@@ -13,7 +13,7 @@
 namespace App\Tests;
 
 use PHPUnit\Framework\TestCase as BaseTestCase;
-use Rade\Application;
+use Flange\Application;
 
 abstract class TestCase extends BaseTestCase
 {
