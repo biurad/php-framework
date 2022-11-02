@@ -1,6 +1,6 @@
-# Application Skeleton for [PHP-Rade] 👊
+# Application Skeleton for [PHP-Flange] 👊
 
-This is a skeleton application for creating applications using [PHP-Rade]. It is pre-configured, clean and easy to use. If you interested, you might check out our demo applications:
+This is a skeleton application for creating applications using [PHP-Flange]. It is pre-configured, clean and easy to use. If you interested, you might check out our demo applications:
 
 * [Distributed Chat App][] - This application implements an simple and real-time messaging system in PHP.
 * [Symfony Like Blog App][] - This application is a simple and a [symfony's demo][sf-demo] like application.
@@ -10,7 +10,8 @@ This is a skeleton application for creating applications using [PHP-Rade]. It is
 
 ## 🔰 Introduction
 
-This project is structured using [Separation of Concerns][SOC] principle, instead of strictly following [MVC] design pattern. Providing modern and rapid development, with the flexibility to customized and use with any php library out there.
+This project is structured using [Separation of Concerns][SOC] principle, instead of strictly following [MVC] design pattern.
+ Which provides modern and rapid development, with the flexibility to customized and use with any php library out there.
 
 ## 🔥 Features
 
@@ -47,7 +48,7 @@ composer create-project biurad/framework my_project
 Once installed, you can test it out immediately using PHP's built-in web server:
 
 ```sh
-$ php rade serve
+$ php flange serve
 # OR use php command
 $ php -S 127.0.0.1:8000 -t public
 # OR use the composer alias:
@@ -108,7 +109,7 @@ Are you interested in sponsoring development of this project? Reach out and supp
 [All Contributors]: https://github.com/divineniiquaye/php-framework/contributors
 [PHP]: https://php.net
 [Composer]: https://getcomposer.org/
-[PHP-Rade]: https://github.com/divineniiquaye/php-rade
+[PHP-Flange]: https://github.com/divineniiquaye/php-rade
 [RoadRunner]: https://github.com/spiral/roadrunner
 [ReactPHP]: https://github.com/reactphp/reactphp
 [AmPHP]: https://github.com/amphp/http-server
