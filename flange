@@ -74,7 +74,7 @@ if ('self-update' === ($argv[1] ?? false)) {
         \CURLOPT_FOLLOWLOCATION => true,
         \CURLOPT_HEADER => false,
         \CURLOPT_NOPROGRESS => false, // needed to make progress function work
-        \CURLOPT_FILE => $zipFile = \fopen($zipFileName = 'rade_zip_' . \random_int(0, 10000) . '.zip', 'wb+'),
+        \CURLOPT_FILE => $zipFile = \fopen($zipFileName = 'flange_zip_' . \random_int(0, 10000) . '.zip', 'wb+'),
         \CURLOPT_PROGRESSFUNCTION => static function ($ch, $dlSize, $dlNow, $ulSize, $ulNow): void {
             if ($dlSize > 0) {
                 $percent = \round($dlNow / $dlSize * 100, 2) . '%';
