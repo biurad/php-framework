@@ -41,7 +41,7 @@ before_install:
 install:
     - php -r "echo ini_get('memory_limit').PHP_EOL;"
     # Install or update Composer packages including dev dependencies listed in require-dev.
-    - if [ "$BIURAD_CONSOLE" == yes ]; then php rade ; else travis_retry composer $ACTION ; fi
+    - if [ "$BIURAD_CONSOLE" == yes ]; then php flange ; else travis_retry composer $ACTION ; fi
     # Install the coding stardand checker
     - composer require squizlabs/php_codesniffer --dev
 
