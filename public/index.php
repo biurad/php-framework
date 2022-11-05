@@ -44,14 +44,23 @@ if (\is_file($env = BR_PATH . '.env')) {
 }
 
 // Enable the error handler
-\Tracy\Debugger::enable($debug = $_SERVER['APP_DEBUG'] ?? $_ENV['APP_DEBUG'] ?? null, BR_PATH . 'var/logs');
+\Tracy\Debugger::enable($debug = $_SERVER['APP_PROD'] ?? $_ENV['APP_PROD'] ?? false, BR_PATH.'var/logs');
 
-// PSR-11 Container instance
-$app = Flange\AppBuilder::build(
+/**
+ * --------------------------------------------------------------------------
+ * Create The Application
+ * --------------------------------------------------------------------------
+ *
+ * Using the APP_COMPILE environment variable, we can run cacheable or non-cacheable version of the application.
+ * Uncomment the last part of the $compilable to enable non-cacheable as default
+ */
+$compilable = isset($_SERVER['APP_COMPILE']) || isset($_ENV['APP_COMPILE']) || true;
+
+$app = $compilable ? Flange\AppBuilder::build(
     static function (Flange\AppBuilder $creator): void {
-        [$extensions, $config] = require $bootstrap = BR_PATH . 'resources/bootstrap.php';
-        $creator->loadExtensions($extensions, $config, BR_PATH . 'var/config');
-        $creator->load($services = BR_PATH . 'resources/services.php');
+        [$extensions, $config] = require $bootstrap = BR_PATH.'resources/bootstrap.php';
+        $creator->loadExtensions($extensions, $config, BR_PATH.'var/config');
+        $creator->load($services = BR_PATH.'resources/services.php');
 
         // Add resource to re-compile if changes are made to this file.
         $creator->addResource(new \Symfony\Component\Config\Resource\FileResource(__FILE__));
@@ -59,10 +68,17 @@ $app = Flange\AppBuilder::build(
         $creator->addResource(new \Symfony\Component\Config\Resource\FileResource($services));
     },
     [
-        'debug' => $debug ?? true,
-        'cacheDir' => BR_PATH . '/var/app',
+        'debug' => !$debug,
+        'cacheDir' => BR_PATH.'var/app',
     ]
-);
+) : (static function () use ($debug): Flange\Application {
+    [$extensions, $config] = require BR_PATH.'resources/bootstrap.php';
+    $app = new Flange\Application(debug: !$debug);
+    $app->loadExtensions($extensions, $config);
+    $app->load(BR_PATH.'resources/services.php');
+
+    return $app;
+})();
 
 try {
     $app->run(); // A kernel for dispatching application
