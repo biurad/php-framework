@@ -59,7 +59,7 @@
         "post-create-project-cmd": [
             "@php -r \"file_exists('.env') || copy('env.example', '.env');\""
         ],
-        "serve": "@php rade serve",
+        "serve": "@php flange serve",
         "test": "\"./vendor/bin/phpunit\""
     },
     "minimum-stability": "dev",
