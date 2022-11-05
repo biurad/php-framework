@@ -30,11 +30,8 @@ This project is structured using [Separation of Concerns][SOC] principle, instea
 For getting started with this project or contributing, you have to follow the below procedure. First navigate to a main directory. Then run below command on terminal for getting started.
 
 ```sh
-git clone https://github.com/biurad/php-framework.git
-cd php-framework
-
-# Default packages in composer.lock maybe not be compatible with your PHP version.
-composer update
+git clone https://github.com/biurad/php-framework.git flange
+cd flange
 ```
 
 OR
