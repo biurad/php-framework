@@ -6,8 +6,6 @@ This is a skeleton application for creating applications using [PHP-Flange]. It 
 * [Symfony Like Blog App][] - This application is a simple and a [symfony's demo][sf-demo] like application.
 * [Distributed Blog App][] - This application implements an advanced viral media blogging system in PHP.
 
-> :rocket: `master` is automatically deployed to [radephp.ml](https://radephp.ml)
-
 ## 🔰 Introduction
 
 This project is structured using [Separation of Concerns][SOC] principle, instead of strictly following [MVC] design pattern.
@@ -109,7 +107,7 @@ Are you interested in sponsoring development of this project? Reach out and supp
 [All Contributors]: https://github.com/divineniiquaye/php-framework/contributors
 [PHP]: https://php.net
 [Composer]: https://getcomposer.org/
-[PHP-Flange]: https://github.com/divineniiquaye/php-rade
+[PHP-Flange]: https://github.com/biurad/flange
 [RoadRunner]: https://github.com/spiral/roadrunner
 [ReactPHP]: https://github.com/reactphp/reactphp
 [AmPHP]: https://github.com/amphp/http-server
